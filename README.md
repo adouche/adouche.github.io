@@ -6,3 +6,4 @@ Test repo for github pages experiments
 [Suffering by icons](blog/Icons.md)<br>
 [About the security model](blog/Security_model.md)<br>
 [The security model. Episode 2](blog/Security_model2.md)<br>
+[About build systems](blog/Build_systems.md)<br>
