@@ -8,3 +8,4 @@ Test repo for github pages experiments
 [The security model. Episode 2](blog/Security_model2.md)<br>
 [About build systems](blog/Build_systems.md)<br>
 [Mesa, light of my life](blog/Mesa.md)<br>
+[Why stal/IX. Part 1](blog/Stalix.md)<br>
