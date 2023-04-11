@@ -10,3 +10,4 @@ Test repo for github pages experiments
 [Mesa, light of my life](blog/Mesa.md)<br>
 [Why stal/IX. Part 1](blog/Stalix1.md)<br>
 [Why stal/IX. Part 2](blog/Stalix2.md)<br>
+[Why stal/IX. Part 3](blog/Stalix3.md)<br>
