@@ -14,3 +14,4 @@ Test repo for github pages experiments
 [Static VS dynamic linking](blog/Linking.md)<br>
 [Tired with ~~all these~~ temporary files](blog/Temporary_files.md)<br>
 [Ranting on glibc](blog/Glibc.md)<br>
+[Generating stable unique keys](blog/Unique_keys.md)<br>
