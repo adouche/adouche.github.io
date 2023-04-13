@@ -16,3 +16,4 @@ Test repo for github pages experiments
 [Ranting on glibc](blog/Glibc.md)<br>
 [Generating stable unique keys](blog/Unique_keys.md)<br>
 [Non-boring routine updates](blog/Updates.md)<br>
+[One more why for stal/IX](blog/Stalix4.md)<br>
