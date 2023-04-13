@@ -15,3 +15,4 @@ Test repo for github pages experiments
 [Tired with ~~all these~~ temporary files](blog/Temporary_files.md)<br>
 [Ranting on glibc](blog/Glibc.md)<br>
 [Generating stable unique keys](blog/Unique_keys.md)<br>
+[Non-boring routine updates](blog/Updates.md)<br>
