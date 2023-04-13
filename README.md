@@ -13,3 +13,4 @@ Test repo for github pages experiments
 [Why stal/IX. Part 3](blog/Stalix3.md)<br>
 [Static VS dynamic linking](blog/Linking.md)<br>
 [Tired with ~~all these~~ temporary files](blog/Temporary_files.md)<br>
+[Ranting on glibc](blog/Glibc.md)<br>
