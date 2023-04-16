@@ -18,3 +18,4 @@ Test repo for github pages experiments
 [Non-boring routine updates](blog/Updates.md)<br>
 [One more why for stal/IX](blog/Stalix4.md)<br>
 [Сross-compile gracefully using "ix run"](blog/IXrun.md)<br>
+[Developed a portal for mesa update](blog/Portal.md)<br>
