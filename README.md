@@ -19,3 +19,4 @@ Test repo for github pages experiments
 [One more why for stal/IX](blog/Stalix4.md)<br>
 [Сross-compile gracefully using "ix run"](blog/IXrun.md)<br>
 [Developed a portal for mesa update](blog/Portal.md)<br>
+[The benefits of a reboot](blog/Reboot.md)<br>
