@@ -1,5 +1,7 @@
-# adouche.github.io
-Test repo for github pages experiments
+# stal/IX blog
+
+> About building systems in a different way, static linking, and much more!<br>
+> And about the stal/IX, of course, from the benevolent dictator [(@pg83)](https://github.com/pg83).
 
 [About bootstrapping](blog/About_bootstrapping.md)<br>
 [IX package manager: privilege escalation and some other implementation aspects](blog/IX_pm.md)<br>
