@@ -87,6 +87,8 @@ What does this give us?
 
 * New opportunities for bootstrap. For example, Go is currently not reproducible in terms of the classical ways (package managers and build systems) because the latest version of Go compiled by the C compiler cannot build code under M1, and is not built under it. I can now approach this problem by writing in the build file for go something like:
 
+<!-- {% raw %} -->
+
 ```shell
 {% block bld_tool %}
 bin/qemu(for_target=linux-x86_64)
@@ -95,6 +97,7 @@ bin/busybox(target=linux-x86_64)
 bin/go/1.4/(target=linux-x86_64)
 {% endblock %}
 ```
+<!-- {% endraw %} -->
 
 Raise in this assembly node qemu (which I built myself), linux kernel, go1.4, and run the bootstrap chain there. And it will work, including under host == darwin.
 
