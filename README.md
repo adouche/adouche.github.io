@@ -17,3 +17,4 @@ Test repo for github pages experiments
 [Generating stable unique keys](blog/Unique_keys.md)<br>
 [Non-boring routine updates](blog/Updates.md)<br>
 [One more why for stal/IX](blog/Stalix4.md)<br>
+[Сross-compile gracefully using "ix run"](blog/IXrun.md)<br>
