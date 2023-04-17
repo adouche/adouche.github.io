@@ -38,6 +38,7 @@ What else is worth telling about the bootstrap:
 * Java becomes bootstrappable [https://bootstrappable.org/projects/jvm-languages.html](https://bootstrappable.org/projects/jvm-languages.html). The build system for it (Gradle) is still no.
 
 * Rust, from my point of view, is bootstrappable with great reserve. Because: #mrustc:
+
 1. To build the nth version, you need the n-1 version. This greatly increases the length of the bootstrap chain. About 20 builds at the moment?
 2. The Standard ml first versions sources are unknown where. Bootstrap is only possible with a third party product [https://github.com/thepowersgang/mrustc](https://github.com/thepowersgang/mrustc).
 3. The chain cannot be repeated on the Apple M1 yet.
