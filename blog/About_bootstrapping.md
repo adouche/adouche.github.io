@@ -5,11 +5,11 @@
 
 I am very interested in build systems, in the most diverse forms. So much so that I have:
 
-1. My own build system for C++ code
+1. My own build system for C++ code.
 2. And my own OSS packages build system. For Darwin and for Linux, for the latter it’s not only a packages build system, but a full-blown distribution:
-[stal/IX](https://github.com/stal-ix)
+[stal/IX](https://github.com/stal-ix).
 
-I’ll talk about these projects here again, especially about the second one. For now I’ve referenced them as evidence of my great interest in assembly, distrobuilding and bootstrap topics.
+I’ll talk about these projects here again, especially about the second one. For now I’ve referenced them as an evidence of my great interest in build, distrobuilding and bootstrap topics.
 
 Today I want to talk about the bootstrap problem.
 
