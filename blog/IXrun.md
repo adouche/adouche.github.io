@@ -1,7 +1,7 @@
 ## Сross-compile gracefully using "ix run"
 <sup> February 27, 2023 </sup>
 
-#/ix #cross #cross_compilation #bootstrap #realm
+#ix #cross #cross_compilation #bootstrap #realm
 
 I wrote [here](BLOG.md#about-build-systems) how cool it would be to make a realm with one command, in which the specified libraries, specified build tools and wrappers for the compiler will be available, which will automatically configure the necessary paths to libraries and header files.
 
