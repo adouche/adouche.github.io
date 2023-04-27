@@ -23,6 +23,7 @@
 [Сross-compile gracefully using "ix run"](blog/IXrun.md)<br>
 [Developed a portal for mesa update](blog/Portal.md)<br>
 [The benefits of a reboot](blog/Reboot.md)<br>
+[Static linking considered useful](blog/Static.md)<br>
 
 
 [About build systems](Build_systems.html)<br>
