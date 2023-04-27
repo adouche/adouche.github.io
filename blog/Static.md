@@ -1,4 +1,4 @@
-## Static linking considered helpful
+## Static linking considered useful
 <sup> April 27, 2023 </sup>
 
 #static_linking #stal/ix #security
@@ -36,5 +36,5 @@ ret
 Now, the astute reader might ask - where do we get these pieces? Most often, we can find them in well-known and stable code sequences, such as libc.so.<br>
 The number of reusable fragments is proportional to the total amount of executing code.
 
-Therefore, oddly enough, static linking provides fewer building materials for attacks than when you link a bunch of dead code from a bunch of .so files (the total size of all .so files for almost any program is greater than the same program but linked statically). This is because linker discards unused functions.
+Therefore, oddly enough, static linking provides fewer building materials for attacks than when you link a bunch of dead code from a bunch of .so files (the total size of all .so files for almost any program is greater than the same program but linked statically). This is because linker discards unused functions.<br>
 And so it is "more secure"!
