@@ -6,7 +6,7 @@
 [About bootstrapping](blog/1_About_bootstrapping.md)<br>
 [IX package manager: privilege escalation and some other implementation aspects](blog/2_IX_pm.md)<br>
 [About System0](blog/3_System0.md)<br>
-[Suffering by icons](blog/4_Icons.md)<br>
+[Struggled with icons](blog/4_Icons.md)<br>
 [About the security model](blog/5_Security_model.md)<br>
 [The security model. Episode 2](blog/Security_model2.md)<br>
 [About build systems](blog/Build_systems.md)<br>
