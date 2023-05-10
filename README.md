@@ -27,3 +27,4 @@
 [Rustless sudo: exploring secure alternatives for suid binaries](blog/22_Rustless_sudo.md)<br>
 
 [About build systems](Build_systems.html)<br>
+[IX package manager: privilege escalation and some other implementation aspects](IX_package_manager.html)<br>
