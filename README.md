@@ -3,11 +3,11 @@
 > About building systems in a different way, static linking, and much more!<br>
 > And about the stal/IX, of course, from the benevolent dictator [(@pg83)](https://github.com/pg83).
 
-[About bootstrapping](blog/About_bootstrapping.md)<br>
-[IX package manager: privilege escalation and some other implementation aspects](blog/IX_pm.md)<br>
-[About System0](blog/System0.md)<br>
-[Suffering by icons](blog/Icons.md)<br>
-[About the security model](blog/Security_model.md)<br>
+[About bootstrapping](blog/1_About_bootstrapping.md)<br>
+[IX package manager: privilege escalation and some other implementation aspects](blog/2_IX_pm.md)<br>
+[About System0](blog/3_System0.md)<br>
+[Suffering by icons](blog/4_Icons.md)<br>
+[About the security model](blog/5_Security_model.md)<br>
 [The security model. Episode 2](blog/Security_model2.md)<br>
 [About build systems](blog/Build_systems.md)<br>
 [Mesa, light of my life](blog/Mesa.md)<br>
@@ -24,6 +24,6 @@
 [Developed a portal for mesa update](blog/Portal.md)<br>
 [The benefits of a reboot](blog/Reboot.md)<br>
 [Static linking considered useful](blog/Static.md)<br>
-
+[Rustless sudo: exploring secure alternatives for suid binaries](blog/22_Rustless_sudo.md)<br>
 
 [About build systems](Build_systems.html)<br>
