@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta property="article:published_time" content="2022-01-25T18:49:25.000Z" />
+</head>
+
+<body>
+    <main>
+        <article>
+            <section>
+                <div class="pw-post-title">
+                    <h1>IX package manager: privilege escalation and other implementation aspects</h1>
+                </div>
+                <p class="pw-post-body-paragraph">
+                    I was reading the source code for PulseAudio and realized that Pottering has been writing the same program his whole life - 
+                    a graph processing real-time events, and it must be linked at runtime without checking if the graph can actually be executed in real life. 
+                    This idea is haunting him.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Well, it happens. I am currently working on my 5th build system.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    First, a brief introduction for those who have recently joined us.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    IX is a package manager for Linux/macOS, and a Linux distribution based on it.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    I really want as many people as possible to use the package manager (not necessarily right now, but in general), 
+                    because one person can handle 500 packages (I currently have 300), but more people are needed for more than that.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Therefore, I clearly distinguish between the package manager, which can be used anywhere, even in another Linux distribution, 
+                    and the distribution built from these packages.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    At the same time, I don’t want to lose potential users who somehow like systemd 
+                    (I generally believe that adults can even in systemd by mutual agreement, although I won't use it for anything).
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Therefore, I assume that I will have several "presets" - sets of packages that form a complete idea (type of linking + libc + DE + whatever).
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Further, when I say that "I have it set up like this in IX", I mean this preset - 
+                    <a href="https://github.com/stal-ix/ix/blob/main/pkgs/set/system/0/ix.sh">https://github.com/stal-ix/ix/blob/main/pkgs/set/system/0/ix.sh</a>,
+                    or System/0. Everything I do in it may not relate to potential IX on systemd + gnome.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    I repeat, I don’t care who uses the package base and how, as long as they help update the packages.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    So, the intro is over. Next, about how System/0 will work (or rather, one aspect of its design).
+                </p>
+                <p class="pw-post-body-paragraph">
+                    I really want the package manager not to work from root and not to have post-install scripts. 
+                    And more precisely, I want to be able to install a package by unpacking a folder with its contents, and that's it. 
+                    This greatly facilitates implementation and simplifies the security model. Similar to how it works in Android.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    I've solved almost all the problems associated with this:
+                </p>
+                <ul>
+                <li>user/group creation;</li>
+                <li>resolver;</li>
+                <li>dynamic network configuration.</li>
+                </ul>
+                <p class="pw-post-body-paragraph">
+                    And even kernel settings on a per-package basis.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    But one problem remained difficult for me - how to escalate privileges? Yes, sudo. 
+                    If the package manager doesn’t work as root and there are no post-install scripts, how do you get a suid binary in the system?
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Until recently, I solved this problem quite crookedly - a background process that set the setuid bit to some binaries.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    The other day I came up with an elegant solution and I hasten to share it.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    There is an ssh daemon running on the host (say, via socket activation) as root. And sudo is a simple script that does ssh root@localhost. 
+                    ssh is set up on a Unix domain socket to avoid broadcasting over the network. Basically this scheme already works.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    The more I think about it, the more I like this scheme.
+                </p>
+                <ul>
+                <li>Privilege escalation in ssh, I think, is even better debugged than in sudo. Because we escalate privileges this way more often, IMHO.</li>
+                <li>Login is not by password but by key, one per user, not one per host.</li>
+                <li>Password/non-password login remains on the user side (password on the private part of the key), without fragile interference in /etc.</li>
+                </ul>
+                <p class="pw-post-body-paragraph">
+                    The scheme works very well - I don't have a single suid binary.
+                </p>
+          </section>
+        </article>
+    </main>
+</body>
+
+</html>
