@@ -7,7 +7,7 @@
 
 Some no-names decided to hype up and rewrite sudo/su in Rust. They are not the first, nor the last.
 
-While I was reading the text, a brilliant idea came to mind about running suid binaries in a memory safe manner. I've been having a lot of good ideas about security lately!
+While I was reading the text, a brilliant idea came to mind about running suid binaries in a memory-safe manner. I've been having a lot of good ideas about security lately!
 
 Let's compile important suid binaries like sudo with sanitizers and release them in production?<br>
 Seriously, let's compile them with asan, msan, ubsan, and roll them out.
