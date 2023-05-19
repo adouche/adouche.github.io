@@ -30,3 +30,5 @@
 [IX package manager: privilege escalation and some other implementation aspects](IX_package_manager.html)<br>
 [About system0](About_system0.html)<br>
 [Struggled with icons](Struggled_with_icons.html)<br>
+[About the security model](Security_model.html)<br>
+
