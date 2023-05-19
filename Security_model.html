@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta property="article:published_time" content="2022-02-04T11:02:33.000Z" />
+    <meta property="article:published_time" content="2022-02-25T12:02:02.000Z" />
 </head>
 
 <body>
@@ -10,41 +10,60 @@
         <article>
             <section>
                 <div class="pw-post-title">
-                    <h1>Struggled with icons</h1>
+                    <h1>About the security model</h1>
                 </div>
                 <p class="pw-post-body-paragraph">
-                    With icons, I certainly struggled:
+                    I promised to write about the security model here.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    I should note that I am writing about the security model of a personal laptop or desktop computer, and the following 
+                    reasoning does not apply to servers or even your phone. It is also not applicable to any kind of corporate or BYOD laptops.
                 </p>
                 <ul>
-                <li>Paths to default icons in toolkits;</li>
-                <li>Which icons should be;</li>
-                <li>Which icons should be used;</li>
-                <li>Some icons in Adwaita are in png, some are in svg, and these sets partially overlap. 
-                    Only one (idk who) knows which application will choose which. Black and white icons are in svg, and colored ones are in png;</li>
-                <li>Loading svg is done through a plugin for gdk-pixbuf. 
-                    Plugins for it are organized in the most unnatural way of all that I know (I will try to write about how developers pervert the loading of their plugins). 
-                    Unfortunately, the latest version of this plugin, not rewritten in Rust, does not render the latest Adwaita icons very correctly;</li>
-                <li>Debugging "what is actually being loaded" through strace doesn't help much because each folder with icons must contain an index.</li>
+                <li>It is convenient to consider this model as a two-user one: root + user. 
+                    The fact that some system processes are run by nobody actually doesn't change anything.</li>
+                <li>All valuable data on your laptop (credit cards, passwords, access keys etc.) 
+                    belongs to your personal account, root only owns system files and daemons.</li>
+                <li>Therefore, if malware gains access to your user, it gains access to all the useful content on your computer. 
+                    Obtaining root privileges is NOT the goal of the attack. 
+                    Root is not needed for anything in such a system, not even for running a regular background process, 
+                    because any modern OS has session user process supervisors, such as dbus.</li>
+                <li>Hiding your presence is also not about root, BTW, it's a slightly different system vulnerability.</li>
                 </ul>                
                 <p class="pw-post-body-paragraph">
-                    That’s how we live - for high-quality rendering in png, inkscape is required, for low-quality on the fly - Rust.<br>
-                    Unfortunately, my Rust compiler doesn't even run right now because it can't be linked statically on principle.
+                    Hence an interesting consequence.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    All hope is on <a href="https://github.com/thepowersgang/mrustc">mrustc</a>, the dude is getting closer and closer to supporting 1.54. 
-                    Of course, without a borrow checker, but who needs it outside of development? 
-                    He has his own implementation of proc macro (for obvious reasons), which does not require loading .so into the compiler.                
+                    It is convenient to consider root not as a user who can do everything, but as a way to separate dangerous operations 
+                    that require confirmation from all others. That is, sudo in such a system is not privilege escalation, but a signature 
+                    that you are running the current command understanding what it does. And, accordingly, a guarantee that an ordinary rm -rf $STEAM_ROOT/ will not destroy 
+                    the entire root <a href="(https://github.com/ValveSoftware/steam-for-linux/issues/3671">(https://github.com/ValveSoftware/steam-for-linux/issues/3671</a> 
+                    (yes, I know that now rm - rf / works a little differently).                
                 </p>
                 <p class="pw-post-body-paragraph">
-                    Right now I've stopped at svg icons with not quite correct rendering because I'm tired of licking Epiphany 
-                    (<a href="https://wiki.gnome.org/Apps/Web">https://wiki.gnome.org/Apps/Web</a>).
-                    I need to see what awaits in building Chromium.
+                    Accordingly, I have a rather indifferent attitude towards various CVEs for system0. It's cool, of course, that there is some vulnerability 
+                    that allows getting root locally, but I hope I have been able to explain that sometimes it doesn't matter.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    By the way, I almost defeated tearing in Epiphany. 
-                    To do this, I built the webkit web process (which is responsible for rendering) on gtk4, which is better with support for opengl/vulkan canvas, 
-                    and the browser itself on gtk3. Because Igalia has already ported WebKIT to gkt4, but the browser itself has not yet. 
-                    I think Igalia would be overjoyed to hear that I was doing this.
+                    A separate topic is where the security perimeter lies in your laptop. The answer is quite obvious - it lies in your browser. 
+                    You download software from stores, don’t run any crap from the Internet. The perimeter is in the sandboxing the code running in the browser. 
+                    In processing images by the browser. And so on. You have to love, cherish, and update your browser. 
+                    The browser is the only (well, okay, also sshd) program in the system that I see the point of licking from a security point of view - all kinds of libc 
+                    hardening, ASLR (pic), etc.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    And definitely not in your /etc.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Why is this not about phones? Because your phone is not a two-user environment, but a multi-user one, where users don't trust each other.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Why not about BYOD? Because in BYOD there are 3 users - you, root, and Major Comrade (who needs to hide his presence from malware and detect it). 
+                    It's also an interesting model, but maybe another time.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    A two-user computer with antivirus, by the way, is also a slightly different model. 
+                    I don’t use antivirus, I consider it harmful on average (the cure is worse than the disease).
                 </p>
           </section>
         </article>
