@@ -1,9 +1,9 @@
-## The security model. Episode 2
+## About the security model. Episode 2
 <sup> March 08, 2022 </sup>
 
 #security
 
-Continuing the security model theme:
+Continuing the security model topic.
 
 [https://www.opennet.ru/opennews/art.shtml?num=56818](https://www.opennet.ru/opennews/art.shtml?num=56818)<br>
 [https://www.opennet.ru/opennews/art.shtml?num=56812](https://www.opennet.ru/opennews/art.shtml?num=56812)
