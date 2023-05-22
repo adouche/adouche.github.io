@@ -31,4 +31,5 @@
 [About system0](About_system0.html)<br>
 [Struggled with icons](Struggled_with_icons.html)<br>
 [About the security model](Security_model.html)<br>
+[About the security model. Episode 2](Security_model_2.html)<br>
 
