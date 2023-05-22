@@ -3,10 +3,10 @@
 
 #OSS #buildsystems 
 
-I am saddened by the state of modern OSS build systems. Today I'll tell you about such an aspect: every self-respecting modern build system wants to have a package manager in itself.<br>
-That is, to provide not only the execution of the build graph of one project, but also of all build graphs of all dependencies.
+I am saddened by the state of modern OSS build systems. Today, I will discuss one such aspect: every self-respecting modern build system wants to have a package manager within itself.<br>
+That is, it provides not only the execution of the build graph of one project but also of all build graphs of all dependencies.
 
-Have you seen cargo? I wrote a couple of times what this claim for comprehensiveness leads to in relation to cargo - the need to wrap all non-cargo dependencies in the cargo build. This looks ugly, and leads to problems with diamond-driven dependencies.
+Have you seen cargo? I have written a couple of times about what this claim for comprehensiveness leads to in relation to cargo — the need to wrap all non-cargo dependencies in the cargo build. This looks ugly and leads to problems with diamond-driven dependencies.
 
 The problem is that, despite all the attempts of these build systems authors, they do not become comprehensive, and it is impossible to live within the same ecosystem. Therefore, each such system wraps all external dependencies into itself. This, excuse me, is the square (from the number of build systems) in terms of the complexity of the efforts made.
 
