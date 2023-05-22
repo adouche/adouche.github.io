@@ -8,9 +8,9 @@ That is, it provides not only the execution of the build graph of one project bu
 
 Have you seen cargo? I have written a couple of times about what this claim for comprehensiveness leads to in relation to cargo — the need to wrap all non-cargo dependencies in the cargo build. This looks ugly and leads to problems with diamond-driven dependencies.
 
-The problem is that, despite all the attempts of these build systems authors, they do not become comprehensive, and it is impossible to live within the same ecosystem. Therefore, each such system wraps all external dependencies into itself. This, excuse me, is the square (from the number of build systems) in terms of the complexity of the efforts made.
+The problem is that despite all the attempts of these build system authors, they do not become comprehensive, and it is impossible to live within the same ecosystem. Therefore, each such system wraps all external dependencies into itself. Excuse me, but this is the square (from the number of build systems) in terms of the complexity of the efforts made.
 
-I already wrote about .wrap files from meson (there is a whole repository for them - [https://mesonbuild.com/Wrapdb-projects.html](https://mesonbuild.com/Wrapdb-projects.html)).
+I have already written about .wrap files from meson (there is a whole repository for them — [https://mesonbuild.com/Wrapdb-projects.html](https://mesonbuild.com/Wrapdb-projects.html).
 
 This is something to write about endlessly, here are some very shitty examples:
 * nodejs rewrites the build system from v8 to autoconf;
