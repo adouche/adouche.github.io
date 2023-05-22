@@ -8,8 +8,8 @@
 [About System0](blog/3_System0.md)<br>
 [Struggled with icons](blog/4_Icons.md)<br>
 [About the security model](blog/5_Security_model.md)<br>
-[The security model. Episode 2](blog/Security_model2.md)<br>
-[About build systems](blog/Build_systems.md)<br>
+[The security model. Episode 2](blog/6_Security_model2.md)<br>
+[About build systems](blog/7_Build_systems.md)<br>
 [Mesa, light of my life](blog/Mesa.md)<br>
 [Why stal/IX. Part 1](blog/Stalix1.md)<br>
 [Why stal/IX. Part 2](blog/Stalix2.md)<br>
