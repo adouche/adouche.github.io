@@ -7,12 +7,12 @@ Mesa, light of my life, sparks at my fingertips. My sin, my love. Me-sa.
 
 To build it, the currently very popular build system Meson was developed, and in fact, it's very sad because Mesa developers know Meson too well and use any of its fucking features.
 
-In fact, Mesa consists of 2 parts - a plugin loader, which, on top of the plugin interface, implements all kinds of state trackers like opengl, vulkan, and, actually, plugins.
+Actually, Mesa consists of two parts - a plugin loader that implements various state trackers like OpenGL, Vulkan on top of the plugin interface, and the plugins themselves.
 
-Since the Mesa authors know meson too well, the Mesa build looks something like this:
-* K object files are compiling;
-* N archives are compiled from them, and, what is important, there are intersections - the same .o can end up in several archives;
-* From these K + N artifacts, M final .so are compiled. Also with arbitrary intersection in .a/.o files!
+As the Mesa authors know Meson too well, building Mesa looks something like this:
+* K object files are compiled;
+* N archives are built from them, and it is important to note that there are intersections - the same .o can end up in several archives;
+* From these K + N artifacts, M final .so are linked. Also with arbitrary intersections of .a/.o files!
 
 It turns out that each final artifact contains an arbitrary subset of sources.
 
