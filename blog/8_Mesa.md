@@ -14,17 +14,17 @@ As the Mesa authors know Meson too well, building Mesa looks something like this
 * N archives are built from them, and it is important to note that there are intersections - the same .o can end up in several archives;
 * From these K + N artifacts, M final .so are linked. Also with arbitrary intersections of .a/.o files!
 
-It turns out that each final artifact contains an arbitrary subset of sources.
+This means that each final artifact contains an arbitrary subset of source files.
 
-As long as it’s all built into .so, with hidden characters, this isn't a problem other than increasing the amount of final code and compile time (because some sources are still rebuilt several times).
+As long as this is linked into .so files with hidden symbols, it's not a problem except for increasing the size of the final code and compilation time (because some sources are recompiled several times).
 
-If we link statically, then we get understandable problems - repeated characters when linking.
+If we link statically, we encounter understandable problems - repeated symbols during linking.
 
-When I first compiled Mesa, I solved it in a very strange way - I dumped all the end artifacts into one trough, and made one mega-library out of it, which replaced all the end artifacts.
+When I first built Mesa, I solved this in a very strange way - I dumped all the final artifacts into one bucket and made one mega-library that replaced all the final artifacts.
 
-Overall, it works well, except for one very important scenario - I still need to cut this giant artifact into 2 parts - a loader and a driver, and make 2 physically different dependencies out of them.
+Overall, this works pretty well except for one very important scenario - when I need to split this giant artifact into two parts - loader and drivers - and make them two physically separate dependencies.
 
-This is necessary in order to raise the dependency on the drivers to the final programs, and all intermediate libraries should depend only on the loader. This is an important requirement if we don't want to rebuild the entire tree of libraries needed to build the final GUI programs for each set of drivers, and, in fact, for the normal binary build cache.
+This is necessary to raise the dependency from drivers to end programs, and all intermediate libraries should only depend on the loader. This is an important requirement if we don't want to rebuild the entire tree of libraries needed to build end GUI programs for each set of drivers and, in fact, for a normal binary build cache.
 
 I approached the task of splitting 5 times:
 * Split to .o files the final artifact manually. Breaks down from a combinatorial explosion of various ways to compile drivers;
