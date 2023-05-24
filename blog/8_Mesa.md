@@ -3,9 +3,9 @@
 
 #mesa #meson
 
-Mesa - light of my life, sparks at my fingertips. My sin, my love. Me-sa.
+Mesa, light of my life, sparks at my fingertips. My sin, my love. Me-sa.
 
-To build it, the now very popular build system meson was developed, and, in fact, this is very sad, because Mesa developers know meson too well, and use any of its fucking features.
+To build it, the currently very popular build system Meson was developed, and in fact, it's very sad because Mesa developers know Meson too well and use any of its fucking features.
 
 In fact, Mesa consists of 2 parts - a plugin loader, which, on top of the plugin interface, implements all kinds of state trackers like opengl, vulkan, and, actually, plugins.
 
