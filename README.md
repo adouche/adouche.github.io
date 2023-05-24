@@ -10,7 +10,7 @@
 [About the security model](blog/5_Security_model.md)<br>
 [The security model. Episode 2](blog/6_Security_model2.md)<br>
 [About build systems](blog/7_Build_systems.md)<br>
-[Mesa, light of my life](blog/Mesa.md)<br>
+[Mesa, light of my life](blog/8_Mesa.md)<br>
 [Why stal/IX. Part 1](blog/Stalix1.md)<br>
 [Why stal/IX. Part 2](blog/Stalix2.md)<br>
 [Why stal/IX. Part 3](blog/Stalix3.md)<br>
