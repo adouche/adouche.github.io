@@ -26,12 +26,12 @@ Overall, this works pretty well except for one very important scenario - when I 
 
 This is necessary to raise the dependency from drivers to end programs, and all intermediate libraries should only depend on the loader. This is an important requirement if we don't want to rebuild the entire tree of libraries needed to build end GUI programs for each set of drivers and, in fact, for a normal binary build cache.
 
-I approached the task of splitting 5 times:
-* Split to .o files the final artifact manually. Breaks down from a combinatorial explosion of various ways to compile drivers;
-* Make it the way that everything is compiled into several completely independent .a files - everything rested on the defects of the meson build system and the features of the mesa build files - here I tried to manually edit the Mesa build scripts (does not scale for updates), and meson itself (here I was closest to victory, but did not work out).
+I approached the task of splitting about 5 times:
+* Manually split the final artifact by .o files. Breaks down due to the combinatorial explosion of different ways to build drivers;
+* Make everything build into several completely independent .a files - everything was up against the defects of the meson build system and the peculiarities of the mesa build files - here I tried to manually edit the mesa build scripts (not scalable on updates), and meson itself (here I was closest to victory, but it didn't work out).
 
-In short, so far I solved this problem like this:
-* Wrote a generic procedure for subtracting one .a from another. This cannot be done by the names of .o files, for the reasons that I have already described above, so everything is done character by character [https://github.com/pg83/ix/blob/main/pkgs/bld/librarian/substr.py](https://github.com/pg83/ix/blob/main/pkgs/bld/librarian/substr.py).
-* By sequential subtraction puted the bootloader and driver library in order. 
+In short, for now I’ve solved this problem in the following way:
+* Wrote a generic procedure for subtracting one .a from another. It can't be done by .o file names for the reasons I described above, so everything is done symbol by symbol [https://github.com/pg83/ix/blob/main/pkgs/bld/librarian/substr.py](https://github.com/pg83/ix/blob/main/pkgs/bld/librarian/substr.py);
+* By subtracting sequentially, I fixed the loader and driver library. 
 
-This is much more aesthetically pleasing than the previous .o sack idea, and works quite well (at least it solves the original problem).
+This is much more aesthetic than the previous idea with a bag of .o files and works well enough (at least, it solves the original problem).
