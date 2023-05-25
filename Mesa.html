@@ -35,6 +35,21 @@
                     This means that each final artifact contains an arbitrary subset of source files.
                 </p>
                 <p class="pw-post-body-paragraph">
+                    As long as this is linked into .so files with hidden symbols, it's not a problem except for increasing the size of the final code 
+                    and compilation time (because some sources are recompiled several times).
+                </p>
+                <p class="pw-post-body-paragraph">
+                    If we link statically, we encounter understandable problems - repeated symbols during linking.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    When I first built Mesa, I solved this in a very strange way - I dumped all the final artifacts into one bucket 
+                    and made one mega-library that replaced all the final artifacts.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Overall, this works pretty well except for one very important scenario - when I need to split this giant artifact 
+                    into two parts - loader and drivers - and make them two physically separate dependencies.
+                </p>
+                <p class="pw-post-body-paragraph">
                     All hope is on <a href="https://github.com/thepowersgang/mrustc">mrustc</a>, the dude is getting closer and closer to supporting 1.54. 
                     Of course, without a borrow checker, but who needs it outside of development? 
                     He has his own implementation of proc macro (for obvious reasons), which does not require loading .so into the compiler.                
