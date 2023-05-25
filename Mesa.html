@@ -64,21 +64,17 @@
                     and meson itself (here I was closest to victory, but it didn't work out).</li>
                 </ul> 
                 <p class="pw-post-body-paragraph">
-                    All hope is on <a href="https://github.com/thepowersgang/mrustc">mrustc</a>, the dude is getting closer and closer to supporting 1.54. 
-                    Of course, without a borrow checker, but who needs it outside of development? 
-                    He has his own implementation of proc macro (for obvious reasons), which does not require loading .so into the compiler.                
+                    In short, for now I’ve solved this problem in the following way:
                 </p>
+                <ul>
+                <li>Wrote a generic procedure for subtracting one .a from another. It can't be done by .o file names for the reasons I described above, so everything is done symbol 
+                    by symbol <a href="https://github.com/pg83/ix/blob/main/pkgs/bld/librarian/substr.py">https://github.com/pg83/ix/blob/main/pkgs/bld/librarian/substr.py</a>;</li>
+                <li>By subtracting sequentially, I fixed the loader and driver library.</li>
+                </ul>
                 <p class="pw-post-body-paragraph">
-                    Right now I've stopped at svg icons with not quite correct rendering because I'm tired of licking Epiphany 
-                    (<a href="https://wiki.gnome.org/Apps/Web">https://wiki.gnome.org/Apps/Web</a>).
-                    I need to see what awaits in building Chromium.
+                    This is much more aesthetic than the previous idea with a bag of .o files and works well enough (at least, it solves the original problem).                
                 </p>
-                <p class="pw-post-body-paragraph">
-                    By the way, I almost defeated tearing in Epiphany. 
-                    To do this, I built the webkit web process (which is responsible for rendering) on gtk4, which is better with support for opengl/vulkan canvas, 
-                    and the browser itself on gtk3. Because Igalia has already ported WebKIT to gkt4, but the browser itself has not yet. 
-                    I think Igalia would be overjoyed to hear that I was doing this.
-                </p>
+                
           </section>
         </article>
     </main>
