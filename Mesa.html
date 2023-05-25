@@ -50,6 +50,20 @@
                     into two parts - loader and drivers - and make them two physically separate dependencies.
                 </p>
                 <p class="pw-post-body-paragraph">
+                    This is necessary to raise the dependency from drivers to end programs, and all intermediate libraries should only depend on the loader. 
+                    This is an important requirement if we don't want to rebuild the entire tree of libraries needed to build end GUI programs 
+                    for each set of drivers and, in fact, for a normal binary build cache.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    I approached the task of splitting about 5 times:
+                </p>
+                <ul>
+                <li>Manually split the final artifact by .o files. Breaks down due to the combinatorial explosion of different ways to build drivers;</li>
+                <li>Make everything build into several completely independent .a files - everything was up against the defects of the meson build system 
+                    and the peculiarities of the mesa build files - here I tried to manually edit the mesa build scripts (not scalable on updates), 
+                    and meson itself (here I was closest to victory, but it didn't work out).</li>
+                </ul> 
+                <p class="pw-post-body-paragraph">
                     All hope is on <a href="https://github.com/thepowersgang/mrustc">mrustc</a>, the dude is getting closer and closer to supporting 1.54. 
                     Of course, without a borrow checker, but who needs it outside of development? 
                     He has his own implementation of proc macro (for obvious reasons), which does not require loading .so into the compiler.                
