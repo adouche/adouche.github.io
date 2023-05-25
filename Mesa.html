@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta property="article:published_time" content="2022-02-04T11:02:33.000Z" />
+</head>
+
+<body>
+    <main>
+        <article>
+            <section>
+                <div class="pw-post-title">
+                    <h1>Struggled with icons</h1>
+                </div>
+                <p class="pw-post-body-paragraph">
+                    With icons, I certainly struggled:
+                </p>
+                <ul>
+                <li>Paths to default icons in toolkits;</li>
+                <li>Which icons should be;</li>
+                <li>Which icons should be used;</li>
+                <li>Some icons in Adwaita are in png, some are in svg, and these sets partially overlap. 
+                    Only one (idk who) knows which application will choose which. Black and white icons are in svg, and colored ones are in png;</li>
+                <li>Loading svg is done through a plugin for gdk-pixbuf. 
+                    Plugins for it are organized in the most unnatural way of all that I know (I will try to write about how developers pervert the loading of their plugins). 
+                    Unfortunately, the latest version of this plugin, not rewritten in Rust, does not render the latest Adwaita icons very correctly;</li>
+                <li>Debugging "what is actually being loaded" through strace doesn't help much because each folder with icons must contain an index.</li>
+                </ul>                
+                <p class="pw-post-body-paragraph">
+                    That’s how we live - for high-quality rendering in png, inkscape is required, for low-quality on the fly - Rust.<br>
+                    Unfortunately, my Rust compiler doesn't even run right now because it can't be linked statically on principle.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    All hope is on <a href="https://github.com/thepowersgang/mrustc">mrustc</a>, the dude is getting closer and closer to supporting 1.54. 
+                    Of course, without a borrow checker, but who needs it outside of development? 
+                    He has his own implementation of proc macro (for obvious reasons), which does not require loading .so into the compiler.                
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Right now I've stopped at svg icons with not quite correct rendering because I'm tired of licking Epiphany 
+                    (<a href="https://wiki.gnome.org/Apps/Web">https://wiki.gnome.org/Apps/Web</a>).
+                    I need to see what awaits in building Chromium.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    By the way, I almost defeated tearing in Epiphany. 
+                    To do this, I built the webkit web process (which is responsible for rendering) on gtk4, which is better with support for opengl/vulkan canvas, 
+                    and the browser itself on gtk3. Because Igalia has already ported WebKIT to gkt4, but the browser itself has not yet. 
+                    I think Igalia would be overjoyed to hear that I was doing this.
+                </p>
+          </section>
+        </article>
+    </main>
+</body>
+
+</html>
