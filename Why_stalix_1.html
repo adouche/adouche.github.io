@@ -13,16 +13,19 @@
                     <h1>Why stal/IX. Part 1</h1>
                 </div>
                 <p class="pw-post-body-paragraph">
-                    Mesa, light of my life, sparks at my fingertips. My sin, my love. Me-sa.
+                    Many times I promised to write about why I created my own Linux distribution and why it is designed this way.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    To build it, the currently very popular build system Meson was developed, and in fact, it's very sad 
-                    because Mesa developers know Meson too well and use any of its fucking features.
+                   Part one: Why
                 </p>
                 <p class="pw-post-body-paragraph">
-                    Actually, Mesa consists of two parts - a plugin loader that implements various state trackers 
-                    like OpenGL, Vulkan on top of the plugin interface, and the plugins themselves.
+                    There are many things I don't like about modern OSes.
                 </p>
+                <ul>
+                <li>K object files are compiled;</li>
+                <li>N archives are built from them, and it is important to note that there are intersections - the same .o can end up in several archives;</li>
+                <li>From these K + N artifacts, M final .so are linked. Also with arbitrary intersections of .a/.o files!</li> 
+                </ul>
                 <p class="pw-post-body-paragraph">
                     As the Mesa authors know Meson too well, building Mesa looks something like this:
                 </p>
