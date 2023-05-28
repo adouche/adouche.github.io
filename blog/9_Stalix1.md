@@ -20,11 +20,12 @@ I've been thinking for a while about how to solve the most problems that annoy m
 
 Write my own OS? I get trolled about it approximately once a month. By the way, I think I could create a good OS (someday I need to write about how it would be designed). The only problem is that it may take me about 15 years to be able to run a currently modern graphical application on it, and that's only if I don’t mess up the architecture and tools too much.
 
-I imagine this quite accurately, you can just look at the dynamics of Linux development, and extrapolate it based on:
-* take a normal language to write 10 times faster than Linux developers do;
-* take the normal architectural principles of building the kernel.
+I imagine this quite accurately. You can just look at the dynamics of Linux development and extrapolate it based on:
+* Using a normal programming language to write 10 times faster than Linux developers do;
+* Applying normal architectural practices for kernel development.
 
-Figures about the kernel size [https://www.opennet.ru/opennews/art.shtml?num=57260](https://www.opennet.ru/opennews/art.shtml?num=57260).<br>
+Figures on the size of the kernel [https://www.opennet.ru/opennews/art.shtml?num=57260](https://www.opennet.ru/opennews/art.shtml?num=57260).
+
 I roughly understand that Linux became ok somewhere around 2.6, 5 - 10 MLOC. If we take a normal language, we need to code somewhere 0.5 - 1 MLOC.<br>
 In general, everything is predictable, and very sad.
 
