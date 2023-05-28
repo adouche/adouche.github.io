@@ -36,14 +36,12 @@ Additionally, I can abandon dynamic linking and DLL hell as a class of problems.
 
 To implement these on the same Fedora - it’s easier to kill myself.
 
-About the overall complexity of the system, and how I'm trying to struggle with it - well, about this, in fact, there is my entire blog.
+About the overall complexity of the system and how I try to fight with it - well, that's basically what my whole blog is about.
 
-From all of the above it follows:
-* it's completely pointless to ask me "why not systemd"
-
-* "why not ostree"
-
-* "Why ...
+From all of the above, it follows that:
+* it is completely pointless to ask me "why not systemd",
+* "why not ostree",
+* "Why …".
 
 I'm trying to solve the problems known to me in a different way, this is a research hobby-distro, and not a competitor for RHEL in its field.
 
