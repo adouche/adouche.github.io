@@ -41,7 +41,7 @@ About the overall complexity of the system and how I try to fight with it - well
 From all of the above, it follows that:
 * it is completely pointless to ask me "why not systemd",
 * "why not ostree",
-* "Why …".
+* "why …".
 
 I'm trying to solve the problems I know in a different way. This is an exploratory hobby distribution, and not a competitor to RHEL in its field.<br>
 If I'm satisfied with systemd and DLL hell, I'll choose Fedora and not worry.
