@@ -14,11 +14,11 @@ There are many things I don't like about modern OSes.
 * I don't like the complexity that RedHat brings to Linux. For example, systemd - a universal (and very bad!) launcher for a dynamic task graph; the boot management system is completely separate (by the way, it's done correctly in macOS, where there is a separate bootloader, separate socket activation, etc.). PipeWire - a universal handler for multimedia stream graph, and nobody needs it in such quality. All sane (yes-yes, "no true Scotsman") players take an oak ffmpeg without this crappy dynamics and resolving plugin dependencies at runtime.
 * I don't like the layering of crap on crap in modern LFS/LSB distributions. Oh, dynamic linking leads to dll hell, well, we'll keep it, but we'll attach ostree and containers for deploying applications. You know, this decision is more of a "face-saving" solution rather than rethinking how it should have been done correctly from the beginning.
 
-This list is endless, but I think you get the point.
+This list can go on endlessly, but I think you get the point.
 
-I've been thinking for a while about how, with the least amount of effort, to solve the most problems that annoy me.
+I've been thinking for a while about how to solve the most problems that annoy me with the least effort.
 
-Write my own OS? I'm trolled with this about once a month, and, by the way, I would make a good OS (somehow I need to write how it would be designed). The only problem is that I will launch a modern (currently) graphical application there in 15 years, and then, if I don’t get too fucked up with architecture and tools.
+Write my own OS? I get trolled about it approximately once a month. By the way, I think I could create a good OS (someday I need to write about how it would be designed). The only problem is that it may take me about 15 years to be able to run a currently modern graphical application on it, and that's only if I don’t mess up the architecture and tools too much.
 
 I imagine this quite accurately, you can just look at the dynamics of Linux development, and extrapolate it based on:
 * take a normal language to write 10 times faster than Linux developers do;
