@@ -3,9 +3,9 @@
 
 #stal/IX #OS
 
-Many times I promised to write why my Linux distribution, and why it is designed this way.
+Many times I promised to write about why I created my own Linux distribution and why it is structured this way.
 
-### Part one. What for
+### Part one: Why
 
 There are a lot of things I don't like about modern OS:
 * I don't like the Linux scheduler;
