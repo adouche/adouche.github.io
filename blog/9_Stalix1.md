@@ -26,13 +26,15 @@ I imagine this quite accurately. You can just look at the dynamics of Linux deve
 
 Figures on the size of the kernel [https://www.opennet.ru/opennews/art.shtml?num=57260](https://www.opennet.ru/opennews/art.shtml?num=57260).
 
-I roughly understand that Linux became ok somewhere around 2.6, 5 - 10 MLOC. If we take a normal language, we need to code somewhere 0.5 - 1 MLOC.<br>
-In general, everything is predictable, and very sad.
+I roughly understand that Linux became normal around version 2.6, with 5-10 MLOC. If we use a proper language, we need to write somewhere between 0.5-1 MLOC.<br>
+In general, everything is predictable and very sad.
 
-In the end, I decided that most of my problems can be solved by a normal Linux distribution, which I understand well, and can "bend" in the most appropriate way.<br>
-For example, having created a demon, which smites all those nailed to the init orphan process, gradually and incrementally.<br>
-For example, refusing dynamic linking and dll hell as a CLASS of problems.<br>
-How to make it in the same Fedora - you can kill yourself.
+As a result, I decided that most of my problems could be solved by a normal Linux distribution that I understand well and can customize to fit my needs.
+
+For example, I can create a daemon that kills all orphaned processes inherited by init gradually and incrementally.<br>
+Additionally, I can abandon dynamic linking and DLL hell as a class of problems.
+
+To implement these on the same Fedora - it’s easier to kill myself.
 
 About the overall complexity of the system, and how I'm trying to struggle with it - well, about this, in fact, there is my entire blog.
 
