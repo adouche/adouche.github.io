@@ -47,13 +47,16 @@
                     (someday I need to write about how it would be designed). The only problem is that it may take me about 15 years to be able 
                     to run a currently modern graphical application on it, and that's only if I don’t mess up the architecture and tools too much.
                 </p>
+                <p class="pw-post-body-paragraph">
+                    I imagine this quite accurately. You can just look at the dynamics of Linux development and extrapolate it based on:
+                </p>
                 <ul>
-                <li>K object files are compiled;</li>
-                <li>N archives are built from them, and it is important to note that there are intersections - the same .o can end up in several archives;</li>
-                <li>From these K + N artifacts, M final .so are linked. Also with arbitrary intersections of .a/.o files!</li> 
+                <li>Using a normal programming language to write 10 times faster than Linux developers do;</li>
+                <li>Applying normal architectural practices for kernel development.</li> 
                 </ul>                
                 <p class="pw-post-body-paragraph">
-                    This means that each final artifact contains an arbitrary subset of source files.
+                    Figures on the size of the kernel 
+                    <a href="https://www.opennet.ru/opennews/art.shtml?num=57260">https://www.opennet.ru/opennews/art.shtml?num=57260</a>
                 </p>
                 <p class="pw-post-body-paragraph">
                     As long as this is linked into .so files with hidden symbols, it's not a problem except for increasing the size of the final code 
