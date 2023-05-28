@@ -33,4 +33,5 @@
 [About the security model](Security_model.html)<br>
 [About the security model. Episode 2](Security_model_2.html)<br>
 [Mesa, light of my life](Mesa.html)<br>
+[Why stal/IX. Part 1](Why_stalix_1.html)<br>
 
