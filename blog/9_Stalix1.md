@@ -3,16 +3,16 @@
 
 #stal/IX #OS
 
-Many times I promised to write about why I created my own Linux distribution and why it is structured this way.
+Many times I promised to write about why I created my own Linux distribution and why it is designed this way.
 
 ### Part one: Why
 
-There are a lot of things I don't like about modern OS:
-* I don't like the Linux scheduler;
-* I don't like private parts in macOS, its policy towards applications and, especially, developer tools (profiling, debugging, etc. - these all stop working “out of the box”);
-* For example, I really don't like that in the Unix orphan process is nailed to init, I want all my process runnings not to double fork to see a completely supervised tree;
-* I don't like the complexity that RedHat brings to Linux, for example, systemd is a general-purpose (and very bad!) dynamic task graph launcher, the boot management system is there on the side (correct, by the way, done in macOS, there is a separate bootloader, a separate socket activation, and so on). PipeWire - a universal handler for the multimedia stream graph, and fuck no one needs it in such a quality, all sane (yes-yes, "no true Scotsman") players take oak ffmpeg, without this shitty dynamics and resolving plug-in dependencies at runtime;
-* I don't like the layering of shit on crap in modern LFS/LSB distributions. Ah, dynamic linking leads to dll hell, well, we'll leave it, but attach ostree and containers for deploying applications. You know, this is a face-saving decision, not a rethink, as it would be right to do from the very beginning.
+There are many things I don't like about modern OSes.
+* I don't like the Linux scheduler.
+* I don't like the closed parts of macOS, its policies towards applications, and especially towards developer tools (profiling, debugging, etc. - all of this stops working “out of the box”).
+* For example, I really don't like that in Unix orphaned processes are inherited by init. I want all my process-spawners not to do double forking so that I can see a completely supervised tree.
+* I don't like the complexity that RedHat brings to Linux. For example, systemd - a universal (and very bad!) launcher for a dynamic task graph; the boot management system is completely separate (by the way, it's done correctly in macOS, where there is a separate bootloader, separate socket activation, etc.). PipeWire - a universal handler for multimedia stream graph, and nobody needs it in such quality. All sane (yes-yes, "no true Scotsman") players take an oak ffmpeg without this crappy dynamics and resolving plugin dependencies at runtime.
+* I don't like the layering of crap on crap in modern LFS/LSB distributions. Oh, dynamic linking leads to dll hell, well, we'll keep it, but we'll attach ostree and containers for deploying applications. You know, this decision is more of a "face-saving" solution rather than rethinking how it should have been done correctly from the beginning.
 
 This list is endless, but I think you get the point.
 
