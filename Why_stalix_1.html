@@ -67,17 +67,14 @@
                     As a result, I decided that most of my problems could be solved by a normal Linux distribution that I understand well and can customize to fit my needs.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    When I first built Mesa, I solved this in a very strange way - I dumped all the final artifacts into one bucket 
-                    and made one mega-library that replaced all the final artifacts.
+                    For example, I can create a daemon that kills all orphaned processes inherited by init gradually and incrementally.<br>
+                    Additionally, I can abandon dynamic linking and DLL hell as a class of problems.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    Overall, this works pretty well except for one very important scenario - when I need to split this giant artifact 
-                    into two parts - loader and drivers - and make them two physically separate dependencies.
+                    To implement these on the same Fedora - it’s easier to kill myself.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    This is necessary to raise the dependency from drivers to end programs, and all intermediate libraries should only depend on the loader. 
-                    This is an important requirement if we don't want to rebuild the entire tree of libraries needed to build end GUI programs 
-                    for each set of drivers and, in fact, for a normal binary build cache.
+                    About the overall complexity of the system and how I try to fight with it - well, that's basically what my whole blog is about.
                 </p>
                 <p class="pw-post-body-paragraph">
                     I approached the task of splitting about 5 times:
