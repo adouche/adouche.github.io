@@ -43,8 +43,7 @@ From all of the above, it follows that:
 * "why not ostree",
 * "Why …".
 
-I'm trying to solve the problems known to me in a different way, this is a research hobby-distro, and not a competitor for RHEL in its field.
+I'm trying to solve the problems I know in a different way. This is an exploratory hobby distribution, and not a competitor to RHEL in its field.<br>
+If I'm satisfied with systemd and DLL hell, I'll choose Fedora and not worry.
 
-If I'm satisfied with systemd and dll hell, I'll take Fedora and won't bother.
-
-But I'm curious about "how, in general, it is possible otherwise."
+But I am interested in "how, in general, can it be done differently."
