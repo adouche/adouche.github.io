@@ -77,24 +77,19 @@
                     About the overall complexity of the system and how I try to fight with it - well, that's basically what my whole blog is about.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    I approached the task of splitting about 5 times:
+                    From all of the above, it follows that:
                 </p>
                 <ul>
-                <li>Manually split the final artifact by .o files. Breaks down due to the combinatorial explosion of different ways to build drivers;</li>
-                <li>Make everything build into several completely independent .a files - everything was up against the defects of the meson build system 
-                    and the peculiarities of the mesa build files - here I tried to manually edit the mesa build scripts (not scalable on updates), 
-                    and meson itself (here I was closest to victory, but it didn't work out).</li>
+                <li>it is completely pointless to ask me "why not systemd",</li>
+                <li>"why not ostree",</li>
+                <li>"Why …".</li>
                 </ul> 
                 <p class="pw-post-body-paragraph">
-                    In short, for now I’ve solved this problem in the following way:
+                    I'm trying to solve the problems I know in a different way. This is an exploratory hobby distribution, and not a competitor to RHEL in its field.<br>
+                    If I'm satisfied with systemd and DLL hell, I'll choose Fedora and not worry.
                 </p>
-                <ul>
-                <li>Wrote a generic procedure for subtracting one .a from another. It can't be done by .o file names for the reasons I described above, so everything is done symbol 
-                    by symbol <a href="https://github.com/pg83/ix/blob/main/pkgs/bld/librarian/substr.py">https://github.com/pg83/ix/blob/main/pkgs/bld/librarian/substr.py</a>;</li>
-                <li>By subtracting sequentially, I fixed the loader and driver library.</li>
-                </ul>
                 <p class="pw-post-body-paragraph">
-                    This is much more aesthetic than the previous idea with a bag of .o files and works well enough (at least, it solves the original problem).                
+                    But I am interested in "how, in general, can it be done differently."                
                 </p>
                 
           </section>
