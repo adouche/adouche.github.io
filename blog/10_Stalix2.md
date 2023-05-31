@@ -37,17 +37,19 @@ A good text with a summary of why the main criticisms of static linking cannot w
 
 Some arguments from Linus - [https://lore.kernel.org/lkml/CAHk-=whs8QZf3YnifdLv57+FhBi5_WeNTG1B-suOES=RcUSmQg@mail.gmail.com/](https://lore.kernel.org/lkml/CAHk-=whs8QZf3YnifdLv57+FhBi5_WeNTG1B-suOES=RcUSmQg@mail.gmail.com/).
 
-- Tooling for static linking is still better because it's as simple as ABC;
+My arguments for static linking:
 
-- Judging by the forums, in Linux there is an eternal problem with dynamically loaded plugins - something was not found at runtime, and because of this nothing works. I have linked - it means that the declared functionality will be available;
+- The tooling for static linking is still better because it's as simple as ABC.
 
-- The resulting binaries, despite some duplication of the object code, are faster;
+- According to forums, Linux has an eternal problem with dynamically loaded plugins - something may not be found at runtime, and because of this, nothing works. If it's linked statically, then the declared functionality will be available.
 
-- FS is cleaner, there is no unnecessary garbage, I can tell about each file what it does. In nix/guix, for example, there can be dozens of variants of the same library, this is ungrepable noodles;
+- The resulting binaries are faster despite some duplication of object code.
 
-- As a consequence, it is aesthetically easier to have different versions of the same library, because they do not annoy the eyes;
+- The file system is cleaner, there is no unnecessary garbage, and I can tell what each file does. In Nix/Guix, for example, there can be dozens of versions of the same library, it's ungrepable noodles.
 
-- Personal factor. For the last 15 years I’ve been implanting static linking in Yandex, and, in general, I have succeeded in this. I have the ambition to show the world that based on this model, you can get a full-fledged, not a toy, distribution. Toy ones, such as stali, oasis, and so on - this, excuse me, is a school craft against the background of what I have already done.
+- As a consequence, it is aesthetically easier to have different versions of the same library because they do not hurt the eyes.
+
+- Personal factor. For the last 15 years, I have been promoting static linking at Yandex and have generally succeeded in doing so. I have the ambition to show the world that based on this model, it is possible to create a full-fledged, non-toy distribution.
 
 **Healthy minimalism. The possibility to view the entire system**
 
