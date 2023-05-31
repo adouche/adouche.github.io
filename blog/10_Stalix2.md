@@ -56,9 +56,9 @@ My arguments for static linking:
 I want to be able to oversee the entire system. No code bloat, no systemd, no PipeWire(?), etc.<br>
 Overall, no vendor lock on RedHat/IBM software.
 
-The Red Hats really want to lock down the Linux ecosystem on themselves. On systemd, on gstreamer, as part of pipewire, etc.<br>
-I don’t see anything good in this, all this software interferes the ability to understand how the system works.
+The Red Hats really want to lock the Linux ecosystem onto themselves. Onto systemd, onto GStreamer as a part of PipeWire, etc.<br>
+I don’t see anything good in this, and all this software hinders the ability to understand how the system works.
 
-I’ll just briefly note here that I don’t mind if someone makes a variant stal/IX on top of systemd, I don’t interfere with this, and I’m even ready to help.
+I’ll just briefly note here that I don’t mind if someone makes a variant stal/IX on top of systemd, I'm not getting in the way of that, and I'm even willing to help.
 
-Look through this [folder](https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/dbus), even runit scripts are not part of the main package, so that you can have systemd/s6/etc units in parallel.
+Take a look at this [folder](https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/dbus), even my runit scripts are not part of the main package so that you can have systemd/s6/etc units in parallel.
