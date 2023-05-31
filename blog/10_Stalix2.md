@@ -51,9 +51,9 @@ My arguments for static linking:
 
 - Personal factor. For the last 15 years, I have been promoting static linking at Yandex and have generally succeeded in doing so. I have the ambition to show the world that based on this model, it is possible to create a full-fledged, non-toy distribution.
 
-**Healthy minimalism. The possibility to view the entire system**
+**Healthy minimalism**
 
-No code bloat, no systemd, no pipewire(?), etc.<br>
+I want to be able to oversee the entire system. No code bloat, no systemd, no PipeWire(?), etc.<br>
 Overall, no vendor lock on RedHat/IBM software.
 
 The Red Hats really want to lock down the Linux ecosystem on themselves. On systemd, on gstreamer, as part of pipewire, etc.<br>
