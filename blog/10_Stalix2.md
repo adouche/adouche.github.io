@@ -7,7 +7,7 @@ Prereq: [Part 1](9_Stalix1.md)
 
 Many times I promised to write about why I created my own Linux distribution and why it is designed this way.
 
-### Part two. Why this way, not otherwise
+### Part two: Why this way and not another
 
 **Directory structure**
 
