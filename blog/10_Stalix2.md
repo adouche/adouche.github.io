@@ -15,14 +15,14 @@ Here everything is pretty simple. I don’t understand how one can create a new 
 
 This is some kind of creepy legacy that has remained since the beginning of Unix, with a bunch of poorly solvable problems (DLL hell, atomic updates (ostree is a hack, don't argue otherwise)).
 
-FS should be a content addressable storage, like git/nix/guix.
+The FS should be a content addressable storage, similar to Git/Nix/Guix.
 
-So we get almost free, just to name a few:
-- Multiversioning;
-- Fast rollovers and rollbacks;
-- Atomic updates (switching the entire configuration - switching 1 symlink);
-- Free caching of build artifacts in the batch system;
-- Non-root/user package management. This is a direct consequence of content adressable storage.
+This provides us with almost free benefits, just to name a few:
+- Multi-versioning.
+- Fast rollbacks and updates.
+- Atomic updates (switching the entire configuration - switching 1 symlink).
+- Free caching of build artifacts in the package system.
+- Non-root/user package management. This is a direct consequence of content addressable storage.
 
 **Functional configuration management**
 
