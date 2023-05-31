@@ -33,9 +33,9 @@ I won’t write much here, those who know will understand, and I won’t be able
 
 **Static linking**
 
-A good text with a summary, why the main complaints about static linking do not stand up to serious criticism - [https://gavinhoward.com/2021/10/static-linking-considered-harmful-considered-harmful/](https://gavinhoward.com/2021/10/static-linking-considered-harmful-considered-harmful/).
+A good text with a summary of why the main criticisms of static linking cannot withstand serious scrutiny - [https://gavinhoward.com/2021/10/static-linking-considered-harmful-considered-harmful/](https://gavinhoward.com/2021/10/static-linking-considered-harmful-considered-harmful/).
 
-I think you already understood that I consider Linus still that ghoul, but the enemy of my enemy is my friend - [https://lore.kernel.org/lkml/CAHk-=whs8QZf3YnifdLv57+FhBi5_WeNTG1B-suOES=RcUSmQg@mail.gmail.com/](https://lore.kernel.org/lkml/CAHk-=whs8QZf3YnifdLv57+FhBi5_WeNTG1B-suOES=RcUSmQg@mail.gmail.com/).
+Some arguments from Linus - [https://lore.kernel.org/lkml/CAHk-=whs8QZf3YnifdLv57+FhBi5_WeNTG1B-suOES=RcUSmQg@mail.gmail.com/](https://lore.kernel.org/lkml/CAHk-=whs8QZf3YnifdLv57+FhBi5_WeNTG1B-suOES=RcUSmQg@mail.gmail.com/).
 
 - Tooling for static linking is still better because it's as simple as ABC;
 
