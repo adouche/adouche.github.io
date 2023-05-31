@@ -13,7 +13,7 @@ Many times I promised to write about why I created my own Linux distribution and
 
 Here everything is pretty simple. I don’t understand how one can create a new distribution based on [LSB/FHS](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard) nowadays.
 
-This is some kind of terrible legacy left over from the times of the Unix beginning, with a bunch of poorly solved problems (dll hell, atomic updates (ostree is a hack, and don't try to convince me otherwise)).
+This is some kind of creepy legacy that has remained since the beginning of Unix, with a bunch of poorly solvable problems (DLL hell, atomic updates (ostree is a hack, don't argue otherwise)).
 
 FS should be a content addressable storage, like git/nix/guix.
 
