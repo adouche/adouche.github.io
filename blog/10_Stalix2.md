@@ -3,7 +3,7 @@
 
 #stal/IX #filesystem #staticlinking
 
-Prereq: [Part 1](blog/9_Stalix1.md)
+Prereq: [Part 1](9_Stalix1.md)
 
 Many times I promised to write about why I created my own Linux distribution and why it is designed this way.
 
