@@ -11,7 +11,7 @@ Many times I promised to write about why I created my own Linux distribution and
 
 **Directory structure**
 
-Everything is quite simple here, I don’t understand how nowadays one can make a new distribution according to the LSB/FHS [https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard).
+Here everything is pretty simple. I don’t understand how one can create a new distribution based on [LSB/FHS](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard) nowadays.
 
 This is some kind of terrible legacy left over from the times of the Unix beginning, with a bunch of poorly solved problems (dll hell, atomic updates (ostree is a hack, and don't try to convince me otherwise)).
 
