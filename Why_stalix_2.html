@@ -57,48 +57,49 @@
                     I won’t write much here, those who know will understand, and I won’t be able to explain it in two sentences anyway.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    I imagine this quite accurately. You can just look at the dynamics of Linux development and extrapolate it based on:
+                    Static linking
+                </p>
+                <p class="pw-post-body-paragraph">
+                    A good text with a summary of why the main criticisms of static linking cannot withstand serious scrutiny - 
+                    <a href="https://lore.kernel.org/lkml/CAHk-=whs8QZf3YnifdLv57+FhBi5_WeNTG1B-suOES=RcUSmQg@mail.gmail.com/">https://lore.kernel.org/lkml/CAHk-=whs8QZf3YnifdLv57+FhBi5_WeNTG1B-suOES=RcUSmQg@mail.gmail.com/</a>.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Some arguments from Linus - 
+                    <a href="https://gavinhoward.com/2021/10/static-linking-considered-harmful-considered-harmful/">https://gavinhoward.com/2021/10/static-linking-considered-harmful-considered-harmful/</a>.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    My arguments for static linking:
                 </p>
                 <ul>
-                <li>Using a normal programming language to write 10 times faster than Linux developers do;</li>
-                <li>Applying normal architectural practices for kernel development.</li> 
+                <li>The tooling for static linking is still better because it's as simple as ABC.</li>
+                <li>According to forums, Linux has an eternal problem with dynamically loaded plugins - something may not be found at runtime, 
+                    and because of this, nothing works. If it's linked statically, then the declared functionality will be available.</li>
+                <li>The resulting binaries are faster despite some duplication of object code.</li>
+                <li>The file system is cleaner, there is no unnecessary garbage, and I can tell what each file does. 
+                    In Nix/Guix, for example, there can be dozens of versions of the same library, it's ungrepable noodles.</li>
+                <li>As a consequence, it is aesthetically easier to have different versions of the same library because they do not hurt the eyes.</li>
+                <li>Personal factor. For the last 15 years, I have been promoting static linking at Yandex and have generally succeeded in doing so. 
+                    I have the ambition to show the world that based on this model, it is possible to create a full-fledged, non-toy distribution.</li>
                 </ul>                
                 <p class="pw-post-body-paragraph">
-                    Figures on the size of the kernel 
-                    <a href="https://www.opennet.ru/opennews/art.shtml?num=57260">https://www.opennet.ru/opennews/art.shtml?num=57260</a>.
+                    Healthy minimalism
                 </p>
                 <p class="pw-post-body-paragraph">
-                    I roughly understand that Linux became normal around version 2.6, with 5-10 MLOC. If we use a proper language, we need to write 
-                    somewhere between 0.5-1 MLOC.<br>
-                    In general, everything is predictable and very sad.                
+                    I want to be able to oversee the entire system. No code bloat, no systemd, no PipeWire(?), etc.<br>
+                    Overall, no vendor lock on RedHat/IBM software.                
                 </p>
                 <p class="pw-post-body-paragraph">
-                    As a result, I decided that most of my problems could be solved by a normal Linux distribution that I understand well and can customize to fit my needs.
+                    The Red Hats really want to lock the Linux ecosystem onto themselves. Onto systemd, onto GStreamer as a part of PipeWire, etc.<br>
+                    I don’t see anything good in this, and all this software hinders the ability to understand how the system works.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    For example, I can create a daemon that kills all orphaned processes inherited by init gradually and incrementally.<br>
-                    Additionally, I can abandon dynamic linking and DLL hell as a class of problems.
+                    I’ll just briefly note here that I don’t mind if someone makes a variant stal/IX on top of systemd, 
+                    I'm not getting in the way of that, and I'm even willing to help.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    To implement these on the same Fedora - it’s easier to kill myself.
-                </p>
-                <p class="pw-post-body-paragraph">
-                    About the overall complexity of the system and how I try to fight with it - well, that's basically what my whole blog is about.
-                </p>
-                <p class="pw-post-body-paragraph">
-                    From all of the above, it follows that:
-                </p>
-                <ul>
-                <li>it is completely pointless to ask me "why not systemd",</li>
-                <li>"why not ostree",</li>
-                <li>"why …".</li>
-                </ul> 
-                <p class="pw-post-body-paragraph">
-                    I'm trying to solve the problems I know in a different way. This is an exploratory hobby distribution, and not a competitor to RHEL in its field.<br>
-                    If I'm satisfied with systemd and DLL hell, I'll choose Fedora and not worry.
-                </p>
-                <p class="pw-post-body-paragraph">
-                    But I am interested in "how, in general, can it be done differently."                
+                    Take a look at this
+                    <a href="https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/dbus">folder</a>, even my runit scripts are not part of the main package 
+                    so that you can have systemd/s6/etc units in parallel.                
                 </p>
                 
           </section>
