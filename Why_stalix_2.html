@@ -1,1 +1,101 @@
 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta property="article:published_time" content="2022-05-27T21:39:35.000Z" />
+</head>
+
+<body>
+    <main>
+        <article>
+            <section>
+                <div class="pw-post-title">
+                    <h1>Why stal/IX. Part 1</h1>
+                </div>
+                <p class="pw-post-body-paragraph">
+                    Many times I promised to write about why I created my own Linux distribution and why it is designed this way.
+                </p>
+                <p class="pw-post-body-paragraph">
+                   Part one: Why
+                </p>
+                <p class="pw-post-body-paragraph">
+                    There are many things I don't like about modern OSes.
+                </p>
+                <ul>
+                <li>I don't like the Linux scheduler.</li>
+                <li>I don't like the closed parts of macOS, its policies towards applications, and especially towards developer tools 
+                    (profiling, debugging, etc. - all of this stops working “out of the box”).</li>
+                <li>For example, I really don't like that in Unix orphaned processes are inherited by init. 
+                    I want all my process-spawners not to do double forking so that I can see a completely supervised tree.</li>
+                <li>I don't like the complexity that RedHat brings to Linux. For example, systemd - a universal (and very bad!) launcher 
+                    for a dynamic task graph; the boot management system is completely separate (by the way, it's done correctly in macOS, 
+                    where there is a separate bootloader, separate socket activation, etc.). PipeWire - a universal handler for multimedia stream graph, 
+                    and nobody needs it in such quality. All sane (yes-yes, "no true Scotsman") players take an oak ffmpeg without this crappy dynamics 
+                    and resolving plugin dependencies at runtime.</li>
+                <li>I don't like the layering of crap on crap in modern LFS/LSB distributions. Oh, dynamic linking leads to dll hell, well, we'll keep it, 
+                    but we'll attach ostree and containers for deploying applications. You know, this decision is more of a "face-saving" solution 
+                    rather than rethinking how it should have been done correctly from the beginning.</li>
+                </ul>
+                <p class="pw-post-body-paragraph">
+                    This list can go on endlessly, but I think you get the point.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    I've been thinking for a while about how to solve the most problems that annoy me with the least effort.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Write my own OS? I get trolled about it approximately once a month. By the way, I think I could create a good OS 
+                    (someday I need to write about how it would be designed). The only problem is that it may take me about 15 years to be able 
+                    to run a currently modern graphical application on it, and that's only if I don’t mess up the architecture and tools too much.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    I imagine this quite accurately. You can just look at the dynamics of Linux development and extrapolate it based on:
+                </p>
+                <ul>
+                <li>Using a normal programming language to write 10 times faster than Linux developers do;</li>
+                <li>Applying normal architectural practices for kernel development.</li> 
+                </ul>                
+                <p class="pw-post-body-paragraph">
+                    Figures on the size of the kernel 
+                    <a href="https://www.opennet.ru/opennews/art.shtml?num=57260">https://www.opennet.ru/opennews/art.shtml?num=57260</a>.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    I roughly understand that Linux became normal around version 2.6, with 5-10 MLOC. If we use a proper language, we need to write 
+                    somewhere between 0.5-1 MLOC.<br>
+                    In general, everything is predictable and very sad.                
+                </p>
+                <p class="pw-post-body-paragraph">
+                    As a result, I decided that most of my problems could be solved by a normal Linux distribution that I understand well and can customize to fit my needs.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    For example, I can create a daemon that kills all orphaned processes inherited by init gradually and incrementally.<br>
+                    Additionally, I can abandon dynamic linking and DLL hell as a class of problems.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    To implement these on the same Fedora - it’s easier to kill myself.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    About the overall complexity of the system and how I try to fight with it - well, that's basically what my whole blog is about.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    From all of the above, it follows that:
+                </p>
+                <ul>
+                <li>it is completely pointless to ask me "why not systemd",</li>
+                <li>"why not ostree",</li>
+                <li>"why …".</li>
+                </ul> 
+                <p class="pw-post-body-paragraph">
+                    I'm trying to solve the problems I know in a different way. This is an exploratory hobby distribution, and not a competitor to RHEL in its field.<br>
+                    If I'm satisfied with systemd and DLL hell, I'll choose Fedora and not worry.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    But I am interested in "how, in general, can it be done differently."                
+                </p>
+                
+          </section>
+        </article>
+    </main>
+</body>
+
+</html>
