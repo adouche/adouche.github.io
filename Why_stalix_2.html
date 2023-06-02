@@ -40,19 +40,11 @@
                     This provides us with almost free benefits, just to name a few:                
                 </p>
                 <ul>
-                <li>I don't like the Linux scheduler.</li>
-                <li>I don't like the closed parts of macOS, its policies towards applications, and especially towards developer tools 
-                    (profiling, debugging, etc. - all of this stops working “out of the box”).</li>
-                <li>For example, I really don't like that in Unix orphaned processes are inherited by init. 
-                    I want all my process-spawners not to do double forking so that I can see a completely supervised tree.</li>
-                <li>I don't like the complexity that RedHat brings to Linux. For example, systemd - a universal (and very bad!) launcher 
-                    for a dynamic task graph; the boot management system is completely separate (by the way, it's done correctly in macOS, 
-                    where there is a separate bootloader, separate socket activation, etc.). PipeWire - a universal handler for multimedia stream graph, 
-                    and nobody needs it in such quality. All sane (yes-yes, "no true Scotsman") players take an oak ffmpeg without this crappy dynamics 
-                    and resolving plugin dependencies at runtime.</li>
-                <li>I don't like the layering of crap on crap in modern LFS/LSB distributions. Oh, dynamic linking leads to dll hell, well, we'll keep it, 
-                    but we'll attach ostree and containers for deploying applications. You know, this decision is more of a "face-saving" solution 
-                    rather than rethinking how it should have been done correctly from the beginning.</li>
+                <li>Multi-versioning.</li>
+                <li>Fast rollbacks and updates.</li>
+                <li>Atomic updates (switching the entire configuration - switching 1 symlink).</li>
+                <li>Free caching of build artifacts in the package system.</li>
+                <li>Non-root/user package management. This is a direct consequence of content addressable storage.</li>
                 </ul>
                 <p class="pw-post-body-paragraph">
                     This list can go on endlessly, but I think you get the point.
