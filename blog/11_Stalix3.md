@@ -3,7 +3,7 @@
 
 #stal/IX #IX #packagemanagement #packagemanager
 
-Prereq: [Part 1](BLOG.md#Why-stal/IX.-Part-1), [Part 2](BLOG.md#Why-stal/IX.-Part-2)
+Prereq: [Part 1](9_Stalix1.md), [Part 2](10_Stalix2.md)
 
 Many times I promised to write why my Linux distribution, and why it is designed this way.
 
