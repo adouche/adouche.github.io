@@ -13,7 +13,7 @@
 [Mesa, light of my life](blog/8_Mesa.md)<br>
 [Why stal/IX. Part 1](blog/9_Stalix1.md)<br>
 [Why stal/IX. Part 2](blog/10_Stalix2.md)<br>
-[Why stal/IX. Part 3](blog/Stalix3.md)<br>
+[Why stal/IX. Part 3](blog/11_Stalix3.md)<br>
 [Static VS dynamic linking](blog/Linking.md)<br>
 [Tired with ~~all these~~ temporary files](blog/Temporary_files.md)<br>
 [Ranting on glibc](blog/Glibc.md)<br>
