@@ -61,15 +61,15 @@ This was already better, but:
 
 **Third iteration**
 
-At this point, I had jinja - a language for describing and substituting templates, and the packages began to look like they look now.
+At this point, I discovered Jinja - a language for describing and substituting templates, and the packages began to look like they do now.
 
-[https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/kitty](https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/kitty) - look, t/ contains a template that specializes a common template for some build system, and its two heirs - linux/, darwin/. Check them out before reading the following paragraphs.
+[https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/kitty](https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/kitty) - take a look, there's a template in t/ that specializes the general template for some build system, and two of its inheritors - linux/, darwin/. Look at them before reading the next points.
 
-It is important to understand here that not a shell script is built from this template, but json, which contains pieces of shell scripts for different phases (build, configure, etc) of the build, and lists of dependencies.
+It is important to understand that a JSON is built from this template, not a shell script. This JSON contains pieces of shell scripts for different build phases (build, configure, etc.) and dependency lists.
 
-- The tasks "do me the same thing, but with mother-of-pearl buttons" are elegantly solved - expanding and narrowing the list of dependencies, replacing and arbitrary modifications of different blocks.
+- Tasks like "do for me the same thing, but with mother-of-pearl buttons" are elegantly solved: expanding and narrowing the list of dependencies, replacing and making arbitrary modifications to different blocks.
 
-- It becomes possible to pack all the logic associated with a particular build system into a template, and make it more and more complex.
+- It becomes possible to pack all the logic related to a particular build system into a template, and make it more and more complex.
 
 *Examples:*
 
