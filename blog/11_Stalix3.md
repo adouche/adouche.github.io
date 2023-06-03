@@ -73,10 +73,10 @@ It is important to understand that a JSON is built from this template, not a she
 
 *Examples:*
 
-* [https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/brotli/ix.sh#L7](https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/brotli/ix.sh#L7) - and build me brotli, but with an extended list of libraries, because I collect not a lib, but binaries;
-* [https://github.com/stal-ix/ix/blob/main/pkgs/bin/curl/ms/ix.sh](https://github.com/stal-ix/ix/blob/main/pkgs/bin/curl/ms/ix.sh) - build curl for me, but with a different http3 library, and fresher sources;
-* [https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/gdbm/ix.sh](https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/gdbm/ix.sh) - build me a binary from libgdbm and add readline to it (pay attention, we are expanding not only a list of libraries, but also configure flags);
-* [https://github.com/pg83/ix/blob/main/pkgs/die/c/cmake.sh#L43](https://github.com/pg83/ix/blob/main/pkgs/die/c/cmake.sh#L43) - base template for cmake, see how much squatting I do there, from passing paths to the compiler, before replacing SHARED with STATIC in CMakeLists.txt - [https://github.com/pg83/ix/blob/main/pkgs/die/c/cmake.sh#L81](https://github.com/pg83/ix/blob/main/pkgs/die/c/cmake.sh#L81).
+* [https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/brotli/ix.sh#L7](https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/brotli/ix.sh#L7) - build me Brotli, but with an extended list of libraries because I'm building binaries, not a library.
+* [https://github.com/stal-ix/ix/blob/main/pkgs/bin/curl/ms/ix.sh](https://github.com/stal-ix/ix/blob/main/pkgs/bin/curl/ms/ix.sh) - build me curl, but with a different http3 library and fresher sources.
+* [https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/gdbm/ix.sh](https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/gdbm/ix.sh) - build me a binary from libgdbm and add readline to it (note that we are expanding not only the list of libraries, but also the configure flags).
+* [https://github.com/pg83/ix/blob/main/pkgs/die/c/cmake.sh#L43](https://github.com/pg83/ix/blob/main/pkgs/die/c/cmake.sh#L43) - basic template for CMake, look at how much “squattings” I'm doing there, from passing paths to the compiler to replacing SHARED with STATIC in CMakeLists.txt - [https://github.com/pg83/ix/blob/main/pkgs/die/c/cmake.sh#L81](https://github.com/pg83/ix/blob/main/pkgs/die/c/cmake.sh#L81).
 Thanks to this, my build files that the user sees are lean and mean, there is only information on the essence of things (dependencies), and all these squats are hidden from the user.
 
 All things are difficult before they are easy, at some point in time it became clear to me that the template engine very easily solves the problem of the build' arbitrary setup of one or another target.
