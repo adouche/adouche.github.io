@@ -77,6 +77,6 @@ It is important to understand that a JSON is built from this template, not a she
 * [https://github.com/stal-ix/ix/blob/main/pkgs/bin/curl/ms/ix.sh](https://github.com/stal-ix/ix/blob/main/pkgs/bin/curl/ms/ix.sh) - build me curl, but with a different http3 library and fresher sources.
 * [https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/gdbm/ix.sh](https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/gdbm/ix.sh) - build me a binary from libgdbm and add readline to it (note that we are expanding not only the list of libraries, but also the configure flags).
 * [https://github.com/pg83/ix/blob/main/pkgs/die/c/cmake.sh#L43](https://github.com/pg83/ix/blob/main/pkgs/die/c/cmake.sh#L43) - basic template for CMake, look at how much “squattings” I'm doing there, from passing paths to the compiler to replacing SHARED with STATIC in CMakeLists.txt - [https://github.com/pg83/ix/blob/main/pkgs/die/c/cmake.sh#L81](https://github.com/pg83/ix/blob/main/pkgs/die/c/cmake.sh#L81).
-Thanks to this, my build files that the user sees are lean and mean, there is only information on the essence of things (dependencies), and all these squats are hidden from the user.
+Thanks to this, my build files that the user sees are lean and mean. They only contain information about the essence of things (dependencies), and all these “squats” are hidden from the user.
 
-All things are difficult before they are easy, at some point in time it became clear to me that the template engine very easily solves the problem of the build' arbitrary setup of one or another target.
+All things are difficult before they are easy, at some point I realized that the templating engine easily solves the task of arbitrarily customizing the build of a particular target.
