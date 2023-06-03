@@ -9,13 +9,13 @@ Many times I promised to write about why I created my own Linux distribution and
 
 ### Part three: About the package manager design
 
-By and large, I had 3 iterations to the package manager design.
+By and large, I had 3 iterations in designing the package manager.
 
 **First iteration**
 
-Packages were a description in Python, the graph executor for each node launched Python, which executed this code. Homebrew is about the same, only on Ruby.
+Packages were Python language descriptions, and a graph executor for each node launched Python, which executed this code. Homebrew is structured similarly, only using Ruby.
 
-Very quickly, I realized that Python is completely unsuitable for this task:
+Very quickly I realized that Python is not suitable for this task:
 
 - It is absolutely not composable, you cannot concatenate 2 scripts and get a working script, due to the fact that alignment and indentation are important in Python. Therefore, the task "take this script and replace the build phase with this one" was completely inoperative.
 
