@@ -55,9 +55,9 @@ build() {
 
 This was already better, but:
 
-- The task "take this build script and change a little build() in it or list of dependencies" was still not solved in a reasonable way, so the bootstrap chain contained a lot of redundant code. Well, like, I had to copy the build description for building cmake at the earliest stages, when there is nothing yet, or already for later stages, when the previous cmake and libraries are available.
+- The task "take this build script and change the build() or dependency list in it a bit" was still not solvable in a reasonable way, so the bootstrap chain contained a lot of redundant code. For example, I had to copy the build description for building CMake at the earliest stages when nothing was available yet, or for later stages when the previous CMake and libraries were available.
 
-- Here I was already beginning to strain that I had to repeat the same boilerplate to call meson/cmake/etc. I must say that the same Arch can call cmake directly. And I need to pass 100500 parameters in order to provide a static build, and nix-style paths in the file system (in short, DESTDIR and PREFIX are not the default).
+- I was already starting to get annoyed that I had to repeat the same boilerplate for calling Meson/CMake/etc. It's worth noting that Arch, for example, can call CMake directly. However, I need to pass 100500 parameters to ensure static build and Nix-style paths in the file system (in short, DESTDIR and PREFIX are not default).
 
 **Third iteration**
 
