@@ -38,7 +38,7 @@ In short, this DSL looked crappy, and I definitely didn't want to give it to the
 
 **Second iteration**
 
-Build scripts in Arch style, with meta information in the comments:
+Arch-style build scripts with meta-information in comments:
 
 ```
 # url https://a.b/c.tgz
