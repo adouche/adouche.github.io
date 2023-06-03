@@ -5,9 +5,9 @@
 
 Prereq: [Part 1](9_Stalix1.md), [Part 2](10_Stalix2.md)
 
-Many times I promised to write why my Linux distribution, and why it is designed this way.
+Many times I promised to write about why I created my own Linux distribution and why it is designed this way.
 
-### Part three. About the package manager design
+### Part three: About the package manager design
 
 By and large, I had 3 iterations to the package manager design.
 
