@@ -57,6 +57,20 @@
                     Second iteration
                 </p>
                 <p class="pw-post-body-paragraph">
+                    Arch-style build scripts with meta-information in comments:
+                </p>
+                <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code># url https://a.b/c.tgz
+                    # dep lib/c lib/c++
+                    # bld bin/make
+
+                    build() {
+                    make -j 8
+                    ...
+                    }
+
+                    ... <span class="nt">--</span> make <span class="nt">-j</span> 16 
+                </code></pre></div></div>
+                <p class="pw-post-body-paragraph">
                     I have already written about .wrap files from meson 
                     (there is a whole repository for them - <a href="https://mesonbuild.com/Wrapdb-projects.html">https://mesonbuild.com/Wrapdb-projects.html</a>).
                 </p>
