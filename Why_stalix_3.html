@@ -40,6 +40,22 @@
                 <li>The second reason is common for both Ruby and Python, as well as everything except POSIX sh. In these languages, you have to invent some DSL 
                     to describe simple actions that are done with simple commands in shell:</li>
                 </ul>
+                <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>os.setcwd('xxx')
+                    a = os.environ['yyy'] + '/zzz'
+                    os.setcwd(a) <span class="nt">--</span> make <span class="nt">-j</span> 16 
+                </code></pre></div></div>
+                <p class="pw-post-body-paragraph">
+                    vs
+                </p>
+                <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd xxx
+                    cd ${yyy}/zzz <span class="nt">--</span> make <span class="nt">-j</span> 16 
+                </code></pre></div></div>
+                <p class="pw-post-body-paragraph">
+                    In short, this DSL looked crappy, and I definitely didn't want to give it to the user.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Second iteration
+                </p>
                 <p class="pw-post-body-paragraph">
                     I have already written about .wrap files from meson 
                     (there is a whole repository for them - <a href="https://mesonbuild.com/Wrapdb-projects.html">https://mesonbuild.com/Wrapdb-projects.html</a>).
