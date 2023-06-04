@@ -88,11 +88,21 @@
                     At this point, I discovered Jinja - a language for describing and substituting templates, and the packages began to look like they do now.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    I have already written about .wrap files from meson 
-                    (there is a whole repository for them - <a href="https://mesonbuild.com/Wrapdb-projects.html">https://mesonbuild.com/Wrapdb-projects.html</a>).
+                    <a href="https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/kitty">https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/kitty</a>) - 
+                    take a look, there's a template in t/ that specializes the general template for some build system, and two of its inheritors - 
+                    linux/, darwin/. Look at them before reading the next points.                
                 </p>
                 <p class="pw-post-body-paragraph">
-                    This is something to write about endlessly, and here are some very shitty examples:
+                    It is important to understand that a JSON is built from this template, not a shell script. This JSON contains pieces of shell scripts for different 
+                    build phases (build, configure, etc.) and dependency lists.
+                </p>
+                <ul>
+                <li>Tasks like "do for me the same thing, but with mother-of-pearl buttons" are elegantly solved: expanding and narrowing the list of dependencies, 
+                    replacing and making arbitrary modifications to different blocks.</li>
+                <li>It becomes possible to pack all the logic related to a particular build system into a template, and make it more and more complex.</li>
+                </ul>
+                <p class="pw-post-body-paragraph">
+                    Examples:
                 </p>
                 <ul>
                 <li>nodejs rewrites the build system from v8 to autoconf;</li>
