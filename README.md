@@ -35,4 +35,5 @@
 [Mesa, light of my life](Mesa.html)<br>
 [Why stal/IX. Part 1](Why_stalix_1.html)<br>
 [Why stal/IX. Part 2](Why_stalix_2.html)<br>
+[Why stal/IX. Part 3](Why_stalix_3.html)<br>
 
