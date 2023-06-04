@@ -22,6 +22,25 @@
                     Part three: About the package manager design
                 </p>
                 <p class="pw-post-body-paragraph">
+                    By and large, I had 3 iterations in designing the package manager.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    First iteration
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Packages were Python language descriptions, and a graph executor for each node launched Python, which executed this code. 
+                    Homebrew is structured similarly, only using Ruby.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Very quickly I realized that Python is not suitable for this task:
+                </p>
+                <ul>
+                <li>nodejs rewrites the build system from v8 to autoconf;</li>
+                <li>webkit remakes the build system from ANGLE (Google’s implementation of opengl) to CMake;</li>
+                <li>chrome vendors a bunch of libraries (I won’t describe them individually);</li>
+                <li>telegram vendors all its dependencies and builds them in a way that is not compatible with anything.</li>
+                </ul>
+                <p class="pw-post-body-paragraph">
                     I have already written about .wrap files from meson 
                     (there is a whole repository for them - <a href="https://mesonbuild.com/Wrapdb-projects.html">https://mesonbuild.com/Wrapdb-projects.html</a>).
                 </p>
