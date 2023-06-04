@@ -17,7 +17,7 @@ Packages were Python language descriptions, and a graph executor for each node l
 
 Very quickly I realized that Python is not suitable for this task:
 
-- - It is absolutely not composable, you cannot concatenate 2 scripts and get a working script because in Python alignment and indentation are important. Therefore, the task of "take this script and replace the build phase with this" was completely unworkable.
+- It is absolutely not composable, you cannot concatenate 2 scripts and get a working script because in Python alignment and indentation are important. Therefore, the task of "take this script and replace the build phase with this" was completely unworkable.
 
 - The second reason is common for both Ruby and Python, as well as everything except POSIX sh. In these languages, you have to invent some DSL to describe simple actions that are done with simple commands in shell:
 
