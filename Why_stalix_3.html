@@ -35,10 +35,10 @@
                     Very quickly I realized that Python is not suitable for this task:
                 </p>
                 <ul>
-                <li>nodejs rewrites the build system from v8 to autoconf;</li>
-                <li>webkit remakes the build system from ANGLE (Google’s implementation of opengl) to CMake;</li>
-                <li>chrome vendors a bunch of libraries (I won’t describe them individually);</li>
-                <li>telegram vendors all its dependencies and builds them in a way that is not compatible with anything.</li>
+                <li>It is absolutely not composable, you cannot concatenate 2 scripts and get a working script because in Python alignment and indentation are important. 
+                    Therefore, the task of "take this script and replace the build phase with this" was completely unworkable.</li>
+                <li>The second reason is common for both Ruby and Python, as well as everything except POSIX sh. In these languages, you have to invent some DSL 
+                    to describe simple actions that are done with simple commands in shell:</li>
                 </ul>
                 <p class="pw-post-body-paragraph">
                     I have already written about .wrap files from meson 
