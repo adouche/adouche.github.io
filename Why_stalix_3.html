@@ -13,18 +13,13 @@
                     <h1>Why stal/IX. Part 3</h1>
                 </div>
                 <p class="pw-post-body-paragraph">
-                    I am saddened by the state of modern OSS build systems. 
-                    Today, I will discuss one such aspect: every self-respecting modern build system wants to have a package manager within itself. 
-                    That is, it provides not only the execution of the build graph of one project but also of all build graphs of all dependencies.
+                    Prereq: Part 1, Part 2
                 </p>
                 <p class="pw-post-body-paragraph">
-                    Have you seen cargo? I have written a couple of times about what this claim for comprehensiveness leads to in relation to cargo — 
-                    the need to wrap all non-cargo dependencies in the cargo build. This looks ugly and leads to problems with diamond-driven dependencies.
+                    Many times I promised to write about why I created my own Linux distribution and why it is designed this way.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    The problem is that despite all the attempts of these build system authors, they do not become comprehensive, and it is impossible 
-                    to live within the same ecosystem. Therefore, each such system wraps all external dependencies into itself. 
-                    Excuse me, but this is the square (from the number of build systems) in terms of the complexity of the efforts made.
+                    Part three: About the package manager design
                 </p>
                 <p class="pw-post-body-paragraph">
                     I have already written about .wrap files from meson 
