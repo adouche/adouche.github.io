@@ -88,7 +88,7 @@
                     At this point, I discovered Jinja - a language for describing and substituting templates, and the packages began to look like they do now.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    <a href="https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/kitty">https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/kitty</a>) - 
+                    <a href="https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/kitty">https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/kitty</a> - 
                     take a look, there's a template in t/ that specializes the general template for some build system, and two of its inheritors - 
                     linux/, darwin/. Look at them before reading the next points.                
                 </p>
@@ -105,10 +105,15 @@
                     Examples:
                 </p>
                 <ul>
-                <li>nodejs rewrites the build system from v8 to autoconf;</li>
-                <li>webkit remakes the build system from ANGLE (Google’s implementation of opengl) to CMake;</li>
-                <li>chrome vendors a bunch of libraries (I won’t describe them individually);</li>
-                <li>telegram vendors all its dependencies and builds them in a way that is not compatible with anything.</li>
+                <li><a href="https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/brotli/ix.sh#L7">https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/brotli/ix.sh#L7</a> - 
+                    build me Brotli, but with an extended list of libraries because I'm building binaries, not a library.</li>
+                <li><a href="https://github.com/stal-ix/ix/blob/main/pkgs/bin/curl/ms/ix.sh">https://github.com/stal-ix/ix/blob/main/pkgs/bin/curl/ms/ix.sh</a> - 
+                    build me curl, but with a different http3 library and fresher sources.</li>
+                <li><a href="https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/gdbm/ix.sh">https://git.sr.ht/~pg/ix/tree/main/item/pkgs/bin/gdbm/ix.sh</a> - 
+                    build me a binary from libgdbm and add readline to it (note that we are expanding not only the list of libraries, but also the configure flags).</li>
+                <li><a href="https://github.com/pg83/ix/blob/main/pkgs/die/c/cmake.sh#L43">https://github.com/pg83/ix/blob/main/pkgs/die/c/cmake.sh#L43</a> - 
+                    basic template for CMake, look at how much “squattings” I'm doing there, from passing paths to the compiler to replacing SHARED with STATIC in 
+                    CMakeLists.txt - <a href="https://github.com/pg83/ix/blob/main/pkgs/die/c/cmake.sh#L81">https://github.com/pg83/ix/blob/main/pkgs/die/c/cmake.sh#L81</a>.</li>
                 </ul>
                 <p class="pw-post-body-paragraph">
                     Fun fact - build systems make life easier for developers, but completely kill the maintainers of this software in the repositories 
