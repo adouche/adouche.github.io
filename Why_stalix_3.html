@@ -71,6 +71,23 @@
                     ... <span class="nt">--</span> make <span class="nt">-j</span> 16 
                 </code></pre></div></div>
                 <p class="pw-post-body-paragraph">
+                    This was already better, but:
+                </p>
+                <ul>
+                <li>The task "take this build script and change the build() or dependency list in it a bit" was still not solvable in a reasonable way, 
+                    so the bootstrap chain contained a lot of redundant code. For example, I had to copy the build description for building CMake at the earliest 
+                    stages when nothing was available yet, or for later stages when the previous CMake and libraries were available.</li>
+                <li>I was already starting to get annoyed that I had to repeat the same boilerplate for calling Meson/CMake/etc. 
+                    It's worth noting that Arch, for example, can call CMake directly. However, I need to pass 100500 parameters to ensure static build and Nix-style paths 
+                    in the file system (in short, DESTDIR and PREFIX are not default).</li>
+                </ul>
+                <p class="pw-post-body-paragraph">
+                    Third iteration
+                </p>
+                <p class="pw-post-body-paragraph">
+                    At this point, I discovered Jinja - a language for describing and substituting templates, and the packages began to look like they do now.
+                </p>
+                <p class="pw-post-body-paragraph">
                     I have already written about .wrap files from meson 
                     (there is a whole repository for them - <a href="https://mesonbuild.com/Wrapdb-projects.html">https://mesonbuild.com/Wrapdb-projects.html</a>).
                 </p>
