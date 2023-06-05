@@ -7,9 +7,9 @@ In the "static vs dynamic linking" battle, there is one factor that no one reall
 
 It’s aesthetics!
 
-Moreover, it’s not simple aesthetics, that, they say, in the case of static linking, all sorts of different .so are not lying around the entire fs, about which, without a package manager, it’s impossible to say where they come from and what they are for. It lies on the surface, and is not very interesting.
+Moreover, it is not about the aesthetics of simplicity, when in the case of static linking, all sorts of .so files are not scattered throughout the file system, which, without a package manager, it is unclear where they came from and what they are needed for. This is obvious and not very interesting.
 
-Once, when I was talking about #mesa, I casually mentioned how it is building.
+In the post about [Mesa](8_Mesa.md), I briefly mentioned how it is built.
 
 It was about the fact that, in the process of building 3 .so’s, 10 .a’s are built, and they are somehow, rather arbitrary, combined into the corresponding .so files, using a linker script to hide common parts.
 
