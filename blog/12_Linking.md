@@ -3,9 +3,9 @@
 
 #static_linking #dynamic_linking #gtk #wayland
 
-In the "static vs dynamic linking" battle, there is one factor that no one really talks about, or I just haven't met before.
+In the "static vs dynamic linking" battle, there is one factor that no one really talks about, or maybe I just haven't come across it before.
 
-This is aesthetics!
+It’s aesthetics!
 
 Moreover, it’s not simple aesthetics, that, they say, in the case of static linking, all sorts of different .so are not lying around the entire fs, about which, without a package manager, it’s impossible to say where they come from and what they are for. It lies on the surface, and is not very interesting.
 
