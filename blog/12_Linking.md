@@ -17,7 +17,7 @@ Why is it done this way? Why not just make 10 .so files that link to each other 
 
 Dynamic linking aesthetics require this!
 
-Because it’s not good to dump a bunch of incomprehensible .so on the user, without some kind of understandable scope, which do who knows what. It is necessary to give the user a clear set of artifacts, with a clear scope, but the fact that the code is duplicated between them - who cares?
+Because it’s not acceptable to dump a bunch of incomprehensible .so files on the user without any clear scope, that do who knows what. It is necessary to give the user a clear set of artifacts with a clear scope, but the fact that the code is duplicated between them - who cares?
 
 By the way, my recent story about the duplication of symbols in the #gtk and #wayland libraries can be attributed exactly to the same topic. It's crazy to separate these 3 unfortunate functions into some completely artificial library, how to sell it to the user, how to package it in distributions, and other unpleasant questions.
 
