@@ -1,7 +1,7 @@
 ## Static VS dynamic linking
 <sup> November 02, 2022 </sup>
 
-#staticlinking
+#static_linking #dynamic_linking #gtk #wayland
 
 In the "static vs dynamic linking" battle, there is one factor that no one really talks about, or I just haven't met before.
 
