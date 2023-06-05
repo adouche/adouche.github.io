@@ -23,6 +23,6 @@ By the way, my recent story about symbol duplication in GTK and Wayland librarie
 
 Conversely, static linking stimulates the emergence of a greater quantity of more granular dependencies because these are artifacts of the build time only and are not visible to the user. Therefore, they can be arbitrarily shitty, even with just one function in each if it is convenient. No one will see it live anyway.
 
-*(an example of such a division of libraries into parts - in the next series, and here is already a lot of text).*
+*(An example of such libraries splitting into parts - in the next series, as there is already a lot of text here.)*
 
-So the inherent aesthetics of a particular linking method actually dictate how the code will be split into modules, and (my personal opinion) static build leads to a better, reflective the code essence, separation.
+Therefore, the internal aesthetics inherent in a particular linking method actually dictate how the code will be split into modules, and (in my personal opinion) static linking leads to a better splitting, reflecting the code essence.
