@@ -19,9 +19,9 @@ Dynamic linking aesthetics require this!
 
 Because it’s not acceptable to dump a bunch of incomprehensible .so files on the user without any clear scope, that do who knows what. It is necessary to give the user a clear set of artifacts with a clear scope, but the fact that the code is duplicated between them - who cares?
 
-By the way, my recent story about the duplication of symbols in the #gtk and #wayland libraries can be attributed exactly to the same topic. It's crazy to separate these 3 unfortunate functions into some completely artificial library, how to sell it to the user, how to package it in distributions, and other unpleasant questions.
+By the way, my recent story about symbol duplication in GTK and Wayland libraries can be attributed to exactly the same topic. It's insane to isolate these three unfortunate functions into some completely artificial library, how to sell it to the user, how to make it a package in distributions, and other unpleasant questions.
 
-Conversely, static linking encourages more and more granular dependencies, because these are purely build-time artifacts and are not visible to the user. Therefore, they can be arbitrarily shitty, at least 1 function in each, if it is so convenient, no one will see it live anyway.
+Conversely, static linking stimulates the emergence of a greater quantity of more granular dependencies because these are artifacts of the build time only and are not visible to the user. Therefore, they can be arbitrarily shitty, even with just one function in each if it is convenient. No one will see it live anyway.
 
 *(an example of such a division of libraries into parts - in the next series, and here is already a lot of text).*
 
