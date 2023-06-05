@@ -11,11 +11,11 @@ Moreover, it is not about the aesthetics of simplicity, when in the case of stat
 
 In the post about [Mesa](8_Mesa.md), I briefly mentioned how it is built.
 
-It was about the fact that, in the process of building 3 .so’s, 10 .a’s are built, and they are somehow, rather arbitrary, combined into the corresponding .so files, using a linker script to hide common parts.
+It was about the fact that, during the process of linking 3 .so files, 10 .a files are built and combined in an arbitrary manner into the corresponding .so files using a linker script to hide common parts.
 
-Why is this being done? Why not make 10 .so’s that just link to each other like they are supposed to, and there is no code duplication magic and all that?
+Why is it done this way? Why not just make 10 .so files that link to each other as they should, without all this code duplication magic and all that?
 
-This is what dynamic build aesthetics demand!
+Dynamic linking aesthetics require this!
 
 Because it’s not good to dump a bunch of incomprehensible .so on the user, without some kind of understandable scope, which do who knows what. It is necessary to give the user a clear set of artifacts, with a clear scope, but the fact that the code is duplicated between them - who cares?
 
