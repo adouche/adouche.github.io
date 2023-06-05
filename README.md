@@ -14,7 +14,7 @@
 [Why stal/IX. Part 1](blog/9_Stalix1.md)<br>
 [Why stal/IX. Part 2](blog/10_Stalix2.md)<br>
 [Why stal/IX. Part 3](blog/11_Stalix3.md)<br>
-[Static VS dynamic linking](blog/Linking.md)<br>
+[Static VS dynamic linking](blog/12_Linking.md)<br>
 [Tired with ~~all these~~ temporary files](blog/Temporary_files.md)<br>
 [Ranting on glibc](blog/Glibc.md)<br>
 [Generating stable unique keys](blog/Unique_keys.md)<br>
