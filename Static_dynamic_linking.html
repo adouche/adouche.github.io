@@ -23,17 +23,14 @@
                     which, without a package manager, it is unclear where they came from and what they are needed for. This is obvious and not very interesting.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    That's why I have 
-                    <a href="https://github.com/stal-ix/ix/blob/main/pkgs/bin/sched/staleprocs/staleprocs.sh">https://github.com/stal-ix/ix/blob/main/pkgs/bin/sched/staleprocs/staleprocs.sh</a>
-                    - a daemon that kills "stray" processes. If this works well, then I will certainly add it to my init.
+                    In the post about Mesa, I briefly mentioned how it is built.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    By the way, killing via SIGINT is there solely because if sway is killed via SIGKILL, it regularly hangs the system completely. 
-                    That's such a cool graphics stack in Linux.
+                    It was about the fact that, during the process of linking 3 .so files, 10 .a files are built and combined in an arbitrary manner into 
+                    the corresponding .so files using a linker script to hide common parts.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    Unfortunately, sway for some reason launches all processes through double fork.<br>
-                    Fortunately, the fix is just 3 lines of code.
+                    Why is it done this way? Why not just make 10 .so files that link to each other as they should, without all this code duplication magic and all that?
                 </p>
           </section>
         </article>
