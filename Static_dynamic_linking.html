@@ -44,6 +44,11 @@
                     It's insane to isolate these three unfortunate functions into some completely artificial library, how to sell it to the user, how to make it a package 
                     in distributions, and other unpleasant questions.
                 </p>
+                <p class="pw-post-body-paragraph">
+                    Conversely, static linking stimulates the emergence of a greater quantity of more granular dependencies because these are artifacts of the build time only 
+                    and are not visible to the user. Therefore, they can be arbitrarily shitty, even with just one function in each if it is convenient. 
+                    No one will see it live anyway.
+                </p>
           </section>
         </article>
     </main>
