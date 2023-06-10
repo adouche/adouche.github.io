@@ -22,10 +22,11 @@
                     Data can be buffered in memory or written through a pipe to another program’s input, or something similarly reasonable.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    This list can go on endlessly, but I think you get the point.
+                    Usually, programs write something to temporary files as a hack, when some block of code already accepts int fd, and rewriting it to a normal 
+                    interface is too lazy, or when some program in the chain does not know how to pipe.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    I've been thinking for a while about how to solve the most problems that annoy me with the least effort.
+                    In the first case, by the way, in modern Linux you can use memfd_create(), which is quite useful in terms of "sweeping garbage under the bed".
                 </p>
                 <p class="pw-post-body-paragraph">
                     Write my own OS? I get trolled about it approximately once a month. By the way, I think I could create a good OS 
