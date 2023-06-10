@@ -7,11 +7,11 @@ Today I have a joke for you about my sense of beauty.
 
 Personally, I hate programs that want to create temporary files. In general, "temporary file" is some nonsense, because why write ephemeral data to a persistent file?
 
-Data can either be buffered in memory, or written through a pipe to the input of another program, or something equally reasonable.
+Data can be buffered in memory or written through a pipe to another program’s input, or something similarly reasonable.
 
-Usually programs write something to temporary files or in the form of a hack, when some block of code already accepts int fd, and rewriting it to a normal interface is too lazy, or when some program in the chain does not know how to pipe.
+Usually, programs write something to temporary files as a hack, when some block of code already accepts int fd, and rewriting it to a normal interface is too lazy, or when some program in the chain does not know how to pipe.
 
-In the first case, by the way, in modern linux you can use memfd_create (), a pretty useful thing in terms of "sweep the trash under the bed."
+In the first case, by the way, in modern Linux you can use memfd_create(), which is quite useful in terms of "sweeping garbage under the bed".
 
 Another problem with temporary files is that all sorts of strange programs do not respect the TMPDIR setting, and try to write directly to /tmp, moreover, coming up with some wild ways to differentiate access and "not intersect" with other instances.
 
