@@ -78,43 +78,12 @@
                     And I don’t have it, but I have /var/tmp with session separation.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    Figures on the size of the kernel 
-                    <a href="https://www.opennet.ru/opennews/art.shtml?num=57260">https://www.opennet.ru/opennews/art.shtml?num=57260</a>.
+                    So all such programs break, and I fix them all.<br>
+                    To make this process less painful, I created a small library for it - 
+                    <a href="https://github.com/stal-ix/ix/tree/main/pkgs/lib/shim/ix">https://github.com/stal-ix/ix/tree/main/pkgs/lib/shim/ix</a>.<br>
+                    Its application is almost automated - 
+                    <a href="https://github.com/stal-ix/ix/blob/main/pkgs/bin/got/ix/ix.sh#L10">https://github.com/stal-ix/ix/blob/main/pkgs/bin/got/ix/ix.sh#L10</a>.
                 </p>
-                <p class="pw-post-body-paragraph">
-                    I roughly understand that Linux became normal around version 2.6, with 5-10 MLOC. If we use a proper language, we need to write 
-                    somewhere between 0.5-1 MLOC.<br>
-                    In general, everything is predictable and very sad.                
-                </p>
-                <p class="pw-post-body-paragraph">
-                    As a result, I decided that most of my problems could be solved by a normal Linux distribution that I understand well and can customize to fit my needs.
-                </p>
-                <p class="pw-post-body-paragraph">
-                    For example, I can create a daemon that kills all orphaned processes inherited by init gradually and incrementally.<br>
-                    Additionally, I can abandon dynamic linking and DLL hell as a class of problems.
-                </p>
-                <p class="pw-post-body-paragraph">
-                    To implement these on the same Fedora - it’s easier to kill myself.
-                </p>
-                <p class="pw-post-body-paragraph">
-                    About the overall complexity of the system and how I try to fight with it - well, that's basically what my whole blog is about.
-                </p>
-                <p class="pw-post-body-paragraph">
-                    From all of the above, it follows that:
-                </p>
-                <ul>
-                <li>it is completely pointless to ask me "why not systemd",</li>
-                <li>"why not ostree",</li>
-                <li>"why …".</li>
-                </ul> 
-                <p class="pw-post-body-paragraph">
-                    I'm trying to solve the problems I know in a different way. This is an exploratory hobby distribution, and not a competitor to RHEL in its field.<br>
-                    If I'm satisfied with systemd and DLL hell, I'll choose Fedora and not worry.
-                </p>
-                <p class="pw-post-body-paragraph">
-                    But I am interested in "how, in general, can it be done differently."                
-                </p>
-                
           </section>
         </article>
     </main>
