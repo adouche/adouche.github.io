@@ -29,9 +29,8 @@
                     In the first case, by the way, in modern Linux you can use memfd_create(), which is quite useful in terms of "sweeping garbage under the bed".
                 </p>
                 <p class="pw-post-body-paragraph">
-                    Write my own OS? I get trolled about it approximately once a month. By the way, I think I could create a good OS 
-                    (someday I need to write about how it would be designed). The only problem is that it may take me about 15 years to be able 
-                    to run a currently modern graphical application on it, and that's only if I don’t mess up the architecture and tools too much.
+                    Another problem with temporary files is that various strange programs do not respect the TMPDIR setting and try to write directly to /tmp. 
+                    Moreover, they come up with some wild ways of access differentiation and "non-intersection" with other instances.
                 </p>
                 <p class="pw-post-body-paragraph">
                     I imagine this quite accurately. You can just look at the dynamics of Linux development and extrapolate it based on:
