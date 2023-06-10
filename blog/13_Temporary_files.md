@@ -54,6 +54,6 @@ Why?
 Because, by a strange coincidence, all programs that have their own strong opinions about the naming of the folder with temporary files try to write to /tmp.<br>
 And I don’t have it, but I have /var/tmp with session separation.
 
-Therefore, all such programs break, and I fix them all.<br>
-To make this process not painful, I created a small library for this - [https://github.com/stal-ix/ix/tree/main/pkgs/lib/shim/ix](https://github.com/stal-ix/ix/tree/main/pkgs/lib/shim/ix).<br>
+So all such programs break, and I fix them all.<br>
+To make this process less painful, I created a small library for it - [https://github.com/stal-ix/ix/tree/main/pkgs/lib/shim/ix](https://github.com/stal-ix/ix/tree/main/pkgs/lib/shim/ix).<br>
 Its application is almost automated - [https://github.com/stal-ix/ix/blob/main/pkgs/bin/got/ix/ix.sh#L10](https://github.com/stal-ix/ix/blob/main/pkgs/bin/got/ix/ix.sh#L10).
