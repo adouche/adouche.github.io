@@ -3,9 +3,9 @@
 
 #temporaryfiles #stal/ix
 
-Today I have an anecdote for you about my sense of beauty.
+Today I have a joke for you about my sense of beauty.
 
-I personally get pissed off by programs that want to create temporary files. In general, a "temporary file" is some kind of nonsense, because what a fuck to write ephemeral data to a persistent file?
+Personally, I hate programs that want to create temporary files. In general, "temporary file" is some nonsense, because why write ephemeral data to a persistent file?
 
 Data can either be buffered in memory, or written through a pipe to the input of another program, or something equally reasonable.
 
