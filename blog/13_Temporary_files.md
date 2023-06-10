@@ -47,7 +47,7 @@ pg->echo ${TMPDIR}
 /var/tmp/10000/10953
 ```
 
-That’s why I don’t have a /tmp root folder in stal/IX.
+That’s why I don’t have a root /tmp folder in [stal/IX](https://github.com/stal-ix).
 
 Why?
 
