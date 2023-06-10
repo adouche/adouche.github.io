@@ -38,9 +38,9 @@ Here is the contents of my session tmp:
 
 How many different ways of “uniqueness” did you count here?
 
-I repeat, this infuriates me wildly, and I set myself a goal - all the programs that I use should be able in TMPDIR.
+I repeat, this infuriates me greatly, and I have set a goal for myself - all the programs that I use should be able to use TMPDIR.
 
-By the way, a little aside, TMPDIR, of course, should be a "complex" path that includes the user id and the session id (for example, to be able to effectively clean up this junk at the end of the session):
+By the way, a little off topic, TMPDIR should of course be a "complex" path, including user ID and session ID (for example, to effectively clean up this junk at the end of the session):
 
 ```
 pg->echo ${TMPDIR}
