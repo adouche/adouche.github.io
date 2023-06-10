@@ -13,9 +13,9 @@ Usually, programs write something to temporary files as a hack, when some block 
 
 In the first case, by the way, in modern Linux you can use memfd_create(), which is quite useful in terms of "sweeping garbage under the bed".
 
-Another problem with temporary files is that all sorts of strange programs do not respect the TMPDIR setting, and try to write directly to /tmp, moreover, coming up with some wild ways to differentiate access and "not intersect" with other instances.
+Another problem with temporary files is that various strange programs do not respect the TMPDIR setting and try to write directly to /tmp. Moreover, they come up with some wild ways of access differentiation and "non-intersection" with other instances.
 
-Here is the content of my session tmp:
+Here is the contents of my session tmp:
 
 ```
 ./epiphany-pg-aaNPpb
