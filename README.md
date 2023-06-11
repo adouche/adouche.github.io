@@ -38,4 +38,5 @@
 [Why stal/IX. Part 3](Why_stalix_3.html)<br>
 [Static VS dynamic linking](Static_dynamic_linking.html)<br>
 [Tired with ~~all these~~ temporary files](Tired_with_temporary_files.html)<br>
+[Ranting on glibc](Ranting_on_glibc.html)<br>
 
