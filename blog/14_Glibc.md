@@ -5,8 +5,8 @@
 
 **Friday evening rant**
 
-There is such a library, #glibc, whose authors are known for wanting to do things "better" than everyone else.<br>
-The problem is that, more often than not, their solutions turn out to be just "different", and then - "fuck, who, and what a fuck, invented it all".
+There is a library called glibc, whose authors are known for wanting to make everything "better" than others.<br>
+The problem is that their solutions often turn out to be just "different", and then it's like - "Fuck, who came up with this and why".
 
 There is such a function - pthread_cancel().
 
