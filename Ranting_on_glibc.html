@@ -35,7 +35,8 @@
                     How is it done?
                 </p>
                 <ul>
-                <li>Using a normal programming language to write 10 times faster than Linux developers do;</li>
+                <li>We load the unwinder from gcc at runtime. No, it doesn't have to be the same unwinder that the rest of the program uses, it can be statically linked
+                    <a href="https://codebrowser.dev/glibc/glibc/nptl/pthread_cancel.c.html#99">https://codebrowser.dev/glibc/glibc/nptl/pthread_cancel.c.html#99</a>.</li>
                 <li>Applying normal architectural practices for kernel development.</li>
                 <li>Applying normal architectural practices for kernel development.</li>
                 </ul>                
