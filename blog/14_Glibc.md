@@ -10,9 +10,9 @@ The problem is that their solutions often turn out to be just "different", and t
 
 There is such a function - pthread_cancel().
 
-Do not use it anywhere and ever. Its behavior is as poorly defined as possible, and, in real life, it will lead you into some kind of deadlock. Because you won’t write tests for this section of code anyway.
+Do not use it, anywhere, ever. Its behavior is poorly defined and in real life, it will lead you to some kind of deadlock. Because you won’t write tests for this section of code anyway.
 
-By standard, all it has to do is call the specially registered cleanup handlers and end the thread. But colleagues from glibc decided that this was not enough for them! And they made the next feature - they call stack unwinder to destroy local objects on the stack in this thread.
+According to the standard, all it should do is call specially registered cleanup handlers and terminate the thread. But colleagues from glibc decided that this was not enough! And they added the following feature - they call the stack unwinder to destroy local objects on the stack in this thread.
 
 How is it done?
 
