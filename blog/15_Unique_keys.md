@@ -34,9 +34,9 @@ pg-> ls -ls /ix/store/7aP.../share/entropy
      100 ... /ix/store/7aP.../share/entropy
 ```
 
-The artifact is actually quite useful, because at system setup time there are quite a few processes that require a unique host ID to be generated, such as /etc/machine-id, which is used by dbus.
+This artifact is quite useful because during system installation there are many processes that require generating a unique host identifier, such as /etc/machine-id, which is used in D-Bus.
 
-In general, it is clear that we do not worsen the process compared to how it was before - it was "we use the entropy at the current time as a seed to generate some files", it became - "we save the entropy at some point in time, and use it to generate the same files over and over." That is, we store not the result of the generating, but its seed.
+Overall, it is clear that are not making the process worse compared to how it was before - we used to "use entropy at the current moment in time as a seed to generate some files", and now we "save entropy at some point in time and use it to generate these same files again and again." That is, we store the seed, not the result of generation.
 
 By the way, I found beautiful while reading the source - [https://github.com/mkj/dropbear/blob/master/dbrandom.c#L270](https://github.com/mkj/dropbear/blob/master/dbrandom.c#L270).<br>
 Here it is written how normal people build their initial entropy for work.
