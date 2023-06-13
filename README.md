@@ -39,4 +39,5 @@
 [Static VS dynamic linking](Static_dynamic_linking.html)<br>
 [Tired with ~~all these~~ temporary files](Tired_with_temporary_files.html)<br>
 [Ranting on glibc](Ranting_on_glibc.html)<br>
+[Generating stable unique keys](Generating_unique_keys.html)<br>
 
