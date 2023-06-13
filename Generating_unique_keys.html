@@ -33,11 +33,10 @@
                     Actually, the solution to this problem was divided into two parts:
                 </p>
                 <ul>
-                <li>We load the unwinder from gcc at runtime. No, it doesn't have to be the same unwinder that the rest of the program uses, it can be statically linked
-                    <a href="https://codebrowser.dev/glibc/glibc/nptl/pthread_cancel.c.html#99">https://codebrowser.dev/glibc/glibc/nptl/pthread_cancel.c.html#99</a>.</li>
-                <li>We throw an exception unknown to science 
-                    <a href="https://codebrowser.dev/glibc/glibc/nptl/unwind.c.html#130">https://codebrowser.dev/glibc/glibc/nptl/unwind.c.html#130</a>.<br>
-                    Question for experts  - how does this exception interact with C++ exceptions? And with catch (...)?</li>
+                <li>Slightly modify the key generation utility to use a pre-prepared file instead of /dev/random - 
+                    <a href="https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/keygen/ix.sh#L7">https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/keygen/ix.sh#L7</a>.</li>
+                <li>Provide this file to the host key generator and generate these keys. This way, we get a "clean" package that depends only on its seed parameter - 
+                    <a href="https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/hostkeys/ix.sh#L14">https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/hostkeys/ix.sh#L14</a>.</li>
                 <li>I did not find the code that catches it at the top of the stack, but it used to be quite intricate. Normal people would create one source 
                     file with the extension .cxx and catch it through the usual exception mechanism, but that's not the path of glibc developers.</li>
                 </ul>                
