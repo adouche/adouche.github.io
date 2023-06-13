@@ -13,11 +13,11 @@
                     <h1>Generating stable unique keys</h1>
                 </div>
                 <p class="pw-post-body-paragraph">
-                    Friday evening rant
+                    I solved a long-standing problem - generating unique keys for various programs, but in such a way that they are resistant from generation 
+                    to generation, meaning that if the package needs to be rebuilt with the same input data, then the resulting keys should be the same.
                 </p>
                 <p class="pw-post-body-paragraph">
-                   There is a library called glibc, whose authors are known for wanting to make everything "better" than others.<br>
-                   The problem is that their solutions often turn out to be just "different", and then it's like - "Fuck, who came up with this and why".
+                   Usage example:
                 </p>
                 <p class="pw-post-body-paragraph">
                     There is such a function - pthread_cancel().
