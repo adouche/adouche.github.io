@@ -16,9 +16,9 @@ It uses random() for this, which does not correspond to the bright idea of "clea
 
 Actually, the solution to this problem was divided into two parts:
 
-* Slightly rewrite the key generation utility so that it does not go to /dev/random, but to a pre-prepared file - [https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/keygen/ix.sh#L7](https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/keygen/ix.sh#L7).
+* Slightly modify the key generation utility to use a pre-prepared file instead of /dev/random - [https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/keygen/ix.sh#L7](https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/keygen/ix.sh#L7).
 
-* Submit this file to the host key generator and generate these keys. So we get a "clean" package, which depends only on its seed parameter - [https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/hostkeys/ix.sh#L14](https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/hostkeys/ix.sh#L14).
+* Provide this file to the host key generator and generate these keys. This way, we get a "clean" package that depends only on its seed parameter - [https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/hostkeys/ix.sh#L14](https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/hostkeys/ix.sh#L14).
 
 Thus, we have, as it were, a "random" set of keys, which is a pure function of seed. The task of the user of the system when setting up the machine is to specify this same seed so that it is unique (this can be done by the installer transparently for the user).
 
