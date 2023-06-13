@@ -23,8 +23,7 @@
                     # ix mut system bin/dropbear/runit --seed="dead beef"
                 </p>
                 <p class="pw-post-body-paragraph">
-                    Do not use it, anywhere, ever. Its behavior is poorly defined and in real life, it will lead you to some kind of deadlock. 
-                    Because you won’t write tests for this section of code anyway.
+                    When installing Dropbear (such an alternative to SSH), it wants to generate host keys that should not change for about the lifetime of the installed system.
                 </p>
                 <p class="pw-post-body-paragraph">
                     According to the standard, all it should do is call specially registered cleanup handlers and terminate the thread. 
