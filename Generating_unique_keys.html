@@ -37,11 +37,19 @@
                     <a href="https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/keygen/ix.sh#L7">https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/keygen/ix.sh#L7</a>.</li>
                 <li>Provide this file to the host key generator and generate these keys. This way, we get a "clean" package that depends only on its seed parameter - 
                     <a href="https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/hostkeys/ix.sh#L14">https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/hostkeys/ix.sh#L14</a>.</li>
-                <li>I did not find the code that catches it at the top of the stack, but it used to be quite intricate. Normal people would create one source 
-                    file with the extension .cxx and catch it through the usual exception mechanism, but that's not the path of glibc developers.</li>
                 </ul>                
                 <p class="pw-post-body-paragraph">
-                    So, if your program carries its own unwind runtime, expect an arbitrary crash as a result of interaction with glibc/pthread_cancel.
+                    Thus, we have a kind of "random" set of keys, which is a pure function of seed. The task of the user of the system when setting up the machine 
+                    is to specify this seed so that it is unique (this can be done by the installer transparently for the user).
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Actually, the solution to this problem was divided into two parts:
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Actually, the solution to this problem was divided into two parts:
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Actually, the solution to this problem was divided into two parts:
                 </p>
           </section>
         </article>
