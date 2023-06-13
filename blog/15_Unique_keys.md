@@ -20,10 +20,10 @@ Actually, the solution to this problem was divided into two parts:
 
 * Provide this file to the host key generator and generate these keys. This way, we get a "clean" package that depends only on its seed parameter - [https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/hostkeys/ix.sh#L14](https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/hostkeys/ix.sh#L14).
 
-Thus, we have, as it were, a "random" set of keys, which is a pure function of seed. The task of the user of the system when setting up the machine is to specify this same seed so that it is unique (this can be done by the installer transparently for the user).
+Thus, we have a kind of "random" set of keys, which is a pure function of seed. The task of the user of the system when setting up the machine is to specify this seed so that it is unique (this can be done by the installer transparently for the user).
 
-In the process, I got an interesting artifact - a "package with prepared entropy". This is how I ask that it be available at the time of preparing the keys - [https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/hostkeys/ix.sh#L4](https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/hostkeys/ix.sh#L4), and this is how its implementation looks [https://github.com/pg83/ix/blob/main/pkgs/aux/entropy/ix.sh](https://github.com/pg83/ix/blob/main/pkgs/aux/entropy/ix.sh),
-[https://github.com/pg83/ix/blob/main/pkgs/aux/entropy/ix.sh#L10](https://github.com/pg83/ix/blob/main/pkgs/aux/entropy/ix.sh#L10) - here is all the pulp, we pass seed to openssl.
+During the process, I created an interesting artifact - a "package with prepared entropy". This is how I request that it be available at the time of keys preparation - [https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/hostkeys/ix.sh#L4](https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/hostkeys/ix.sh#L4), and this is what its implementation looks like - [https://github.com/pg83/ix/blob/main/pkgs/aux/entropy/ix.sh](https://github.com/pg83/ix/blob/main/pkgs/aux/entropy/ix.sh),
+[https://github.com/pg83/ix/blob/main/pkgs/aux/entropy/ix.sh#L10](https://github.com/pg83/ix/blob/main/pkgs/aux/entropy/ix.sh#L10) - this is where all the pulp is, passing the seed to OpenSSL.
 
 ```
 pg-> ./ix build aux/entropy 
