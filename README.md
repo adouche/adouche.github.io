@@ -17,7 +17,7 @@
 [Static VS dynamic linking](blog/12_Linking.md)<br>
 [Tired with ~~all these~~ temporary files](blog/13_Temporary_files.md)<br>
 [Ranting on glibc](blog/14_Glibc.md)<br>
-[Generating stable unique keys](blog/Unique_keys.md)<br>
+[Generating stable unique keys](blog/15_Unique_keys.md)<br>
 [Non-boring routine updates](blog/Updates.md)<br>
 [One more why for stal/IX](blog/Stalix4.md)<br>
 [Сross-compile gracefully using "ix run"](blog/IXrun.md)<br>
