@@ -59,6 +59,15 @@
                          100 ... /ix/store/7aP.../share/entropy
                 </p>
                 <p class="pw-post-body-paragraph">
+                    This artifact is quite useful because during system installation there are many processes that require generating a unique host identifier, 
+                    such as /etc/machine-id, which is used in D-Bus.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Overall, it is clear that are not making the process worse compared to how it was before - we used to "use entropy at the current moment in time 
+                    as a seed to generate some files", and now we "save entropy at some point in time and use it to generate these same files again and again." 
+                    That is, we store the seed, not the result of generation.
+                </p>
+                <p class="pw-post-body-paragraph">
                     Actually, the solution to this problem was divided into two parts:
                 </p>
           </section>
