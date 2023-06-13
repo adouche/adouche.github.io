@@ -10,11 +10,11 @@ Usage example:
 # ix mut system bin/dropbear/runit --seed="dead beef"
 ```
 
-When installing dropbear (this is such an alternative to ssh) it wants to generate host keys that should not change for about the entire lifetime of the installed system.
+When installing Dropbear (such an alternative to SSH), it wants to generate host keys that should not change for about the lifetime of the installed system.
 
-It uses random() for this, which does not correspond to the bright idea of "clean build" - the package is a pure function from its inputs (I remind you that this is an important condition for the ability to reuse RO packages between different users (not necessarily even on the same host)).
+It uses random() for this, which does not correspond to the bright idea of "clean build" - the package is a pure function of its inputs (as a reminder, this is an important condition for the ability to reuse RO packages between different users (not necessarily even on the same host)).
 
-Actually, the solution to this problem is divided into 2 parts:
+Actually, the solution to this problem was divided into two parts:
 
 * Slightly rewrite the key generation utility so that it does not go to /dev/random, but to a pre-prepared file - [https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/keygen/ix.sh#L7](https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/keygen/ix.sh#L7).
 
