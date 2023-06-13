@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+    <meta property="article:published_time" content="2022-12-15T21:21:12.000Z" />
+</head>
+
+<body>
+    <main>
+        <article>
+            <section>
+                <div class="pw-post-title">
+                    <h1>Ranting on glibc</h1>
+                </div>
+                <p class="pw-post-body-paragraph">
+                    Friday evening rant
+                </p>
+                <p class="pw-post-body-paragraph">
+                   There is a library called glibc, whose authors are known for wanting to make everything "better" than others.<br>
+                   The problem is that their solutions often turn out to be just "different", and then it's like - "Fuck, who came up with this and why".
+                </p>
+                <p class="pw-post-body-paragraph">
+                    There is such a function - pthread_cancel().
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Do not use it, anywhere, ever. Its behavior is poorly defined and in real life, it will lead you to some kind of deadlock. 
+                    Because you won’t write tests for this section of code anyway.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    According to the standard, all it should do is call specially registered cleanup handlers and terminate the thread. 
+                    But colleagues from glibc decided that this was not enough! And they added the following feature - they call the stack unwinder 
+                    to destroy local objects on the stack in this thread.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    How is it done?
+                </p>
+                <ul>
+                <li>We load the unwinder from gcc at runtime. No, it doesn't have to be the same unwinder that the rest of the program uses, it can be statically linked
+                    <a href="https://codebrowser.dev/glibc/glibc/nptl/pthread_cancel.c.html#99">https://codebrowser.dev/glibc/glibc/nptl/pthread_cancel.c.html#99</a>.</li>
+                <li>We throw an exception unknown to science 
+                    <a href="https://codebrowser.dev/glibc/glibc/nptl/unwind.c.html#130">https://codebrowser.dev/glibc/glibc/nptl/unwind.c.html#130</a>.<br>
+                    Question for experts  - how does this exception interact with C++ exceptions? And with catch (...)?</li>
+                <li>I did not find the code that catches it at the top of the stack, but it used to be quite intricate. Normal people would create one source 
+                    file with the extension .cxx and catch it through the usual exception mechanism, but that's not the path of glibc developers.</li>
+                </ul>                
+                <p class="pw-post-body-paragraph">
+                    So, if your program carries its own unwind runtime, expect an arbitrary crash as a result of interaction with glibc/pthread_cancel.
+                </p>
+          </section>
+        </article>
+    </main>
+</body>
+
+</html>
