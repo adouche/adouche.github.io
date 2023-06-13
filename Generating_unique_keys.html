@@ -51,7 +51,12 @@
                     - this is where all the pulp is, passing the seed to OpenSSL.                    
                 </p>
                 <p class="pw-post-body-paragraph">
-                    Actually, the solution to this problem was divided into two parts:
+                    pg-> ./ix build aux/entropy 
+                      --entropy_seed="dead beef" 
+                      --entropy_size=100
+                    READY /ix/store/7aP.../touch
+                    pg-> ls -ls /ix/store/7aP.../share/entropy
+                         100 ... /ix/store/7aP.../share/entropy
                 </p>
                 <p class="pw-post-body-paragraph">
                     Actually, the solution to this problem was divided into two parts:
