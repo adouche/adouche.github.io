@@ -3,7 +3,7 @@
 
 #bootstrap #ix
 
-I solved a long-standing problem here - generating unique keys for various kinds of programs, but so that they are stable from generation to generation, that is, if you need to rebuild the package with the same input data, then the resulting keys should be the same.
+I solved a long-standing problem - generating unique keys for various programs, but in such a way that they are resistant from generation to generation, meaning that if the package needs to be rebuilt with the same input data, then the resulting keys should be the same.
 
 Usage example:
 ```shell
