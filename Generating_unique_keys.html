@@ -26,12 +26,11 @@
                     When installing Dropbear (such an alternative to SSH), it wants to generate host keys that should not change for about the lifetime of the installed system.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    According to the standard, all it should do is call specially registered cleanup handlers and terminate the thread. 
-                    But colleagues from glibc decided that this was not enough! And they added the following feature - they call the stack unwinder 
-                    to destroy local objects on the stack in this thread.
+                    It uses random() for this, which does not correspond to the bright idea of "clean build" - the package is a pure function of its inputs 
+                    (as a reminder, this is an important condition for the ability to reuse RO packages between different users (not necessarily even on the same host)).
                 </p>
                 <p class="pw-post-body-paragraph">
-                    How is it done?
+                    Actually, the solution to this problem was divided into two parts:
                 </p>
                 <ul>
                 <li>We load the unwinder from gcc at runtime. No, it doesn't have to be the same unwinder that the rest of the program uses, it can be statically linked
