@@ -44,12 +44,12 @@ I understand this as the beginnings of package management in pkg-config - a set 
 
 In the case of static libraries, we get just such strange nonsense, from all the absolute paths combined through “;”.
 
-What incorrectly called or understood what, I did not begin to understand, because I already have information about transitive dependencies, no need to duplicate it in .pc files.
+I didn't bother to investigate who called or understood whom incorrectly because I already have information about transitive dependencies and don't need it duplicated in .pc files.
 
-So I just took down it to fuck from all .pc - [https://github.com/pg83/ix/commit/bac7f907bc4d8841e4eff9aba93c2a0bd765fc96](https://github.com/pg83/ix/commit/bac7f907bc4d8841e4eff9aba93c2a0bd765fc96).
+So I just deleted it from all .pc files - [https://github.com/pg83/ix/commit/bac7f907bc4d8841e4eff9aba93c2a0bd765fc96](https://github.com/pg83/ix/commit/bac7f907bc4d8841e4eff9aba93c2a0bd765fc96).
 
-In general, I try not to use such global text replacements for generated files, but sometimes you can’t do without it, otherwise static build support would turn into huge patches on top of all known build systems.
+Generally, I try not to apply such global text replacements on generated files, but sometimes it can’t be avoided, otherwise static build support would turn into huge patches on top of all known build systems.
 
-For example, here is a fix that needs to be applied to all meson.build files - [https://github.com/pg83/ix/blob/main/pkgs/die/c/meson.sh#L107-L109](https://github.com/pg83/ix/blob/main/pkgs/die/c/meson.sh#L107-L109).
+Here, for example, is a fix that needs to be applied to all meson.build files - [https://github.com/pg83/ix/blob/main/pkgs/die/c/meson.sh#L107-L109](https://github.com/pg83/ix/blob/main/pkgs/die/c/meson.sh#L107-L109).
 
-Unfortunately, in meson (and in cmake, but not in autoconf!) the author of the build scripts can say "build this as .so, even if the user of the package asked to build statically" without the possibility of override.
+Unfortunately, in Meson (and CMake, but not in Autoconf!), the author of build scripts can say "build this as .so, even if the package user asked to build statically" without the ability to override.
