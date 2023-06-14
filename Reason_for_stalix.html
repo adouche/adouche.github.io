@@ -1,1 +1,94 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+    <meta property="article:published_time" content="2023-01-01T18:35:26.000Z" />
+</head>
+
+<body>
+    <main>
+        <article>
+            <section>
+                <div class="pw-post-title">
+                    <h1>Non-boring routine updates</h1>
+                </div>
+                <p class="pw-post-body-paragraph">
+                    I was doing routine software updates.
+                </p>
+                <p class="pw-post-body-paragraph">
+                   The CI pipeline is really cool and convenient because, otherwise, how else would I have noticed that with the new libpcap the Wireshark build started to fail?
+                </p>
+                <p class="pw-post-body-paragraph">
+                    It started failing with a very strange error message:
+                </p>
+                <p class="pw-post-body-paragraph">
+                    "ninja: Entering directory `/ix/build/mcpe98eHnOfPdF2O/obj'
+                    ninja: error: 
+                    '/ix/store/iDo8RMwHvMz5h6hQ-lib-pcap/lib/libpcap.a;/ix/store/3KBy5KQKrWQR6EuF-lib-nl/lib/libnl-genl-3.a;/ix/store/
+                    3KBy5KQKrWQR6EuF-lib-nl/lib/libnl-3.a', needed by 'run/tshark', 
+                    missing and no known rule to make it"
+                </p>
+                <p class="pw-post-body-paragraph">
+                    It says here that CMake generated an incorrect ninja file. Somewhere in the list of dependencies for some target, there is a strange 
+                    string - 3 static libraries combined with `;`.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Actually, it's pretty clear that CMake just writes some string there that it got from pkg-config, and something unexpected turned out to be there.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Here is the diff in libpcap.pc of two different library versions:
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Name: libpcap
+                     Description: Platform-independent network 
+                        traffic capture library
+                    +Version: 1.10.2
+                    +Requires.private: libnl-genl-3.0 
+                    +Libs: -L${libdir} -Wl,-rpath,${libdir} -lpcap
+                    -Version: 1.10.1
+                    -Libs: -L${libdir} -lpcap
+                </p>                
+                <p class="pw-post-body-paragraph">
+                    The Requires.private field is what raised suspicion, of course 
+                    <a href="https://people.freedesktop.org/~dbn/pkg-config-guide.html">https://people.freedesktop.org/~dbn/pkg-config-guide.html</a>.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    "Requires.private: A list of private packages required by this package but not exposed to applications. 
+                    The version specific rules from the Requires field also apply here".
+                </p>
+                <p class="pw-post-body-paragraph">
+                    The most convoluted explanation that, IMHO, explains nothing.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    I understand this as the beginnings of package management in pkg-config - a set of libraries that must be in the system 
+                    (because they are needed by dependencies of some .so in the package).
+                </p>
+                <p class="pw-post-body-paragraph">
+                    In the case of static libraries, we get just such strange nonsense, from all the absolute paths combined through “;”.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    I didn't bother to investigate who called or understood whom incorrectly because I already have information about transitive dependencies 
+                    and don't need it duplicated in .pc files.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    So I just deleted it from all .pc files - 
+                    <a href="https://github.com/pg83/ix/commit/bac7f907bc4d8841e4eff9aba93c2a0bd765fc96">https://github.com/pg83/ix/commit/bac7f907bc4d8841e4eff9aba93c2a0bd765fc96</a>.                    
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Generally, I try not to apply such global text replacements on generated files, but sometimes it can’t be avoided, otherwise 
+                    static build support would turn into huge patches on top of all known build systems.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Here, for example, is a fix that needs to be applied to all meson.build files - 
+                    <a href="https://github.com/pg83/ix/blob/main/pkgs/die/c/meson.sh#L107-L109">https://github.com/pg83/ix/blob/main/pkgs/die/c/meson.sh#L107-L109</a>.                
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Unfortunately, in Meson (and CMake, but not in Autoconf!), the author of build scripts can say "build this as .so, even if the package user asked 
+                    to build statically" without the ability to override.                
+                </p>
+          </section>
+        </article>
+    </main>
+</body>
+
+</html>
