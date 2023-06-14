@@ -3,11 +3,11 @@
 
 #pkgconfig #CI
 
-Handled routine software updates.
+I was doing routine software updates.
 
-CI is very cool and convenient, because how else would I notice that, with the new libpcap, the wireshark build started to fall?
+The CI pipeline is really cool and convenient because, otherwise, how else would I have noticed that with the new libpcap the Wireshark build started to fail?
 
-It started crashing with a very strange error message:
+It started failing with a very strange error message:
 
 ```shell
 "ninja: Entering directory `/ix/build/mcpe98eHnOfPdF2O/obj'
@@ -17,9 +17,9 @@ ninja: error:
 missing and no known rule to make it"
 ```
 
-It really says here that cmake generated an incorrect ninja file - somewhere there, in the list of dependencies of some target, has got such a strange line - 3 static libraries combined through `;`.
+It says here that CMake generated an incorrect ninja file. Somewhere in the list of dependencies for some target, there is a strange string - 3 static libraries combined with `;`.
 
-In fact, it's pretty clear that cmake just writes there some line that it received from pkg-config, and something unexpected turned out to be there.
+Actually, it's pretty clear that CMake just writes some string there that it got from pkg-config, and something unexpected turned out to be there.
 
 Here is a diff in libpcap.pc of two different library versions:
 
