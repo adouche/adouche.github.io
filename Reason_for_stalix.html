@@ -23,69 +23,47 @@
                     The "strangeness" was due to the difference in behavior of the ssh daemon in interactive vs. batch mode.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    "ninja: Entering directory `/ix/build/mcpe98eHnOfPdF2O/obj'
-                    ninja: error: 
-                    '/ix/store/iDo8RMwHvMz5h6hQ-lib-pcap/lib/libpcap.a;/ix/store/3KBy5KQKrWQR6EuF-lib-nl/lib/libnl-genl-3.a;/ix/store/
-                    3KBy5KQKrWQR6EuF-lib-nl/lib/libnl-3.a', needed by 'run/tshark', 
-                    missing and no known rule to make it"
+                    This strangeness is actually very easily explained - it is caused by confusion between the login shell and the interactive shell!<br> 
+                    Unfortunately, these modes often coexist, so there is a temptation to put your settings for the interactive shell into the login shell configuration files.<br>
+                    But this is fundamentally wrong!                
                 </p>
                 <p class="pw-post-body-paragraph">
-                    It says here that CMake generated an incorrect ninja file. Somewhere in the list of dependencies for some target, there is a strange 
-                    string - 3 static libraries combined with `;`.
+                    The login shell is, roughly speaking, the first shell in the chain for your user. Usually, it is started by some display manager, 
+                    like mingetty, agetty, emptty, greetd, sddm, and so on; ssh, putty, telnet, mosh, etc. - these are also things that spawn the first shell in the chain!
                 </p>
                 <p class="pw-post-body-paragraph">
-                    Actually, it's pretty clear that CMake just writes some string there that it got from pkg-config, and something unexpected turned out to be there.
+                    The interactive shell is where you enter commands from the keyboard.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    Here is the diff in libpcap.pc of two different library versions:
+                    These are, of course, quite different things.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    Name: libpcap
-                     Description: Platform-independent network 
-                        traffic capture library
-                    +Version: 1.10.2
-                    +Requires.private: libnl-genl-3.0 
-                    +Libs: -L${libdir} -Wl,-rpath,${libdir} -lpcap
-                    -Version: 1.10.1
-                    -Libs: -L${libdir} -lpcap
+                    (By the way, a quick aside: if you have cases where the same elements are repeated in PATH - this means that you do not understand the difference 
+                    between these entities, and sometimes the construction of adding something to PATH works twice because it is in the wrong file.)
+                </p>
+                <p class="pw-post-body-paragraph">
+                    The problem here is further exacerbated by the fact that different shells read different startup files depending on the mode.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    For example, bash reads /etc/profile in both interactive and login mode, but most other shells don't!
                 </p>                
                 <p class="pw-post-body-paragraph">
-                    The Requires.private field is what raised suspicion, of course 
-                    <a href="https://people.freedesktop.org/~dbn/pkg-config-guide.html">https://people.freedesktop.org/~dbn/pkg-config-guide.html</a>.
+                    In short, here we can clearly see trash, frenzy, and sodomy, a layering of habits, misunderstandings, and so on. Evaluate, for example, /etc/environment - 
+                    <a href="https://superuser.com/questions/664169/what-is-the-difference-between-etc-environment-and-etc-profile">https://superuser.com/questions/664169/what-is-the-difference-between-etc-environment-and-etc-profile</a>
+                    - this is an upyachka born of the fact that sometimes you need to do "login" but without "shell", but variables have to be taken from somewhere!                
                 </p>
                 <p class="pw-post-body-paragraph">
-                    "Requires.private: A list of private packages required by this package but not exposed to applications. 
-                    The version specific rules from the Requires field also apply here".
+                    Therefore, of course, I intend to do everything "right" (*) in stal/IX, rather than reproduce the hack that everyone is used to!
                 </p>
                 <p class="pw-post-body-paragraph">
-                    The most convoluted explanation that, IMHO, explains nothing.
+                    Why?
                 </p>
                 <p class="pw-post-body-paragraph">
-                    I understand this as the beginnings of package management in pkg-config - a set of libraries that must be in the system 
-                    (because they are needed by dependencies of some .so in the package).
+                    Because if I was satisfied with this hack, I would have installed Fedora! And I need better!
                 </p>
                 <p class="pw-post-body-paragraph">
-                    In the case of static libraries, we get just such strange nonsense, from all the absolute paths combined through “;”.
-                </p>
-                <p class="pw-post-body-paragraph">
-                    I didn't bother to investigate who called or understood whom incorrectly because I already have information about transitive dependencies 
-                    and don't need it duplicated in .pc files.
-                </p>
-                <p class="pw-post-body-paragraph">
-                    So I just deleted it from all .pc files - 
-                    <a href="https://github.com/pg83/ix/commit/bac7f907bc4d8841e4eff9aba93c2a0bd765fc96">https://github.com/pg83/ix/commit/bac7f907bc4d8841e4eff9aba93c2a0bd765fc96</a>.                    
-                </p>
-                <p class="pw-post-body-paragraph">
-                    Generally, I try not to apply such global text replacements on generated files, but sometimes it can’t be avoided, otherwise 
-                    static build support would turn into huge patches on top of all known build systems.
-                </p>
-                <p class="pw-post-body-paragraph">
-                    Here, for example, is a fix that needs to be applied to all meson.build files - 
-                    <a href="https://github.com/pg83/ix/blob/main/pkgs/die/c/meson.sh#L107-L109">https://github.com/pg83/ix/blob/main/pkgs/die/c/meson.sh#L107-L109</a>.                
-                </p>
-                <p class="pw-post-body-paragraph">
-                    Unfortunately, in Meson (and CMake, but not in Autoconf!), the author of build scripts can say "build this as .so, even if the package user asked 
-                    to build statically" without the ability to override.                
+                    (*) Right - of course, ssh and the like should start the first shell in login mode. Even better - for each shell, 
+                    the user should figure out which files to put their interactive settings (like completion) in and where to put login settings.
                 </p>
           </section>
         </article>
