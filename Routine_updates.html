@@ -10,20 +10,23 @@
         <article>
             <section>
                 <div class="pw-post-title">
-                    <h1>Generating stable unique keys</h1>
+                    <h1>Non-boring routine updates</h1>
                 </div>
                 <p class="pw-post-body-paragraph">
-                    I solved a long-standing problem - generating unique keys for various programs, but in such a way that they are resistant from generation 
-                    to generation, meaning that if the package needs to be rebuilt with the same input data, then the resulting keys should be the same.
+                    I was doing routine software updates.
                 </p>
                 <p class="pw-post-body-paragraph">
-                   Usage example:
+                   The CI pipeline is really cool and convenient because, otherwise, how else would I have noticed that with the new libpcap the Wireshark build started to fail?
                 </p>
                 <p class="pw-post-body-paragraph">
-                    # ix mut system bin/dropbear/runit --seed="dead beef"
+                    It started failing with a very strange error message:
                 </p>
                 <p class="pw-post-body-paragraph">
-                    When installing Dropbear (such an alternative to SSH), it wants to generate host keys that should not change for about the lifetime of the installed system.
+                    "ninja: Entering directory `/ix/build/mcpe98eHnOfPdF2O/obj'
+                    ninja: error: 
+                    '/ix/store/iDo8RMwHvMz5h6hQ-lib-pcap/lib/libpcap.a;/ix/store/3KBy5KQKrWQR6EuF-lib-nl/lib/libnl-genl-3.a;/ix/store/
+                    3KBy5KQKrWQR6EuF-lib-nl/lib/libnl-3.a', needed by 'run/tshark', 
+                    missing and no known rule to make it"
                 </p>
                 <p class="pw-post-body-paragraph">
                     It uses random() for this, which does not correspond to the bright idea of "clean build" - the package is a pure function of its inputs 
