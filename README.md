@@ -19,7 +19,7 @@
 [Ranting on glibc](blog/14_Glibc.md)<br>
 [Generating stable unique keys](blog/15_Unique_keys.md)<br>
 [Non-boring routine updates](blog/16_Updates.md)<br>
-[One more why for stal/IX](blog/Stalix4.md)<br>
+[One more reason for stal/IX](blog/17_Stalix4.md)<br>
 [Сross-compile gracefully using "ix run"](blog/IXrun.md)<br>
 [Developed a portal for mesa update](blog/Portal.md)<br>
 [The benefits of a reboot](blog/Reboot.md)<br>
