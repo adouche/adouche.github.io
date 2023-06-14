@@ -3,15 +3,15 @@
 
 #ix #stal/ix #loginshell #interactiveshell
 
-In previous posts I wrote why I started my Linux distribution (Why stal/IX. [Part 1](9_Stalix1.md), [Part 2](10_Stalix2.md), [Part 3](11_Stalix3.md).
+In previous posts, I wrote about why I started my own Linux distribution. (Why stal/IX. [Part 1](9_Stalix1.md), [Part 2](10_Stalix2.md), [Part 3](11_Stalix3.md).
 
-In short, a lot of things done in Unix/Linux piss me off, and the easiest way to fix them is to have control over the whole environment!
+In short, many things in Unix/Linux annoy me, and the easiest way to fix them is to have control over the entire environment!
 
-Recently I was figuring out with a colleague why ssh works weirdly on a machine with stal/IX installed. The "weirdness" was the difference in behavior of ssh daemon in interactive vs. batch mode.
+Recently, I was troubleshooting with a colleague about why ssh was behaving strangely on a machine with stal/IX installed. The "strangeness" was due to the difference in behavior of the ssh daemon in interactive vs. batch mode.
 
-In fact, this weirdness is very easy to explain - it is caused by a confusion between the login shell and the interactive shell!
+This strangeness is actually very easily explained - it is caused by confusion between the login shell and the interactive shell!
 
-Unfortunately, these modes often coexist, so there is a temptation to stuff your settings for the interactive shell into the configuration files for the login shell.
+Unfortunately, these modes often coexist, so there is a temptation to put your settings for the interactive shell into the login shell configuration files.
 
 But this is fundamentally wrong!
 
