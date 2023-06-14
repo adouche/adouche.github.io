@@ -15,24 +15,24 @@ Unfortunately, these modes often coexist, so there is a temptation to put your s
 
 But this is fundamentally wrong!
 
-Login shell is, if very roughly, the first shell in the chain for your user. Usually some display manager starts it, like mingetty, agetty, emptty, greetd, sddm, and thousands of them; ssh, putty, telnet, mosh, and so on, are also things that spawn the first shell in the chain!
+The login shell is, roughly speaking, the first shell in the chain for your user. Usually, it is started by some display manager, like mingetty, agetty, emptty, greetd, sddm, and so on; ssh, putty, telnet, mosh, etc. - these are also things that spawn the first shell in the chain!
 
 The interactive shell is where you enter commands from the keyboard.
 
 These are, of course, quite different things.
 
-(By the way, a little aside - if you have cases when the same elements are repeated in PATH - this means that you do not understand the difference between these entities, and sometimes the construction of adding something to PATH works twice, because it's in the wrong file.)
+(By the way, a quick aside: if you have cases where the same elements are repeated in PATH - this means that you do not understand the difference between these entities, and sometimes the construction of adding something to PATH works twice because it is in the wrong file.)
 
-The problem here is further exacerbated by the fact that different shell read different startup files, depending on the mode.
+The problem here is further exacerbated by the fact that different shells read different startup files depending on the mode.
 
-For example, bash reads /etc/profile in both interactive and login mode. And most other shell don't!
+For example, bash reads /etc/profile in both interactive and login mode, but most other shells don't!
 
-In short, trash, waste, and sodomy, layering of habits, misunderstandings, and so on are clearly visible here. Evaluate for example only /etc/environment - [https://superuser.com/questions/664169/what-is-the-difference-between-etc-environment-and-etc-profile](https://superuser.com/questions/664169/what-is-the-difference-between-etc-environment-and-etc-profile) - this is upyachka, born from the fact that sometimes you need to do "login", but without "shell", but variables have to be taken from somewhere!
+In short, here we can clearly see trash, frenzy, and sodomy, a layering of habits, misunderstandings, and so on. Evaluate, for example, /etc/environment - [https://superuser.com/questions/664169/what-is-the-difference-between-etc-environment-and-etc-profile](https://superuser.com/questions/664169/what-is-the-difference-between-etc-environment-and-etc-profile) - this is an upyachka born of the fact that sometimes you need to do "login" but without "shell", but variables have to be taken from somewhere!
 
-So, of course, my intention in stal/IX is to do everything "right" **(\*)**, and not to reproduce the hack that everyone is used to!
+Therefore, of course, I intend to do everything "right" **(\*)** in [stal/IX](https://github.com/stal-ix), rather than reproduce the hack that everyone is used to!
 
 Why?
 
-Because if this hack suited me, I would install Fedora! And I need better!
+Because if I was satisfied with this hack, I would have installed Fedora! And I need better!
 
-**(\*)** Right - of course ssh and others should start the first shell in login mode. Even better - for each shell, the user must figure out which files to put interactive settings (such as completion), and which - login.
+**(\*)** Right - of course, ssh and the like should start the first shell in login mode. Even better - for each shell, the user should figure out which files to put their interactive settings (like completion) in and where to put login settings.
