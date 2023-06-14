@@ -7,7 +7,7 @@ In previous posts, I wrote about why I started my own Linux distribution. (Why s
 
 In short, many things in Unix/Linux annoy me, and the easiest way to fix them is to have control over the entire environment!
 
-Recently, I was troubleshooting with a colleague about why ssh was behaving strangely on a machine with [stal/IX](https://github.com/stal-ix)installed. The "strangeness" was due to the difference in behavior of the ssh daemon in interactive vs. batch mode.
+Recently, I was troubleshooting with a colleague about why ssh was behaving strangely on a machine with [stal/IX](https://github.com/stal-ix) installed. The "strangeness" was due to the difference in behavior of the ssh daemon in interactive vs. batch mode.
 
 This strangeness is actually very easily explained - it is caused by confusion between the login shell and the interactive shell!
 
