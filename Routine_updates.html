@@ -49,8 +49,26 @@
                     -Libs: -L${libdir} -lpcap
                 </p>                
                 <p class="pw-post-body-paragraph">
-                    Thus, we have a kind of "random" set of keys, which is a pure function of seed. The task of the user of the system when setting up the machine 
-                    is to specify this seed so that it is unique (this can be done by the installer transparently for the user).
+                    The Requires.private field is what raised suspicion, of course 
+                    <a href="https://people.freedesktop.org/~dbn/pkg-config-guide.html">https://people.freedesktop.org/~dbn/pkg-config-guide.html</a>.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    "Requires.private: A list of private packages required by this package but not exposed to applications. 
+                    The version specific rules from the Requires field also apply here".
+                </p>
+                <p class="pw-post-body-paragraph">
+                    The most convoluted explanation that, IMHO, explains nothing.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    I understand this as the beginnings of package management in pkg-config - a set of libraries that must be in the system 
+                    (because they are needed by dependencies of some .so in the package).
+                </p>
+                <p class="pw-post-body-paragraph">
+                    In the case of static libraries, we get just such strange nonsense, from all the absolute paths combined through “;”.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    I didn't bother to investigate who called or understood whom incorrectly because I already have information about transitive dependencies 
+                    and don't need it duplicated in .pc files.
                 </p>
                 <p class="pw-post-body-paragraph">
                     During the process, I created an interesting artifact - a "package with prepared entropy". This is how I request that it be available at the time of keys 
