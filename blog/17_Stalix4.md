@@ -1,9 +1,9 @@
-## One more why for stal/IX
+## One more reason for stal/IX
 <sup> January 11, 2023 </sup>
 
 #ix #stal/ix #loginshell #interactiveshell
 
-In previous posts I wrote why I started my Linux distribution (Why stal/IX. [Part 1](BLOG.md#why-stalix-part-1), [Part 2](BLOG.md#part-two-why-this-way-not-otherwise), [Part 3](BLOG.md#why-stalix-part-3)).
+In previous posts I wrote why I started my Linux distribution (Why stal/IX. [Part 1](9_Stalix1.md), [Part 2](10_Stalix2.md), [Part 3](11_Stalix3.md).
 
 In short, a lot of things done in Unix/Linux piss me off, and the easiest way to fix them is to have control over the whole environment!
 
