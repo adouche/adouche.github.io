@@ -21,7 +21,7 @@ It says here that CMake generated an incorrect ninja file. Somewhere in the list
 
 Actually, it's pretty clear that CMake just writes some string there that it got from pkg-config, and something unexpected turned out to be there.
 
-Here is a diff in libpcap.pc of two different library versions:
+Here is the diff in libpcap.pc of two different library versions:
 
 ```shell
 Name: libpcap
@@ -34,15 +34,15 @@ Name: libpcap
 -Libs: -L${libdir} -lpcap
 ```
 
-Suspicion, of course, caused the Requires.private field [https://people.freedesktop.org/~dbn/pkg-config-guide.html](https://people.freedesktop.org/~dbn/pkg-config-guide.html).
+The Requires.private field is what raised suspicion, of course [https://people.freedesktop.org/~dbn/pkg-config-guide.html](https://people.freedesktop.org/~dbn/pkg-config-guide.html).
 
 *"Requires.private: A list of private packages required by this package but not exposed to applications. The version specific rules from the Requires field also apply here".*
 
-The most confusing explanation, which IMHO does not explain anything.
+The most convoluted explanation that, IMHO, explains nothing.
 
-I understand this as the beginnings of package management in pkg-config - a set of libraries that should be in the system (because they are needed by dependencies for some .so  in the package).
+I understand this as the beginnings of package management in pkg-config - a set of libraries that must be in the system (because they are needed by dependencies of some .so in the package).
 
-In the case of static libraries, we get just such a strange hat, from all absolute paths, combined through `;`.
+In the case of static libraries, we get just such strange nonsense, from all the absolute paths combined through “;”.
 
 What incorrectly called or understood what, I did not begin to understand, because I already have information about transitive dependencies, no need to duplicate it in .pc files.
 
