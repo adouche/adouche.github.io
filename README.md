@@ -41,4 +41,5 @@
 [Ranting on glibc](Ranting_on_glibc.html)<br>
 [Generating stable unique keys](Generating_unique_keys.html)<br>
 [Non-boring routine updates](Routine_updates.html)<br>
+[One more reason for stal/IX](Reason_for_stalix.html)<br>
 
