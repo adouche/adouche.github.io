@@ -71,39 +71,20 @@
                     and don't need it duplicated in .pc files.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    During the process, I created an interesting artifact - a "package with prepared entropy". This is how I request that it be available at the time of keys 
-                    preparation - <a href="https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/hostkeys/ix.sh#L4">https://github.com/pg83/ix/blob/main/pkgs/bin/dropbear/runit/hostkeys/ix.sh#L4</a>,
-                    and this is what its implementation looks like - 
-                    <a href="https://github.com/pg83/ix/blob/main/pkgs/aux/entropy/ix.sh">https://github.com/pg83/ix/blob/main/pkgs/aux/entropy/ix.sh</a>,
-                    <a href="https://github.com/pg83/ix/blob/main/pkgs/aux/entropy/ix.sh#L10">https://github.com/pg83/ix/blob/main/pkgs/aux/entropy/ix.sh#L10</a> 
-                    - this is where all the pulp is, passing the seed to OpenSSL.                    
+                    So I just deleted it from all .pc files - 
+                    <a href="https://github.com/pg83/ix/commit/bac7f907bc4d8841e4eff9aba93c2a0bd765fc96">https://github.com/pg83/ix/commit/bac7f907bc4d8841e4eff9aba93c2a0bd765fc96</a>.                    
                 </p>
                 <p class="pw-post-body-paragraph">
-                    pg-> ./ix build aux/entropy 
-                      --entropy_seed="dead beef" 
-                      --entropy_size=100
-                    READY /ix/store/7aP.../touch
-                    pg-> ls -ls /ix/store/7aP.../share/entropy
-                         100 ... /ix/store/7aP.../share/entropy
+                    Generally, I try not to apply such global text replacements on generated files, but sometimes it can’t be avoided, otherwise 
+                    static build support would turn into huge patches on top of all known build systems.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    This artifact is quite useful because during system installation there are many processes that require generating a unique host identifier, 
-                    such as /etc/machine-id, which is used in D-Bus.
+                    Here, for example, is a fix that needs to be applied to all meson.build files - 
+                    <a href="https://github.com/pg83/ix/blob/main/pkgs/die/c/meson.sh#L107-L109">https://github.com/pg83/ix/blob/main/pkgs/die/c/meson.sh#L107-L109</a>.                
                 </p>
                 <p class="pw-post-body-paragraph">
-                    Overall, it is clear that are not making the process worse compared to how it was before - we used to "use entropy at the current moment in time 
-                    as a seed to generate some files", and now we "save entropy at some point in time and use it to generate these same files again and again." 
-                    That is, we store the seed, not the result of generation.
-                </p>
-                <p class="pw-post-body-paragraph">
-                    By the way, I found something beautiful while reading the source code - 
-                    <a href="https://github.com/mkj/dropbear/blob/master/dbrandom.c#L270">https://github.com/mkj/dropbear/blob/master/dbrandom.c#L270</a>.<br>
-                    Here it is written how normal people gather initial entropy for work.                
-                </p>
-                <p class="pw-post-body-paragraph">
-                    (Those who tried to blame me for this file 
-                    <a href="https://github.com/catboost/catboost/blob/master/util/random/entropy.cpp#L40">https://github.com/catboost/catboost/blob/master/util/random/entropy.cpp#L40</a> 
-                    should be ashamed - many do it this way!)                
+                    Unfortunately, in Meson (and CMake, but not in Autoconf!), the author of build scripts can say "build this as .so, even if the package user asked 
+                    to build statically" without the ability to override.                
                 </p>
           </section>
         </article>
