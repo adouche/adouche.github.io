@@ -104,6 +104,7 @@
                 <p class="pw-post-body-paragraph">
                     What does this give us?
                 </p>
+                <p class="pw-post-body-paragraph">                
                 <ul>
                 <li><a href="https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/ix.sh">https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/ix.sh</a> 
                     - cheap auto-build and CI for other platforms. Adding AArch64 to auto-build only took two lines in the build files.<br>
@@ -112,7 +113,8 @@
                 <li>New possibilities for bootstrapping. For example, Go is currently not reproducible in terms of classic methods (package managers and build systems), 
                     because the latest version of Go compiled with a C compiler cannot build code for M1 and cannot be compiled on it. 
                     Now I can approach this problem by writing something like this in the Go build file:</li>
-                </ul>                
+                </ul>
+                </p>                
                 <p class="pw-post-body-paragraph">
                     {% block bld_tool %}
                     bin/qemu(for_target=linux-x86_64)
@@ -130,14 +132,28 @@
                     All auto-build cross-compiling solutions known to me are based on someone manually preparing pre-built tools, so they have a rather small scope.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    Why?
+                    In general, "ix run" (or any other meta-search system) certainly changes the approach to development a lot.
                 </p>                
                 <p class="pw-post-body-paragraph">
-                    Because if I was satisfied with this hack, I would have installed Fedora! And I need better!
+                    For example, now I build my Go portal like this - 
+                    <a href="https://github.com/pg83/portal/blob/main/build.sh">https://github.com/pg83/portal/blob/main/build.sh</a> 
                 </p>
                 <p class="pw-post-body-paragraph">
-                    (*) Right - of course, ssh and the like should start the first shell in login mode. Even better - for each shell, 
-                    the user should figure out which files to put their interactive settings (like completion) in and where to put login settings.
+                    ix run set/dev/go -- go build
+                </p>
+                <p class="pw-post-body-paragraph">
+                    "Somewhere out there" a temporary realm is built with all the necessary environment in which a freshly compiled go build is run on my project. 
+                    Overhead - fractions of a second.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Want cgo and a dependency on some C library?
+                </p>
+                <p class="pw-post-body-paragraph">
+                    ix run set/dev/go --cgo lib/gtk/3 -- go build ...
+                </p>                
+                <p class="pw-post-body-paragraph">
+                    I think that in the coming years, some other way of developing in OSS should go into oblivion because such meta-package systems are gradually becoming 
+                    more popular among the masses.
                 </p>
           </section>
         </article>
