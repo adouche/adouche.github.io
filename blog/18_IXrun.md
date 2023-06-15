@@ -98,9 +98,9 @@ bin/go/1.4/(target=linux-x86_64)
 ```
 <!-- {% endraw %} -->
 
-Raise in this assembly node qemu (which I built myself), linux kernel, go1.4, and run the bootstrap chain there. And it will work, including under host == darwin.
+Launch QEMU (which I built myself), Linux kernel, Go 1.4 in this build node and run the bootstrap chain there. And it will work, including under host == darwin.
 
-It seems to me now that I have achieved something that no one has done before in open source. All autobuild cross-compiling solutions known to me are based on the fact that someone prepared pre-built tools by hand, so they have a rather small scope.
+It seems to me now that I have achieved something that no one has done before in open source. All auto-build cross-compiling solutions known to me are based on someone manually preparing pre-built tools, so they have a rather small scope.
 
 Overall, "ix run" (or any other metasearch engine) certainly changes the approach to development a lot.
 
