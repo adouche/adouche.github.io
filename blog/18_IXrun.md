@@ -102,18 +102,18 @@ Launch QEMU (which I built myself), Linux kernel, Go 1.4 in this build node and 
 
 It seems to me now that I have achieved something that no one has done before in open source. All auto-build cross-compiling solutions known to me are based on someone manually preparing pre-built tools, so they have a rather small scope.
 
-Overall, "ix run" (or any other metasearch engine) certainly changes the approach to development a lot.
+In general, "ix run" (or any other meta-search system) certainly changes the approach to development a lot.
 
-For example, now I'm building my go-portal like this -
+For example, now I build my Go portal like this -
 [https://github.com/pg83/portal/blob/main/build.sh](https://github.com/pg83/portal/blob/main/build.sh).
 ```
 ix run set/dev/go -- go build
 ```
 
-"Somewhere out there" a temporary realm is being built, with all the needed environment, in which a freshly compiled go build is run on my project. Overhead - split second.
+"Somewhere out there" a temporary realm is built with all the necessary environment in which a freshly compiled go build is run on my project. Overhead - fractions of a second.
 
-Do you want cgo, and dependency on some C-library?
+Want cgo and a dependency on some C library?
 ```
 ix run set/dev/go --cgo lib/gtk/3 -- go build ...
 ```
-I think that in the coming years, some other way to be developed in OSS should go into oblivion, because such metapackage systems are gradually going to the masses.
+I think that in the coming years, some other way of developing in OSS should go into oblivion because such meta-package systems are gradually becoming more popular among the masses.
