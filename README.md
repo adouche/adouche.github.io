@@ -42,4 +42,4 @@
 [Generating stable unique keys](Generating_unique_keys.html)<br>
 [Non-boring routine updates](Routine_updates.html)<br>
 [One more reason for stal/IX](Reason_for_stalix.html)<br>
-
+[Cross-compile gracefully using "ix run"](Cross_compile_with_ ix_run.html)<br>
