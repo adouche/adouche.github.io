@@ -58,17 +58,42 @@
                     The further - the more!
                 </p>
                 <p class="pw-post-body-paragraph">
-                    These are, of course, quite different things.
+                    Cross-compiling with "ix run" has improved.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    (By the way, a quick aside: if you have cases where the same elements are repeated in PATH - this means that you do not understand the difference 
-                    between these entities, and sometimes the construction of adding something to PATH works twice because it is in the wrong file.)
+                    Now I can, for example, run:
                 </p>
                 <p class="pw-post-body-paragraph">
-                    The problem here is further exacerbated by the fact that different shells read different startup files depending on the mode.
+                    pg-> ./ix run \
+                        bin/qemu --for_target=aarch64-linux-user \
+                        bin/convert --target=linux-aarch64 \
+                        -- qemu-aarch64 '$(command -v convert)'
                 </p>
                 <p class="pw-post-body-paragraph">
-                    For example, bash reads /etc/profile in both interactive and login mode, but most other shells don't!
+                    What is written here?
+                </p>
+                <p class="pw-post-body-paragraph">
+                    It's written here: "Build me a realm with QEMU host capable of running Arm binaries, build me ImageMagick convert for AArch64, and run the 
+                    convert program in this realm".
+                </p>
+                <p class="pw-post-body-paragraph">
+                    What does this command output on the screen:
+                </p>
+                <p class="pw-post-body-paragraph">
+                    READY /ix/store/uFlUrE6DQMb3SC2l-rlm-ephemeral/touch
+                    Version: ImageMagick 7.1.0-58 Q16-HDRI aarch64  
+                        https://imagemagick.org
+                    Copyright: (C) 1999 ImageMagick Studio LLC
+                    License: https://imagemagick.org/script/license.php
+                    Features: Cipher DPC HDRI 
+                    Delegates (built-in): bzlib fontconfig 
+                        freetype heic jng jp2 jpeg jxl lcms 
+                        openexr pangocairo png raw tiff 
+                        webp zlib
+                    Compiler: gcc (4.2)
+                    Usage: convert [options ...] 
+                        file [ [options ...] 
+                        file ...] [options ...] file
                 </p>                
                 <p class="pw-post-body-paragraph">
                     In short, here we can clearly see trash, frenzy, and sodomy, a layering of habits, misunderstandings, and so on. Evaluate, for example, /etc/environment - 
