@@ -94,18 +94,44 @@
                     Usage: convert [options ...] 
                         file [ [options ...] 
                         file ...] [options ...] file
-                </p>                
-                <p class="pw-post-body-paragraph">
-                    In short, here we can clearly see trash, frenzy, and sodomy, a layering of habits, misunderstandings, and so on. Evaluate, for example, /etc/environment - 
-                    <a href="https://superuser.com/questions/664169/what-is-the-difference-between-etc-environment-and-etc-profile">https://superuser.com/questions/664169/what-is-the-difference-between-etc-environment-and-etc-profile</a>
-                    - this is an upyachka born of the fact that sometimes you need to do "login" but without "shell", but variables have to be taken from somewhere!                
                 </p>
                 <p class="pw-post-body-paragraph">
-                    Therefore, of course, I intend to do everything "right" (*) in stal/IX, rather than reproduce the hack that everyone is used to!
+                    Note that it is exactly the AArch64 binary convert that is run!
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Essentially, I can manipulate artifacts built for different target platforms in one build graph.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    What does this give us?
+                </p>
+                <ul>
+                <li><a href="https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/ix.sh">https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/ix.sh</a> 
+                    - cheap auto-build and CI for other platforms. Adding AArch64 to auto-build only took two lines in the build files.<br>
+                    <a href="https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/linux/aarch64/ix.sh">https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/linux/aarch64/ix.sh</a> 
+                    - the list of what I regularly build for AArch64 including GDB and even graphical programs!</li>
+                <li>New possibilities for bootstrapping. For example, Go is currently not reproducible in terms of classic methods (package managers and build systems), 
+                    because the latest version of Go compiled with a C compiler cannot build code for M1 and cannot be compiled on it. 
+                    Now I can approach this problem by writing something like this in the Go build file:</li>
+                </ul>                
+                <p class="pw-post-body-paragraph">
+                    {% block bld_tool %}
+                    bin/qemu(for_target=linux-x86_64)
+                    bin/kernel(target=linux-x86_64)
+                    bin/busybox(target=linux-x86_64)
+                    bin/go/1.4/(target=linux-x86_64)
+                    {% endblock %}                
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Launch QEMU (which I built myself), Linux kernel, Go 1.4 in this build node and run the bootstrap chain there. 
+                    And it will work, including under host == darwin.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    It seems to me now that I have achieved something that no one has done before in open source. 
+                    All auto-build cross-compiling solutions known to me are based on someone manually preparing pre-built tools, so they have a rather small scope.
                 </p>
                 <p class="pw-post-body-paragraph">
                     Why?
-                </p>
+                </p>                
                 <p class="pw-post-body-paragraph">
                     Because if I was satisfied with this hack, I would have installed Fedora! And I need better!
                 </p>
