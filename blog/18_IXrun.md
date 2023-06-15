@@ -3,7 +3,7 @@
 
 #ix #cross #cross_compilation #bootstrap #realm
 
-I wrote [here](BLOG.md#about-build-systems) how cool it would be to make a realm with one command, in which the specified libraries, specified build tools and wrappers for the compiler will be available, which will automatically configure the necessary paths to libraries and header files.
+I wrote [here](7_Build_systems.md) about how cool it would be to create a realm with one command, in which the specified libraries, specified build tools and wrappers for the compiler will be available, which will automatically configure the necessary paths to libraries and header files.
 
 ### Invented - done!
 
@@ -34,11 +34,10 @@ configuration written to .config
 > ix run set/menuconfig -- make HOSTCC=cc menuconfig
 ```
 
-Before, to run menuconfig for kernel settings, I ran the kernel build through IX, pressed ctrl-c, went to the remaining build folder, and there, in the configured environment, ran make menuconfig.<br>
-This was ok for me but, of course, ashamed to give away such to people.
+Previously, to run menuconfig for kernel settings, I would build the kernel through [IX](https://github.com/stal-ix/ix), press ctrl-c, go to the remaining build folder, and there, in the configured environment, run make menuconfig.<br>
+It was okay for me, but of course, it's embarrassing to give that away to others.
 
-I implemented the promised feature, about the ability to run a command in an arbitrary realm.<br> 
-It became convenient.
+I implemented the promised feature of the ability to run a command in an arbitrary realm. It became convenient.
 
 ### Furthermore!
 
