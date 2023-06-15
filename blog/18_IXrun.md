@@ -39,11 +39,11 @@ It was okay for me, but of course, it's embarrassing to give that away to others
 
 I implemented the promised feature of the ability to run a command in an arbitrary realm. It became convenient.
 
-### Furthermore!
+### The further - the more!
 
-How prettier cross-compilation became with “ix run”!
+Cross-compiling with "ix run" has improved.
 
-Now I can, for example, like this:
+Now I can, for example, run:
 
 ```shell
 pg-> ./ix run \
@@ -54,9 +54,9 @@ pg-> ./ix run \
 
 What is written here?
 
-It's written here: "build me a realm that has a host qemu that can run arm binaries, build me an image magick convert under aarch64, and run the convert program in this realm".
+It's written here: "Build me a realm with QEMU host capable of running Arm binaries, build me ImageMagick convert for AArch64, and run the convert program in this realm".
 
-What this command displays on the screen:
+What does this command output on the screen:
 
 ```shell
 READY /ix/store/uFlUrE6DQMb3SC2l-rlm-ephemeral/touch
@@ -75,16 +75,16 @@ Usage: convert [options ...]
     file ...] [options ...] file
 ```
 
-Please note that it is exactly the aarch64 binary “convert" that is run!
+Note that it is exactly the AArch64 binary convert that is run!
 
-In fact, I can manipulate artifacts assembled for different target platforms in one build graph.
+Essentially, I can manipulate artifacts built for different target platforms in one build graph.
 
 What does this give us?
 
-* [https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/ix.sh](https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/ix.sh) - cheap autobuild and CI for other platforms. Really, adding aarch64 to the autobuild took 2 lines in the build files.<br>
-[https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/linux/aarch64/ix.sh](https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/linux/aarch64/ix.sh) - a list of what I regularly build under aarch64. There is also gdb, and even graphics programs!
+* [https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/ix.sh](https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/ix.sh) - cheap auto-build and CI for other platforms. Adding AArch64 to auto-build only took two lines in the build files.<br>
+[https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/linux/aarch64/ix.sh](https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/linux/aarch64/ix.sh) - the list of what I regularly build for AArch64 including GDB and even graphical programs!
 
-* New opportunities for bootstrap. For example, Go is currently not reproducible in terms of the classical ways (package managers and build systems) because the latest version of Go compiled by the C compiler cannot build code under M1, and is not built under it. I can now approach this problem by writing in the build file for go something like:
+* New possibilities for bootstrapping. For example, Go is currently not reproducible in terms of classic methods (package managers and build systems), because the latest version of Go compiled with a C compiler cannot build code for M1 and cannot be compiled on it. Now I can approach this problem by writing something like this in the Go build file:
 
 <!-- {% raw %} -->
 
