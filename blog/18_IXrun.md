@@ -1,4 +1,4 @@
-## Сross-compile gracefully using "ix run"
+## Cross-compile gracefully using "ix run"
 <sup> February 27, 2023 </sup>
 
 #ix #cross #cross_compilation #bootstrap #realm
