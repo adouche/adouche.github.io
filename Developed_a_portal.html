@@ -1,1 +1,51 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+    <meta property="article:published_time" content="2022-03-08T11:55:57.000Z" />
+</head>
+
+<body>
+    <main>
+        <article>
+            <section>
+                <div class="pw-post-title">
+                    <h1>About the security model. Episode 2</h1>
+                </div>
+                <p class="pw-post-body-paragraph">
+                    Continuing the security model topic.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    <a href="https://www.opennet.ru/opennews/art.shtml?num=56818">https://www.opennet.ru/opennews/art.shtml?num=56818</a> <br>
+                    <a href="https://www.opennet.ru/opennews/art.shtml?num=56812">https://www.opennet.ru/opennews/art.shtml?num=56812</a>
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Another two vulnerabilities that I consider unimportant. And some thoughts on their implementation:
+                </p>
+                <ul>
+                <li><a href="https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/ix.sh">https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/ix.sh</a> 
+                    - cheap auto-build and CI for other platforms. Adding AArch64 to auto-build only took two lines in the build files.<br>
+                    <a href="https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/linux/aarch64/ix.sh">https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/linux/aarch64/ix.sh</a> 
+                    - the list of what I regularly build for AArch64 including GDB and even graphical programs!</li>
+                <li>New possibilities for bootstrapping. For example, Go is currently not reproducible in terms of classic methods (package managers and build systems), 
+                    because the latest version of Go compiled with a C compiler cannot build code for M1 and cannot be compiled on it. 
+                    Now I can approach this problem by writing something like this in the Go build file:</li>
+                </ul>                
+                <ol>
+                <li>Complex security models do not "compose" well, and end up being poorly interacting. Like selinux + cgroups;</li>
+                <li>The more complex the system, the harder it is to think about it for a leatherbag.</li>
+                </ol>                
+                <p class="pw-post-body-paragraph">
+                    Therefore, I believe that "all-or-nothing" type models rule due to their simplicity - it is harder to mess up in their implementation, 
+                    and they are easier to think about. And despite the fact that they cannot express various crap complex policies, they turn out to be safer.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    How to deal with inherent complexity? I believe that through hierarchy - the top level is divided into two "all/nothing" layers. 
+                    Within each layer you can run a container with the same simple division.                
+                </p>
+          </section>
+        </article>
+    </main>
+</body>
+
+</html>
