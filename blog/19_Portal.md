@@ -57,11 +57,11 @@ And, therefore, intervening in the driver selection code would not have helped b
 * The third way is to set this same variable to different values ​​for different applications.<br>
 It seemed like we set this environment variable in the wrapper for Epiphany, and everything works?<br> 
 Almost, but not quite.<br> 
-Any external programs that we can call to open files that have just been downloaded stop working. Because these are ordinary, good, programs that need a different value for this environment variable, common to the entire rest of the system.
+Various external programs stop working that we can call to open files that we just downloaded. Because these are ordinary, good programs that need a different value of this environment variable, common to the rest of the system.
 
-And then, of course, I remembered that epiphany can work in flatpak/snap, which means it can use portals, which means it can call external programs to view files through the portal.<br>
-Next, my portal opens the app for viewing in a clean environment that doesn't have the corrupted MESA_LOADER_DRIVER_OVERRIDE environment variable.
+And then, of course, I remembered that Epiphany can work in Flatpak/Snap, which means it can use portals, which means it can call external programs to view files through the portal.<br>
+Then my portal opens the app for viewing in a clean environment where there is no corrupted MESA_LOADER_DRIVER_OVERRIDE environment variable.
 
-(Actually, I cut a little here, and the path to the portal is not exactly the same, but the full version would greatly complicate the story, and would not give more understanding).
+(Actually, I cut a little bit here, and the path to the portal is not exactly like that, but it would complicate the narrative and not give more understanding.)
 
-Well, further it was a case for small.
+And then it was a matter of a small thing.
