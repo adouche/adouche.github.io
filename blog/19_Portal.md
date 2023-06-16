@@ -39,29 +39,23 @@ In general, this happened, but I also had to create an xdg portal on top of my x
 
 ### Why xdg portal?
 
-When updating mesa to branch 23, my zink opengl driver broke for the epiphany + its WebKitWebProcess bundle (this is a separate process for rendering (and not only)).<br>
-And in all other programs, it worked great. So I decided to build epiphany + WebKitWebProcess with another opengl driver, radeonsi.
+When updating Mesa to the 23 branch, my Zink OpenGL driver broke for the Epiphany + its WebKitWebProcess bundle (this is a separate process for rendering (and more)).<br>
+And it worked great in all other programs. So I decided to build Epiphany + WebKitWebProcess with another OpenGL driver - RadeonSI.
 
-How can you select an opengl driver for an application in mesa?
+How can you select an OpenGL driver for an application in Mesa?
 
-* Fix crapped xml with configs - settings - hacks for applications that don't work with default settings.
-[https://gitlab.freedesktop.org/mesa/mesa/-/blob/main/src/util/00-mesa-defaults.conf](https://gitlab.freedesktop.org/mesa/mesa/-/blob/main/src/util/00-mesa-defaults.conf)<br>
-Yes, it's strcmp() there by application's name, so-so solution. I decided to leave this method as a last resort.
+* Fix crapped xml with configs-settings-hacks for applications that do not work with default settings
+[https://gitlab.freedesktop.org/mesa/mesa/-/blob/main/src/util/00-mesa-defaults.conf](https://gitlab.freedesktop.org/mesa/mesa/-/blob/main/src/util/00-mesa-defaults.conf).<br>
+Yes, there is strcmp() by application name, so-so solution. I decided to leave this method as a last resort.
 
-* The second way is to interfere with the driver loader in egl, and somehow override its solution.<br>
+* The second way is to intervene with the driver loader in EGL and somehow override its decision.<br>
+That's what I wanted to do, but unfortunately, Zink is integrated with Mesa through the ass. It wants not only a driver but also an option to be set when loading the application, which says that Zink must be used. Why? Because instead of passing some settings through the factory with drivers, it was easier for them to check for == "zink" in five places in the code. Especially the "harmful" place - [https://gitlab.freedesktop.org/mesa/mesa/-/blob/main/src/egl/main/eglapi.c#L695](https://gitlab.freedesktop.org/mesa/mesa/-/blob/main/src/egl/main/eglapi.c#L695).<br>
+What is written here? It says here that Zink is not a real driver, it uses spares from the OpenGL software renderer in its code, and it needs to be initialized more complexly than just calling the initialization function from the driver.<br>
+You can immediately see the hand of the master with the professional motto "and everything else can go to hell after me".<br>
+And, therefore, intervening in the driver selection code would not have helped because the selection happens earlier.
 
-  That's what I wanted to do, but, unfortunately, zink is screwed to mesa through the ass.<br>
-  It wants not only a driver, but that an option be set when loading the application that says that it is necessary to use zink.<br> 
-  Why? Because, instead of pushing some settings through the driver factory, it turned out to be easier for them to check for == "zink" in 5 places in the  code.<br> 
-
-  A particularly "harmful" place - 
-[https://gitlab.freedesktop.org/mesa/mesa/-/blob/main/src/egl/main/eglapi.c#L695](https://gitlab.freedesktop.org/mesa/mesa/-/blob/main/src/egl/main/eglapi.c#L695).<br>
-  What is written here? It says here that zink is not a real driver, it uses spares from the opengl software renderer in its code, and it needs to be   initialized more difficult than to call the initialization function from the driver.<br>
-  You can immediately see the hand of the master with the professional motto "and everything else can go to hell after me".<br>
-  Well, therefore, interfering with the driver selection code simply would not help, because the selection happens earlier.
-
-* The third way - to set this one variable into different values for different applications.<br>
-It would seem that in the wrapper for epiphany we set this environment variable, and everything works?<br> 
+* The third way is to set this same variable to different values ​​for different applications.<br>
+It seemed like we set this environment variable in the wrapper for Epiphany, and everything works?<br> 
 Almost, but not quite.<br> 
 Any external programs that we can call to open files that have just been downloaded stop working. Because these are ordinary, good, programs that need a different value for this environment variable, common to the entire rest of the system.
 
