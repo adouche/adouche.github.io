@@ -1,18 +1,19 @@
-## Developed a portal for mesa update
+## Developed a portal for Mesa update
 <sup> March 07, 2023 </sup>
 
 #xdg-open #portal #mesa #zink
 
-I was asked why I decided to make my own portal.<br>
-I'm telling).
+I am being asked why I decided to create my own portal.<br>
+Here's the story.
 
-### About xdg-open first
+### About xdg-open, first
 
-A sane Linux application has two ways to open some external to itself file:
-* call the portal via dbus;
-* call the command line tool xdg-open, passing it the path to the file or url.
+For a reasonable Linux application, there are two ways to open an external relative to itself file:
+1. Call the portal via D-Bus.
+2. Call the command line tool xdg-open, passing it the path to the file or URL.
 
-It is assumed that each DE will provide its own portal, or its own xdg-open script (I'm simplifying a bit here, for ease of explanation).
+It is assumed that each DE will provide its own portal or its own xdg-open script.<br> 
+(I'm simplifying a bit here for ease of explanation.)
 
 Unfortunately, in the wild, I only found the implementation from freedesktop, and it is so shitty that when I try to describe it, only swear words remain.
 [https://www.freedesktop.org/wiki/Software/xdg-utils/](https://www.freedesktop.org/wiki/Software/xdg-utils/)
