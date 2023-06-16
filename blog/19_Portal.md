@@ -15,27 +15,27 @@ For a reasonable Linux application, there are two ways to open an external relat
 It is assumed that each DE will provide its own portal or its own xdg-open script.<br> 
 (I'm simplifying a bit here for ease of explanation.)
 
-Unfortunately, in the wild, I only found the implementation from freedesktop, and it is so shitty that when I try to describe it, only swear words remain.
-[https://www.freedesktop.org/wiki/Software/xdg-utils/](https://www.freedesktop.org/wiki/Software/xdg-utils/)
+Unfortunately, in the wild I only found the implementation from freedesktop, and I disliked it so much that when trying to describe it, only swear words remain
+[https://www.freedesktop.org/wiki/Software/xdg-utils/](https://www.freedesktop.org/wiki/Software/xdg-utils/).
 
-(By the way, insane applications also have other paths, for example, KDE-lovers are high from KParts (ab)using, I would kill them for this, but this is not about that).
+(By the way, insane applications also have other paths. For example, KDE-lovers are high from KParts (ab)using, but this is not about that.)
 
-I had a stub for xdg-open for a while that just opened everything in the browser - 
+For some time, I had a stub for xdg-open that just opened everything in the browser - 
 [https://github.com/pg83/ix/blob/99291c90267d7b690bc39fca7224c0a20b76334c/pkgs/bin/xdg/open/ix.sh#L](https://github.com/pg83/ix/blob/99291c90267d7b690bc39fca7224c0a20b76334c/pkgs/bin/xdg/open/ix.sh#L).
 
-The browser can open almost everything, and it solved 90% of my problems.
+The browser can open almost everything, and that solved 90% of my problems.
 
-On the one hand, it’s a bit embarrassing to give away such to people, but I didn’t want to violence my brain through xdg-open from freedesktop either.
+On the one hand, it is somewhat embarrassing to give people such a solution, but on the other hand, I didn’t want to violence my brain with freedesktop's xdg-open.
 
-Therefore, I decided to take advantage of the knowledge of what kind of binaries I have in general in the distribution, and wrote the following script - [https://github.com/pg83/ix/blob/main/pkgs/bin/xdg/open/scripts/xdg-open](https://github.com/pg83/ix/blob/main/pkgs/bin/xdg/open/scripts/xdg-open).
+So I decided to use my knowledge of what binaries I have in my distribution and wrote this script - [https://github.com/pg83/ix/blob/main/pkgs/bin/xdg/open/scripts/xdg-open](https://github.com/pg83/ix/blob/main/pkgs/bin/xdg/open/scripts/xdg-open).
 
-It determines the mime type of the transferred file, and tries, for each known type, to select the most appropriate program from PATH. Well, it fails into the browser if nothing is found (there is a "minor" problem here - what if xdg-open called the browser?).
+It determines the mime type of the passed file and tries to choose the most suitable program from PATH for each known type. And falls back to the browser if nothing is found (there is a "minor" problem here - what if xdg-open called the browser?).
 
-Programs are sorted by their popularity. Because I'm assuming that the lesser known program == is more specialized to the user, he installed it not just to, but for a reason.
+Programs are sorted by their popularity because I assume that less well-known == more specialized for the user, not just installed for no reason.
 
-Since programs cannot appear in a statically linked distribution from elsewhere then its package base, I thought that such a solution would quite live for a year or two.
+Since in a statically linked distribution, programs cannot appear from anywhere else except from its package base, I thought that this solution would work for a year or two.
 
-In general, this happened, but I also had to make the xdg portal on top of my xdg-open.
+In general, this happened, but I also had to create an xdg portal on top of my xdg-open.
 
 ### Why xdg portal?
 
