@@ -22,7 +22,7 @@
 [One more reason for stal/IX](blog/17_Stalix4.md)<br>
 [Сross-compile gracefully using "ix run"](blog/18_IXrun.md)<br>
 [Developed a portal for mesa update](blog/19_Portal.md)<br>
-[The benefits of a reboot](blog/Reboot.md)<br>
+[The benefits of a reboot](blog/20_Reboot.md)<br>
 [Static linking considered useful](blog/21_Static.md)<br>
 [Rustless sudo: exploring secure alternatives for suid binaries](blog/22_Rustless_sudo.md)<br>
 
