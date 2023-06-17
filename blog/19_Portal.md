@@ -37,7 +37,7 @@ Since in a statically linked distribution, programs cannot appear from anywhere 
 
 In general, this happened, but I also had to create an xdg portal on top of my xdg-open.
 
-### Why xdg portal?
+### Why xdg portal
 
 When updating Mesa to the 23 branch, my Zink OpenGL driver broke for the Epiphany + its WebKitWebProcess bundle (this is a separate process for rendering (and more)).<br>
 And it worked great in all other programs. So I decided to build Epiphany + WebKitWebProcess with another OpenGL driver - RadeonSI.
