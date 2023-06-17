@@ -52,6 +52,31 @@
                 <p class="pw-post-body-paragraph">
                     So I decided to use my knowledge of what binaries I have in my distribution and wrote this script - 
                     <a href="https://github.com/pg83/ix/blob/main/pkgs/bin/xdg/open/scripts/xdg-open">https://github.com/pg83/ix/blob/main/pkgs/bin/xdg/open/scripts/xdg-open</a>.                
+                </p>
+                <p class="pw-post-body-paragraph">
+                    It determines the mime type of the passed file and tries to choose the most suitable program from PATH for each known type. 
+                    And falls back to the browser if nothing is found (there is a "minor" problem here - what if xdg-open called the browser?).
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Programs are sorted by their popularity because I assume that less well-known == more specialized for the user, not just installed for no reason.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Since in a statically linked distribution, programs cannot appear from anywhere else except from its package base, 
+                    I thought that this solution would work for a year or two.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    In general, this happened, but I also had to create an xdg portal on top of my xdg-open.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    Why xdg portal?
+                </p>
+                <p class="pw-post-body-paragraph">
+                    When updating Mesa to the 23 branch, my Zink OpenGL driver broke for the Epiphany + its WebKitWebProcess bundle 
+                    (this is a separate process for rendering (and more)).<br>
+                    And it worked great in all other programs. So I decided to build Epiphany + WebKitWebProcess with another OpenGL driver - RadeonSI.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    How can you select an OpenGL driver for an application in Mesa?
                 </p>                
                 <ul>
                 <li><a href="https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/ix.sh">https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/ix.sh</a> 
