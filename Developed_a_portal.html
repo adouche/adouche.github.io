@@ -77,29 +77,41 @@
                 </p>
                 <p class="pw-post-body-paragraph">
                     How can you select an OpenGL driver for an application in Mesa?
-                </p>                
+                </p>
+                <p class="pw-post-body-paragraph">             
                 <ul>
-                <li><a href="https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/ix.sh">https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/ix.sh</a> 
-                    - cheap auto-build and CI for other platforms. Adding AArch64 to auto-build only took two lines in the build files.<br>
-                    <a href="https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/linux/aarch64/ix.sh">https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/linux/aarch64/ix.sh</a> 
-                    - the list of what I regularly build for AArch64 including GDB and even graphical programs!</li>
-                <li>New possibilities for bootstrapping. For example, Go is currently not reproducible in terms of classic methods (package managers and build systems), 
-                    because the latest version of Go compiled with a C compiler cannot build code for M1 and cannot be compiled on it. 
-                    Now I can approach this problem by writing something like this in the Go build file:</li>
-                </ul>                
-                <ol>
-                <li>Complex security models do not "compose" well, and end up being poorly interacting. Like selinux + cgroups;</li>
-                <li>The more complex the system, the harder it is to think about it for a leatherbag.</li>
-                </ol>                
+                <li>Fix crapped xml with configs-settings-hacks for applications that do not work with default settings
+                    <a href="https://gitlab.freedesktop.org/mesa/mesa/-/blob/main/src/util/00-mesa-defaults.conf">https://gitlab.freedesktop.org/mesa/mesa/-/blob/main/src/util/00-mesa-defaults.conf</a>.<br> 
+                    Yes, there is strcmp() by application name, so-so solution. I decided to leave this method as a last resort.</li>
+                <li>The second way is to intervene with the driver loader in EGL and somehow override its decision.<br>
+                    That's what I wanted to do, but unfortunately, Zink is integrated with Mesa through the ass. 
+                    It wants not only a driver but also an option to be set when loading the application, which says that Zink must be used. Why? 
+                    Because instead of passing some settings through the factory with drivers, it was easier for them to check for == "zink" in five places in the code. 
+                    Especially the "harmful" place - 
+                    <a href="https://gitlab.freedesktop.org/mesa/mesa/-/blob/main/src/egl/main/eglapi.c#L695">https://gitlab.freedesktop.org/mesa/mesa/-/blob/main/src/egl/main/eglapi.c#L695</a>.<br>
+                    What is written here? It says here that Zink is not a real driver, it uses spares from the OpenGL software renderer in its code, and it needs 
+                    to be initialized more complexly than just calling the initialization function from the driver.<br>
+                    You can immediately see the hand of the master with the professional motto "and everything else can go to hell after me".<br>
+                    And, therefore, intervening in the driver selection code would not have helped because the selection happens earlier.</li>
+                <li>The third way is to set this same variable to different values ​​for different applications.<br>
+                    It seemed like we set this environment variable in the wrapper for Epiphany, and everything works?<br> 
+                    Almost, but not quite.<br> 
+                    Various external programs stop working that we can call to open files that we just downloaded. Because these are ordinary, good programs that need 
+                    a different value of this environment variable, common to the rest of the system.</li>                
+                </ul>
+                </p>                              
                 <p class="pw-post-body-paragraph">
-                    Therefore, I believe that "all-or-nothing" type models rule due to their simplicity - it is harder to mess up in their implementation, 
-                    and they are easier to think about. And despite the fact that they cannot express various crap complex policies, they turn out to be safer.
+                    And then, of course, I remembered that Epiphany can work in Flatpak/Snap, which means it can use portals, which means it can call 
+                    external programs to view files through the portal.<br>
+                    Then my portal opens the app for viewing in a clean environment where there is no corrupted MESA_LOADER_DRIVER_OVERRIDE environment variable.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    How to deal with inherent complexity? I believe that through hierarchy - the top level is divided into two "all/nothing" layers. 
-                    Within each layer you can run a container with the same simple division.                
+                    (Actually, I cut a little bit here, and the path to the portal is not exactly like that, but it would complicate the narrative and not give more understanding.)                
                 </p>
-          </section>
+                <p class="pw-post-body-paragraph">
+                    And then it was a matter of a small thing.                
+                </p>          
+            </section>
         </article>
     </main>
 </body>
