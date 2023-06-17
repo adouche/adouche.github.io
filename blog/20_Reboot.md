@@ -3,9 +3,9 @@
 
 #reboot #heisenbug #system #entropy
 
-[https://keunwoo.com/notes/rebooting/](https://keunwoo.com/notes/rebooting/) - Good, but very long text, in which 2 simple thoughts are written:
-1. Entropy increases in any system. In other words, there is a Heisenbug in the system [https://ru.wikipedia.org/wiki/Heisenbug](https://ru.wikipedia.org/wiki/Heisenbug).
-2. Rebooting (VM, host, program) is an easy way to return a system from a state with an accumulated error to a state without such an error.
+[https://keunwoo.com/notes/rebooting/](https://keunwoo.com/notes/rebooting/) - A good, but very long text that contains two simple ideas:
+1. Entropy accumulates in any system. In other words, there is heisenbug in the system [https://ru.wikipedia.org/wiki/Heisenbug](https://ru.wikipedia.org/wiki/Heisenbug).
+2. Rebooting (VM, host, program) is a simple way to return the system from a state with accumulated error to a state without such error.
 
 People who know me better know that I like to give a couple of strange architectural tips:
 * Periodically restart your programs on the cluster. Version updates are usually sufficient if they are regular.
