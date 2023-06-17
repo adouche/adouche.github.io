@@ -33,12 +33,26 @@
                     (I'm simplifying a bit here for ease of explanation.)
                 </p>                
                 <p class="pw-post-body-paragraph">
-                    <a href="https://www.opennet.ru/opennews/art.shtml?num=56818">https://www.opennet.ru/opennews/art.shtml?num=56818</a> <br>
-                    <a href="https://www.opennet.ru/opennews/art.shtml?num=56812">https://www.opennet.ru/opennews/art.shtml?num=56812</a>
+                    Unfortunately, in the wild I only found the implementation from freedesktop, and I disliked it so much that when trying to describe it, only swear words remain
+                    <a href="https://www.freedesktop.org/wiki/Software/xdg-utils/">https://www.freedesktop.org/wiki/Software/xdg-utils/</a>.
                 </p>
                 <p class="pw-post-body-paragraph">
-                    Another two vulnerabilities that I consider unimportant. And some thoughts on their implementation:
+                    (By the way, insane applications also have other paths. For example, KDE-lovers are high from KParts (ab)using, but this is not about that.)
                 </p>
+                <p class="pw-post-body-paragraph">
+                    For some time, I had a stub for xdg-open that just opened everything in the browser -
+                    <a href="https://github.com/pg83/ix/blob/99291c90267d7b690bc39fca7224c0a20b76334c/pkgs/bin/xdg/open/ix.sh#L">https://github.com/pg83/ix/blob/99291c90267d7b690bc39fca7224c0a20b76334c/pkgs/bin/xdg/open/ix.sh#L</a>.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    The browser can open almost everything, and that solved 90% of my problems.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    On the one hand, it is somewhat embarrassing to give people such a solution, but on the other hand, I didn’t want to violence my brain with freedesktop's xdg-open.
+                </p>
+                <p class="pw-post-body-paragraph">
+                    So I decided to use my knowledge of what binaries I have in my distribution and wrote this script - 
+                    <a href="https://github.com/pg83/ix/blob/main/pkgs/bin/xdg/open/scripts/xdg-open">https://github.com/pg83/ix/blob/main/pkgs/bin/xdg/open/scripts/xdg-open</a>.                
+                </p>                
                 <ul>
                 <li><a href="https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/ix.sh">https://github.com/pg83/ix/blob/main/pkgs/set/ci/unwrap/ix.sh</a> 
                     - cheap auto-build and CI for other platforms. Adding AArch64 to auto-build only took two lines in the build files.<br>
