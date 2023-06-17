@@ -3,7 +3,7 @@
 
 #reboot #heisenbug #system #entropy
 
-[https://keunwoo.com/notes/rebooting/](https://keunwoo.com/notes/rebooting/) - A good, but very long text that contains two simple ideas:
+A good, but very long text [https://keunwoo.com/notes/rebooting/](https://keunwoo.com/notes/rebooting/) that contains two simple ideas:
 1. Entropy accumulates in any system. In other words, there is heisenbug in the system [https://ru.wikipedia.org/wiki/Heisenbug](https://ru.wikipedia.org/wiki/Heisenbug).
 2. Rebooting (VM, host, program) is a simple way to return the system from a state with accumulated error to a state without such error.
 
