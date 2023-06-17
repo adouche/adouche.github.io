@@ -8,8 +8,8 @@ A good, but very long text ([https://keunwoo.com/notes/rebooting/](https://keunw
 2. Rebooting (VM, host, program) is a simple way to return the system from a state with accumulated error to a state without such error.
 
 People who know me better know that I like to give a couple of strange architectural tips:
-* Periodically restart your programs on the cluster. Version updates are usually sufficient if they are regular.
-* A slightly weirder advice - to put abort() in random places in your program. In the prod, precisely in the prod.
+* Periodically restart your programs on the cluster. Usually, updating versions is enough if it is regular.
+* A slightly stranger tip - insert abort() into your program in random places. In prod, specifically in prod.
 
 Before reading the following example from my practice, try to imagine why this is good and right, and what problems it will protect you from.
 
