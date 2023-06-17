@@ -13,11 +13,11 @@ People who know me better know that I like to give a couple of strange architect
 
 Before reading the following example from my practice, try to imagine why this is good and right, and what problems it will protect you from.
 
-My unbound is stuck. Well, it hung and hung, somewhere in select/poll/etc, did not respond to requests and did nothing itself.
+My unbound hung. Well, it hung and hung, somewhere in select/poll/etc, did not respond to requests and did nothing itself.
 
-You can, of course, tilt at windmills, send a senseless stack trace (because it has no symbols) into upstream, and wait for the sun to shine.
+Of course, you can tilt at windmills, send a completely meaningless stack trace (because without symbols) in the upstream, and wait for the sun to shine.
 
-I did exactly what I suggested above - I began to regularly reduce the entropy of the system by regularly restarting unbound -
+I did exactly what I suggested above - started regularly reducing the entropy of the system by regularly restarting unbound -
 [https://github.com/pg83/ix/blob/main/pkgs/bin/unbound/runit/ix.sh#L8](https://github.com/pg83/ix/blob/main/pkgs/bin/unbound/runit/ix.sh#L8), with using `/bin/timeout 300`.
 
-Once every 5 minutes is enough for dns cache to be useful.
+Once every 5 minutes is quite enough for the DNS cache to be useful.
