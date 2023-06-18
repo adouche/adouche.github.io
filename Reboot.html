@@ -24,75 +24,12 @@
                 </ol>                
                 </p>
                 <p class="pw-post-body-paragraph">
-                    It is assumed that each DE will provide its own portal or its own xdg-open script.<br> 
-                    (I'm simplifying a bit here for ease of explanation.)
+                    People who know me better know that I like to give a couple of strange architectural tips:
                 </p>                
-                <p class="pw-post-body-paragraph">
-                    Unfortunately, in the wild I only found the implementation from freedesktop, and I disliked it so much that when trying to describe it, only swear words remain
-                    <a href="https://www.freedesktop.org/wiki/Software/xdg-utils/">https://www.freedesktop.org/wiki/Software/xdg-utils/</a>.
-                </p>
-                <p class="pw-post-body-paragraph">
-                    (By the way, insane applications also have other paths. For example, KDE-lovers are high from KParts (ab)using, but this is not about that.)
-                </p>
-                <p class="pw-post-body-paragraph">
-                    For some time, I had a stub for xdg-open that just opened everything in the browser -
-                    <a href="https://github.com/pg83/ix/blob/99291c90267d7b690bc39fca7224c0a20b76334c/pkgs/bin/xdg/open/ix.sh#L">https://github.com/pg83/ix/blob/99291c90267d7b690bc39fca7224c0a20b76334c/pkgs/bin/xdg/open/ix.sh#L</a>.
-                </p>
-                <p class="pw-post-body-paragraph">
-                    The browser can open almost everything, and that solved 90% of my problems.
-                </p>
-                <p class="pw-post-body-paragraph">
-                    On the one hand, it is somewhat embarrassing to give people such a solution, but on the other hand, I didn’t want to violence my brain with freedesktop's xdg-open.
-                </p>
-                <p class="pw-post-body-paragraph">
-                    So I decided to use my knowledge of what binaries I have in my distribution and wrote this script - 
-                    <a href="https://github.com/pg83/ix/blob/main/pkgs/bin/xdg/open/scripts/xdg-open">https://github.com/pg83/ix/blob/main/pkgs/bin/xdg/open/scripts/xdg-open</a>.                
-                </p>
-                <p class="pw-post-body-paragraph">
-                    It determines the mime type of the passed file and tries to choose the most suitable program from PATH for each known type. 
-                    And falls back to the browser if nothing is found (there is a "minor" problem here - what if xdg-open called the browser?).
-                </p>
-                <p class="pw-post-body-paragraph">
-                    Programs are sorted by their popularity because I assume that less well-known == more specialized for the user, not just installed for no reason.
-                </p>
-                <p class="pw-post-body-paragraph">
-                    Since in a statically linked distribution, programs cannot appear from anywhere else except from its package base, 
-                    I thought that this solution would work for a year or two.
-                </p>
-                <p class="pw-post-body-paragraph">
-                    In general, this happened, but I also had to create an xdg portal on top of my xdg-open.
-                </p>
-                <p class="pw-post-body-paragraph">
-                    Why xdg portal
-                </p>
-                <p class="pw-post-body-paragraph">
-                    When updating Mesa to the 23 branch, my Zink OpenGL driver broke for the Epiphany + its WebKitWebProcess bundle 
-                    (this is a separate process for rendering (and more)).<br>
-                    And it worked great in all other programs. So I decided to build Epiphany + WebKitWebProcess with another OpenGL driver - RadeonSI.
-                </p>
-                <p class="pw-post-body-paragraph">
-                    How can you select an OpenGL driver for an application in Mesa?
-                </p>
                 <p class="pw-post-body-paragraph">             
                 <ul>
-                <li>Fix crapped xml with configs-settings-hacks for applications that do not work with default settings
-                    <a href="https://gitlab.freedesktop.org/mesa/mesa/-/blob/main/src/util/00-mesa-defaults.conf">https://gitlab.freedesktop.org/mesa/mesa/-/blob/main/src/util/00-mesa-defaults.conf</a>.<br> 
-                    Yes, there is strcmp() by application name, so-so solution. I decided to leave this method as a last resort.</li>
-                <li>The second way is to intervene with the driver loader in EGL and somehow override its decision.<br>
-                    That's what I wanted to do, but unfortunately, Zink is integrated with Mesa through the ass. 
-                    It wants not only a driver but also an option to be set when loading the application, which says that Zink must be used. Why? 
-                    Because instead of passing some settings through the factory with drivers, it was easier for them to check for == "zink" in five places in the code. 
-                    Especially the "harmful" place - 
-                    <a href="https://gitlab.freedesktop.org/mesa/mesa/-/blob/main/src/egl/main/eglapi.c#L695">https://gitlab.freedesktop.org/mesa/mesa/-/blob/main/src/egl/main/eglapi.c#L695</a>.<br>
-                    What is written here? It says here that Zink is not a real driver, it uses spares from the OpenGL software renderer in its code, and it needs 
-                    to be initialized more complexly than just calling the initialization function from the driver.<br>
-                    You can immediately see the hand of the master with the professional motto "and everything else can go to hell after me".<br>
-                    And, therefore, intervening in the driver selection code would not have helped because the selection happens earlier.</li>
-                <li>The third way is to set this same variable to different values ​​for different applications.<br>
-                    It seemed like we set this environment variable in the wrapper for Epiphany, and everything works?<br> 
-                    Almost, but not quite.<br> 
-                    Various external programs stop working that we can call to open files that we just downloaded. Because these are ordinary, good programs that need 
-                    a different value of this environment variable, common to the rest of the system.</li>                
+                <li>Periodically restart your programs on the cluster. Usually, updating versions is enough if it is regular.</li>
+                <li>A slightly stranger tip - insert abort() into your program in random places. In prod, specifically in prod.</li>               
                 </ul>
                 </p>                              
                 <p class="pw-post-body-paragraph">
