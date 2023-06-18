@@ -44,4 +44,4 @@
 [One more reason for stal/IX](Reason_for_stalix.html)<br>
 [Cross-compile gracefully using "ix run"](Cross_compile_with_ix_run.html)<br>
 [Developed a portal for Mesa update](Developed_a_portal.html)<br>
-
+[The benefits of a reboot](Reboot.html)<br>
