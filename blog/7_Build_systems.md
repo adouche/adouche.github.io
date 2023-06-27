@@ -46,7 +46,7 @@ Then in the corresponding makefile, you don’t need to do autodetect at all, li
 
 The same works for cargo and any other build system.
 
-The main point is that the project-level build system should not autodetect the presence of dependencies and deliver them. Nix can do that, [IX](https://github.com/stal-ix/ix)can do that.
+The main point is that the project-level build system should not autodetect the presence of dependencies and deliver them. Nix can do that, [IX](https://github.com/stal-ix/ix) can do that.
 
 The problem is that at any given time, it is easier for the author of this or that OSS project to crutch up the next vendoring instead of negotiating with all interested parties.
 
