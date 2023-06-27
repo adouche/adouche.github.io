@@ -1,7 +1,7 @@
 ## Generating stable unique keys
 <sup> December 21, 2022 </sup>
 
-#bootstrap #ix
+#bootstrapping #ix
 
 I solved a long-standing problem - generating unique keys for various programs, but in such a way that they are resilient from generation to generation, meaning that if the package needs to be rebuilt with the same input data, then the resulting keys should be the same.
 
