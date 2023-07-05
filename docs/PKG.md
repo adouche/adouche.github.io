@@ -1,3 +1,5 @@
+# PKG
+
 <!-- {% raw %} -->
 
 ix.sh представляют из себя jinja2 шаблон, из которого генерируется sh script, в чем-то похожий на скрипты PKGBUILD. Поэтому обязательно прочтите гайд по jinja2! https://jinja.palletsprojects.com/en/3.1.x/
