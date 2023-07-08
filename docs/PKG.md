@@ -13,19 +13,20 @@ At the beginning of ix.sh, you need to select a template that corresponds to the
 {% extends '//die/c/autorehell.sh' %}
 ```
 
-// в начале пути обозначает путь относительно корня папки с пакетами. Если не указать //, то будет использован путь относительно папки с текущим пакетом.
+// at the beginning of the path indicates the path relative to the root of the packages folder. If you do not specify //, it will use the path relative to the folder with the current package.
 
-Блоки, общие для всех шаблонов:
+Blocks common to all templates:
 
 ```shell
 {% block fetch %}
 https://xxx.yyy/zzz
-sha: # тут идет указание sha256 checksum для скачанного файла
+sha: # specify the SHA256 checksum for the downloaded file here
 {% endblock %}
 ```
 
-Список транзитивно наследуемых библиотечных целей(под target platform) для библиотеки, превращается в bld_libs при сборке программы.
-```
+The list of transitively inherited library targets (on the target platform) for the library is transformed into bld_libs during program build.
+
+```shell
 {% lib_deps %}
 lib/c
 lib/c++
