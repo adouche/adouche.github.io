@@ -2,9 +2,9 @@
 
 > This document aims to explain how to write your own build scripts but does not contain arguments for choosing this way of developing them.
 
-ix.sh представляют из себя jinja2 шаблон, из которого генерируется sh script, в чем-то похожий на скрипты PKGBUILD. Поэтому обязательно прочтите гайд по jinja2! https://jinja.palletsprojects.com/en/3.1.x/
+ix.sh is a Jinja2 template that generates an sh script similar to PKGBUILD scripts. Therefore, it is essential to read the Jinja2 guide:<br> 
+[https://jinja.palletsprojects.com/en/3.1.x/](https://jinja.palletsprojects.com/en/3.1.x/).
 
-Данный документ призван рассказать, как писать свои сборочные скрипты, но не содержит аргументации за выбор такого способа их разработки.
 
 В самом начале ix.sh нужно выбрать шаблон, соответствующий системе сборки пакета. Их список можно подсмотреть тут - https://github.com/stal-ix/ix/tree/main/pkgs/die/c
 
