@@ -177,3 +177,13 @@ special text block
 ---
 Exercise<br>
 special text block
+
+---
+
+In the document’s body the block is highlighted with two separation-lines, above and below, if the block at the end of the document (for example, comments) - with one separation-line above. A blank line between the last text’s line of the block and the bottom separation-line is needed.  
+
+## Ignoring Markdown formatting
+
+To ignore Markdown formatting, use `\` before a Markdown symbol.
+
+<!-- {% endraw %} -->
