@@ -1,5 +1,7 @@
 # PKG
 
+> This document aims to explain how to write your own build scripts but does not contain arguments for choosing this way of developing them.
+
 ix.sh представляют из себя jinja2 шаблон, из которого генерируется sh script, в чем-то похожий на скрипты PKGBUILD. Поэтому обязательно прочтите гайд по jinja2! https://jinja.palletsprojects.com/en/3.1.x/
 
 Данный документ призван рассказать, как писать свои сборочные скрипты, но не содержит аргументации за выбор такого способа их разработки.
