@@ -5,8 +5,7 @@
 ix.sh is a Jinja2 template that generates an sh script similar to PKGBUILD scripts. Therefore, it is essential to read the Jinja2 guide:<br> 
 [https://jinja.palletsprojects.com/en/3.1.x/](https://jinja.palletsprojects.com/en/3.1.x/).
 
-
-В самом начале ix.sh нужно выбрать шаблон, соответствующий системе сборки пакета. Их список можно подсмотреть тут - https://github.com/stal-ix/ix/tree/main/pkgs/die/c
+At the beginning of ix.sh, you need to select a template that corresponds to the package build system. You can find the list here - [https://github.com/stal-ix/ix/tree/main/pkgs/die/c](https://github.com/stal-ix/ix/tree/main/pkgs/die/c).
 
 <!-- {% raw %} -->
 
