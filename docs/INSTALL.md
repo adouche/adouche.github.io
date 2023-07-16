@@ -7,7 +7,7 @@
 
 <!-- {% raw %} -->
 
-Load machine from some bootable media, like Ubuntu/Fedora/Nix livecd, launch terminal
+Load the machine from a bootable media, such as Ubuntu/Fedora/Nix livecd, and launch the terminal:
 
 ```shell
 sudo sh
