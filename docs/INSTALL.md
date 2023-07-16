@@ -1,5 +1,5 @@
 # Installation
-<sup> May 29, 2022 </sup>
+<sup> The stal/IX on-disk installation guide </sup>
 
 > Prereq:<br>
 > [IX.md](IX.md)<br>
