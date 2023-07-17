@@ -13,7 +13,7 @@ Load the machine from a bootable media, such as Ubuntu/Fedora/Nix livecd, and la
 sudo sh
 ```
 
-Install tools:
+Install the tools:
 
 ```shell
 test -f /usr/bin/parted || yum install parted || apt-get install parted
