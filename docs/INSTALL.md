@@ -21,10 +21,10 @@ test -f /usr/bin/g++ || yum install g++ || apt-get install g++
 test -f /usr/bin/git || yum install git || apt-get install git
 ```
 
-For general instructions about disk partitioning please refer to<br>
+For general instructions on disk partitioning, refer to<br>
 https://wiki.archlinux.org/title/installation_guide#Partition_the_disks.<br>
 
-Somehow prepare xfs on /dev/xxx, with parted, mkfs.xfs, and mount it:
+Prepare XFS on /dev/xxx using parted, mkfs.xfs, and mount it:
 
 ```shell
 mkdir /mnt/ix
