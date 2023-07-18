@@ -110,14 +110,14 @@ Now [prepare a bootable kernel for your hardware](KERNEL.md). Reboot into grub a
 > boot
 ```
 
-where X, Y - GRUB disk and partition numbers for /dev/xxx.
-After successful boot, switch into tty5, there will be root prompt.
+where X, Y - GRUB disk and partition numbers for /dev/xxx. 
+After a successful boot, switch into tty5, there will be a root prompt.
 
 ```shell
 . /etc/session
 ```
 
-Now we have some useful utilities in PATH, from /ix/realm/root.
+Now we have some useful utilities in PATH from /ix/realm/root.
 
 ```shell
 cd /home/ix/ix
@@ -125,16 +125,16 @@ cd /home/ix/ix
 ./ix mut system
 ```
 
-Shell will relaunch thereafter. Actually, after any modification of system realm, runit will reload all supervised process tree.
+Shell will relaunch thereafter. Actually, after any modification of the system realm, runit will reload the whole supervised process tree.
 
 ```shell
 cd /home/ix/ix
 ./ix mut $(./ix list)
 ```
 
-Rebuild world, again. And [add a whole new user, without sudo capability](https://github.com/stal-ix/stal-ix.github.io/blob/main/ETC.md#add-user)<br>
+Rebuild the world and [add a whole new user without sudo capability](https://github.com/stal-ix/stal-ix.github.io/blob/main/ETC.md#add-user)<br>
 
-Now try login from tty1
+Try logging in from tty1.
 
 What next: 
 
