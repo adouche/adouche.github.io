@@ -55,21 +55,21 @@ Add a user "**ix**" who will own all packages in the system (note: UID 1000 is i
 useradd -u 1000 ix
 ```
 
-Prepare managed dir, owned by user **ix**, in /ix, /ix/realm, etc:
+Prepare a managed dir owned by user **ix**, in /ix, /ix/realm, etc:
 
 ```shell
 mkdir ix
 chown ix ix
 ```
 
-Prepare **ix** user home, owned by **ix**:
+Prepare the **ix** user home owned by **ix**:
 
 ```shell
 mkdir home/ix
 chown ix home/ix
 ```
 
-Change user, from now on will run all commands under **ix** user:
+Change the user to **ix** and run all commands under **ix** user:
 
 ```shell
 su ix
