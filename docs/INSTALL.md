@@ -31,7 +31,7 @@ mkdir /mnt/ix
 mount /dev/xxx /mnt/ix
 ```
 
-Prepare some symlinks, thus forming our future rootfs:
+Prepare some symlinks to form the future rootfs:
 
 ```shell
 cd /mnt/ix
@@ -43,13 +43,13 @@ ln -s / usr
 mkdir -p home/root var sys proc dev
 ```
 
-Add symlink, to trick **IX** package manager:
+Add a symlink to trick **IX** package manager:
 
 ```shell
 ln -s /mnt/ix/ix /ix
 ```
 
-Add user **ix**, which will own all packages in system(note: uid 1000 important):
+Add a user "**ix**" who will own all packages in the system (note: UID 1000 is important):
 
 ```shell
 useradd -u 1000 ix
