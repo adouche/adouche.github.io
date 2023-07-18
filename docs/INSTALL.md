@@ -76,7 +76,7 @@ su ix
 cd /mnt/ix
 ```
 
-Fetch **IX** package manager, will be used later, from **ix** user before reboot, and by **root** user, after reboot:
+Fetch **IX** package manager, will be used later, from ix user before reboot and by root user after reboot:
 
 ```shell
 # we do not want to change our CWD
@@ -92,7 +92,7 @@ Some quirks:
 mkdir -m 01777 ix/realm
 ```
 
-And run **IX** package manager, to populate our root fs with bootstrap tools!
+And run **IX** package manager to populate the root fs with bootstrap tools:
 
 ```shell
 cd home/ix/ix
@@ -103,7 +103,7 @@ export IX_EXEC_KIND=local
 ./ix mut boot set/boot/all
 ```
 
-Now [prepare bootable kernel for your hardware](KERNEL.md). Reboot into grub, run:
+Now [prepare a bootable kernel for your hardware](KERNEL.md). Reboot into grub and run:
 
 ```shell
 > linux (hdX,gptY)/boot/kernel ro root=/dev/xxx
