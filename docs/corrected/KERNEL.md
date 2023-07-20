@@ -6,7 +6,7 @@
 
 
 **_Disclaimer:_**<br>
-*This guide is not for the faint of heart! It assumes that you have an idea what a statically linked kernel is and know how to build it for your hardware in some source-based distro.*
+*This guide is not for the faint of heart! It assumes that you have an idea of what a statically linked kernel is and know how to build it for your hardware in some source-based distro.*
 
 ---
 
