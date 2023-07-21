@@ -20,7 +20,7 @@ ix# ix list
 ```
 ---
 
-The guide intended to build a kernel, which contains all the components necessary for operation.
+The guide intends to build a kernel that contains all the components necessary for operation.
 
 First you need to know the list of modules for your hardware support.
 
