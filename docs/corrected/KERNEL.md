@@ -22,7 +22,7 @@ ix# ix list
 
 The guide intends to build a kernel that contains all the components necessary for operation.
 
-First you need to know the list of modules for your hardware support.
+First, you need to know the list of modules for your hardware support.
 
 You can download some conventional distro with a working hardware auto-detection system to do this.<br>
 It needs to execute:
