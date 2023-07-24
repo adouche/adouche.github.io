@@ -108,7 +108,7 @@ After the kernel is configured, copy the modified config to the base:
 ix# cp .config $(dirname $(which ix))/pkgs/bin/kernel/6/0/slot/1/cfg
 ```
 
-After that you can add the kernel to the system realm in the usual way:
+After that, you can add the kernel to the system realm in the usual way:
 
 ```shell
 ix# ix mut system bin/kernel/6/0/slot/1
@@ -118,7 +118,7 @@ ix# ls /bin/kernel-*
 
 Remember that path, you will need it later, in GRUB cli or in grub.cfg.
 
-Or, alternatively, you can use separate realm for bootstrap kernel:
+Alternatively, you can use a separate realm for the bootstrap kernel:
 
 ```shell
 ix# ix mut kernel bin/kernel/6/0/slot/1
