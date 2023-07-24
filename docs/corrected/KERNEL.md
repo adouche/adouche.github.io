@@ -47,9 +47,9 @@ ubuntu# lspci -k
 ...
 ```
 
-The last column - a list of modules we need, write it down.
+The last column - a list of modules that we need. Write them down.
 
-Next we need to prepare a directory with kernel sources, which we are building a config for. Let's say, we want to use kernel 6.0:
+Next, we need to prepare a directory with kernel sources for which we are building a config. Let's say we want to use kernel 6.0:
 
 ```shell
 ix# mkdir kernel
