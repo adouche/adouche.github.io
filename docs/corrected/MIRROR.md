@@ -22,24 +22,7 @@ git pull
 ./ix recache ~/some/dir
 ```
 
-Instructions for Ubuntu (from @vvzvlad):
-
-Commands for debian vm (root user):
-
-```
-apt install make git python3 wget git nginx -y
-ln -s `which python3` /usr/bin/python
-rm /var/www/html/index.nginx-debian.html 
-sed -i '/location \/ {/a\    autoindex on;' /etc/nginx/sites-available/default
-service nginx reload
-git clone https://github.com/stal-ix/ix /root/ix
-
-echo 'log_file="/var/www/html/000000000000000_recache_date_$(date +\%Y\%m\%d\%H\%M\%S).txt"' >> /root/ix_recache.sh
-echo 'rm /var/www/html/000000000000000_recache_date_*' >> /root/ix_recache.sh
-echo '/usr/bin/git -C /root/ix pull  > "$log_file" 2>&1' >> /root/ix_recache.sh
-echo '/root/ix/ix recache /var/www/html/ >> "$log_file" 2>&1' >> /root/ix_recache.sh
-echo "0 */4 * * * /bin/sh /root/ix_recache.sh > /dev/null 2>&1" > /etc/cron.d/ix_recache
-```
+[### Instructions for Ubuntu](https://gist.github.com/pg83/4bdb11a2ca3602d949db26b4b2a66781?permalink_comment_id=4687160#:~:text=Commands%20for%20debian,cron.d/ix_recache)
 
 After populating the cache directory, send a PR to add the new mirror to 
 https://github.com/pg83/ix/blob/main/pkgs/die/scripts/mirrors.txt
