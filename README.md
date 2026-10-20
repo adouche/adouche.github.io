@@ -3,6 +3,8 @@
 > About building systems in a different way, static linking, and much more!<br>
 > And about the stal/IX, of course, from the benevolent dictator [(@pg83)](https://github.com/pg83).
 
+[TROK_v2.1_rukovodstvo_po_nastrojke.md](TROK_v2.1_rukovodstvo_po_nastrojke.md)<br>
+
 [About bootstrapping](blog/1_About_bootstrapping.md)<br>
 [IX package manager: privilege escalation and some other implementation aspects](blog/2_IX_pm.md)<br>
 [About System0](blog/3_System0.md)<br>
